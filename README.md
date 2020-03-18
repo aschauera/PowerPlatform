@@ -1,5 +1,5 @@
 # Microsoft Business Application & Power Platform development samples
-This repository contains demoa and samples for Microsoft PowerApps/Flow, CDS and Azure. These are basic samples showcasing the rapid business value that Power Platform solutions bring to organizations. 
+This repository contains demos and samples for Microsoft PowerApps/Flow, CDS and Azure. These are basic samples showcasing the rapid business value that Power Platform solutions bring to organizations. 
 Feel free to contribute and enhance and share the goodness.
 
 ## Smart 0 waste
