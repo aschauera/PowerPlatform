@@ -27,9 +27,9 @@ on:
 env:
 #edit your values here
   ENVIRONMENT_URL: 'https://d365demots721250.crm4.dynamics.com/'
-  WF_TENANT_ID: '5d964f48-0f9f-43c9-9024-009d7530f599'
+  TENANT_ID: '5d964f48-0f9f-43c9-9024-009d7530f599'
   APPLICATION_ID: 'f25dea4b-77a0-4eb4-bcdc-c8d7e58e9886'
-  client secret: ${{ secrets.PowerPlatformSPN }}
+  CLIENT_SECRET: ${{ secrets.PowerPlatformSPN }}
 
 
 jobs:
@@ -47,15 +47,17 @@ jobs:
       uses: microsoft/powerplatform-actions/who-am-i@0.4.0
       with:
         environment-url: ${{env.ENVIRONMENT_URL}}
-        user-name: ${{env.USERNAME}}
-        password-secret: ${{ secrets.password }}
+        app-id: ${{env.APPLICATION_ID}}
+        tenant-id : ${{ env.TENANT_ID }}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
 
     - name: export-solution action
       uses: microsoft/powerplatform-actions/export-solution@0.4.0
       with:
         environment-url: ${{env.ENVIRONMENT_URL}}
-        user-name: ${{env.USERNAME}}
-        password-secret: ${{ secrets.password }}
+        app-id: ${{env.APPLICATION_ID}}
+        tenant-id : ${{ env.TENANT_ID }}
+        client-secret: ${{ secrets.PowerPlatformSPN }}
         solution-name: ${{ github.event.inputs.solution_name }}
         solution-output-file: ${{ github.event.inputs.solution_exported_folder}}/${{ github.event.inputs.solution_name }}.zip
 
