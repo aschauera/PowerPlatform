@@ -1,0 +1,502 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: OpenAI
+  description: OpenAI
+host: api.openai.com
+basePath: /
+schemes:
+  - https
+consumes: []
+produces:
+  - application/json
+paths:
+  /v1/models:
+    get:
+      summary: List Models
+      description: List all OpenAI text completion models
+      operationId: ListModels
+      parameters: []
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              object:
+                type: string
+                description: object
+                title: ''
+                x-ms-visibility: internal
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: Name of the OpenAI model
+                      title: Model name
+                      x-ms-visibility: important
+                    object:
+                      type: string
+                      description: object
+                      title: ''
+                      x-ms-visibility: internal
+                    created:
+                      type: integer
+                      format: int32
+                      description: created
+                      title: ''
+                      x-ms-visibility: internal
+                    owned_by:
+                      type: string
+                      description: owned_by
+                      title: ''
+                      x-ms-visibility: internal
+                    permission:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            description: id
+                          object:
+                            type: string
+                            description: object
+                          created:
+                            type: integer
+                            format: int32
+                            description: created
+                          allow_create_engine:
+                            type: boolean
+                            description: allow_create_engine
+                          allow_sampling:
+                            type: boolean
+                            description: allow_sampling
+                          allow_logprobs:
+                            type: boolean
+                            description: allow_logprobs
+                          allow_search_indices:
+                            type: boolean
+                            description: allow_search_indices
+                          allow_view:
+                            type: boolean
+                            description: allow_view
+                          allow_fine_tuning:
+                            type: boolean
+                            description: allow_fine_tuning
+                          organization:
+                            type: string
+                            description: organization
+                          group:
+                            type: string
+                            description: group
+                          is_blocking:
+                            type: boolean
+                            description: is_blocking
+                      title: Model permissions
+                      description: The permission set
+                    root:
+                      type: string
+                      description: root
+                      title: ''
+                      x-ms-visibility: internal
+                    parent:
+                      type: string
+                      description: parent
+                      title: ''
+                      x-ms-visibility: internal
+                description: data
+  /v1/completions:
+    post:
+      summary: Generate text using model
+      description: Generates text completions using the provided input and OpenAI model
+      operationId: GenerateTextUsingModel
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
+          x-ms-visibility: internal
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              model:
+                type: string
+                description: OpenAI text completion model to use
+                title: Completion model
+                x-ms-dynamic-values:
+                  operationId: ListModels
+                  value-path: id
+                  value-collection: data
+                  value-title: id
+                x-ms-visibility: important
+              prompt:
+                type: string
+                description: Input text to complete
+                title: Input
+              max_tokens:
+                type: integer
+                format: int32
+                description: Maximum number of text tokens to return
+                title: Maximum tokens
+                default: 150
+              temperature:
+                type: number
+                format: float
+                description: >-
+                  Temperate controls the randomness of the output. A higher
+                  value will lead to more varied random output
+                title: Temperature
+                default: 0.5
+              top_p:
+                type: integer
+                format: int32
+                description: top_p
+              'n':
+                type: integer
+                format: int32
+                description: >-
+                  Number of completions to generate (use with care as a higher
+                  number will quickly consume token quota)
+                title: Number of completions
+                default: 1
+              stream:
+                type: boolean
+                description: stream
+                title: Stream
+                enum:
+                  - true
+                  - false
+                x-ms-visibility: internal
+                default: false
+            default:
+              model: text-davinci-003
+              prompt: Brainstorm some ideas combining VR and fitness
+              max_tokens: 150
+              temperature: 0.6
+              top_p: 1
+              'n': 1
+              stream: false
+            required:
+              - model
+              - max_tokens
+              - 'n'
+              - prompt
+              - temperature
+          required: true
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+                description: id
+              object:
+                type: string
+                description: object
+              created:
+                type: integer
+                format: int32
+                description: created
+              model:
+                type: string
+                description: model
+              choices:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                      description: Generated text
+                      title: Generated text
+                    index:
+                      type: integer
+                      format: int32
+                      description: index
+                    logprobs:
+                      type: string
+                      description: logprobs
+                    finish_reason:
+                      type: string
+                      description: finish_reason
+                description: choices
+              usage:
+                type: object
+                properties:
+                  prompt_tokens:
+                    type: integer
+                    format: int32
+                    description: prompt_tokens
+                  completion_tokens:
+                    type: integer
+                    format: int32
+                    description: completion_tokens
+                  total_tokens:
+                    type: integer
+                    format: int32
+                    description: total_tokens
+                description: usage
+  /v1/images/generations:
+    post:
+      summary: Generate image using Dall-E
+      description: >-
+        Generate an image using Dall-E model and return a public URL with the
+        generated content
+      operationId: GenerateImage
+      parameters:
+        - name: Content-Type
+          in: header
+          required: true
+          type: string
+          default: application/json
+          description: Content-Type
+          x-ms-visibility: internal
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              prompt:
+                type: string
+                description: The description of the image to generate
+                title: Description
+                x-ms-visibility: important
+                default: The Microsoft logo
+              'n':
+                type: integer
+                format: int32
+                description: Number of images to generate
+                title: Number of images
+                x-ms-visibility: important
+                default: 1
+              size:
+                type: string
+                description: The size of the generated image
+                title: Image size
+                x-ms-visibility: internal
+                enum:
+                  - 1024x1024
+                  - 512x512
+                  - 256x256
+            default:
+              prompt: a group of horses riding through a field
+              'n': 1
+              size: 1024x1024
+            x-ms-visibility: internal
+            required:
+              - 'n'
+              - prompt
+          required: true
+          x-ms-visibility: internal
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              created:
+                type: integer
+                format: int32
+                description: created
+                title: ''
+                x-ms-visibility: internal
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      description: The URL of the generated image
+                      title: Image URL
+                description: data
+  /v1/edits:
+    post:
+      summary: Create text edits
+      description: Edits a given input text using the instructions provided
+      operationId: CreateTextEdits
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              model:
+                type: string
+                description: Choose the model to use
+                title: Model
+                enum:
+                  - text-davinci-edit-001
+                  - code-davinci-edit-001
+                default: text-davinci-edit-001
+                x-ms-visibility: important
+              input:
+                type: string
+                description: Input text
+                title: Text
+                default: Text
+                x-ms-visibility: important
+              instruction:
+                type: string
+                description: 'Instructions (eg: Translate to french or Correct spelling)'
+                title: Instructions
+                default: Translate to english
+                x-ms-visibility: important
+              'n':
+                type: integer
+                format: int32
+                description: Number of edits to generate
+                title: Edits
+                default: 1
+              temperature:
+                type: number
+                format: float
+                description: Randomness of the generated edits
+                title: Temperature
+                default: 0.5
+            default:
+              model: text-davinci-edit-001
+              input: What day of the wek is it?
+              instruction: Correct spelling mistakes
+              'n': 1
+              temperature: 0.6
+            required:
+              - input
+              - instruction
+              - model
+          required: true
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              object:
+                type: string
+                description: object
+              created:
+                type: integer
+                format: int32
+                description: created
+              choices:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    text:
+                      type: string
+                      description: Edited text
+                      title: Edited text
+                    index:
+                      type: integer
+                      format: int32
+                      description: >-
+                        The index of the generated text inside the list of
+                        generated output texts
+                      title: Index
+                description: choices
+              usage:
+                type: object
+                properties:
+                  prompt_tokens:
+                    type: integer
+                    format: int32
+                    description: prompt_tokens
+                  completion_tokens:
+                    type: integer
+                    format: int32
+                    description: completion_tokens
+                  total_tokens:
+                    type: integer
+                    format: int32
+                    description: total_tokens
+                description: usage
+  /v1/embeddings:
+    post:
+      summary: Create embeddings
+      description: Create embeddings
+      operationId: CreateEmbeddings
+      parameters:
+        - name: body
+          in: body
+          schema:
+            type: object
+            properties:
+              model:
+                type: string
+                description: model
+              input:
+                type: string
+                description: input
+              user:
+                type: string
+                description: user
+            default:
+              model: text-embedding-ada-002
+              input: What day of the wek is it?
+              user: ''
+          required: true
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              object:
+                type: string
+                description: object
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    object:
+                      type: string
+                      description: object
+                    index:
+                      type: integer
+                      format: int32
+                      description: index
+                    embedding:
+                      type: array
+                      items:
+                        type: number
+                        format: float
+                      description: embedding
+                description: data
+              model:
+                type: string
+                description: model
+              usage:
+                type: object
+                properties:
+                  prompt_tokens:
+                    type: integer
+                    format: int32
+                    description: prompt_tokens
+                  total_tokens:
+                    type: integer
+                    format: int32
+                    description: total_tokens
+                description: usage
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  'OpenAI API key using format: Bearer <API KEY>':
+    type: apiKey
+    in: header
+    name: Authorization
+security:
+  - 'OpenAI API key using format: Bearer <API KEY>': []
+tags: []
