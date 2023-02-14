@@ -7,14 +7,14 @@ Contains custom connector starter samples to showcase possible implementations.
 Contains a custom connector YAML definition to selected OpenAI ML models, use Text completions and Text edits with available models and do image generation using DALL-E.
 The connector uses the OpenAI API - see more info here: [OpenAI API Docs](https://platform.openai.com/docs/introduction/overview)
 
-Contains the following operations that may be used in Power Automate and Power Apps:  
+Contains the following operations that may be used in Power Automate and Power Apps. See fig. 1
 ### List models
-Get all available text and code completation as well as edit models currently available from OpenAI public API. See Figure 1
+Get all available text and code completation as well as edit models currently available from OpenAI public API.
 The output can be used as input to the "model" parameter for text completion and edit actions.  
 The *Generate text using model* action uses this operation to dynamically load values into the model selection parameter - see Figure 2.
 
-![Figure 1 - List models](http://placekitten.com/400/300)
-![Figure 2 - Dynamically loaded models for model parameter](http://placekitten.com/400/300)  
+![Figure 1 - Connector actions](https://github.com/aschauera/PowerPlatform/blob/master/Custom%20Connectors/img/OpenAIPublicConnector_Actions.png)
+![Figure 2 - Dynamically loaded models for model parameter](https://github.com/aschauera/PowerPlatform/blob/master/Custom%20Connectors/img/OpenAIPublicConnector_Models.png)  
 
 
 ## Generate text using model
@@ -27,6 +27,9 @@ Allows selection of an OpenAI ML model and generation of text using an input pro
 - top_p: A seeding value for randomness (can be ignored)
 
 ## Create text edits
+
+![Figure 3 - Text edits](https://github.com/aschauera/PowerPlatform/blob/master/Custom%20Connectors/img/OpenAIPublicConnector_GenerateTextEdit.png)  
+
 Allows creation of text edits to a given input text with arbitrary instructions.  
 ### Examples
 - Input: *What week is it?*, Instruction: *Translate to french*
