@@ -19,24 +19,24 @@ The *Generate text using model* action uses this operation to dynamically load v
 ![Figure 2 - Dynamically loaded models for model parameter](https://github.com/aschauera/PowerPlatform/blob/master/Custom%20Connectors/img/OpenAIPublicConnector_Models.png)  
 
 
-## Generate text using model
+### Generate text using model
 Allows selection of an OpenAI ML model and generation of text using an input prompt.
-### Parameters
+#### Parameters
 - Completion model: Loaded dynamically from available models
 - Input: The input starter text 
 - Maximum tokens: Length of the output
 - Number of completions: How many completions to generate
 - top_p: A seeding value for randomness (can be ignored)
 
-## Create text edits
+### Create text edits
 
 ![Figure 3 - Text edits](https://github.com/aschauera/PowerPlatform/blob/master/Custom%20Connectors/img/OpenAIPublicConnector_GenerateTextEdit.png)  
 
 Allows creation of text edits to a given input text with arbitrary instructions.  
-### Examples
+#### Examples
 - Input: *What week is it?*, Instruction: *Translate to french*
 - Input: *What wek is it?*, Instruction: *Correct spelling mistakes*
-### Parameters
+#### Parameters
 - Model: The model to use
 - Text : Input text
 - Instruction: Free text edit instructions
@@ -45,7 +45,7 @@ Allows creation of text edits to a given input text with arbitrary instructions.
 ### Generate image using DALL-E
 Genertes an image or images based on a natural language description. Outputs a public URL with the generated image
 
-### Parameters
+#### Parameters
 - Image description: Description of image
 
 
