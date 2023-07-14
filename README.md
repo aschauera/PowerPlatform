@@ -4,7 +4,11 @@ Feel free to contribute and enhance and share the goodness.
 
 ## PowerApps
 
-Contains sample apps and custom controls
+Contains sample apps
+
+## SAP Integration
+
+Contains a sample solution for Power Platform SAP integration using the SAP ERP connector. See [Readme](./SAP%20Integration/readme.md) for the SAP Truck Load Demo for contents and instructions.
 
 ## Custom Connectors
 
