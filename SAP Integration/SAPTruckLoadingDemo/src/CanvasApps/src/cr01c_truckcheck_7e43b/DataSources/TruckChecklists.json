@@ -1,0 +1,151 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr10d_truckchecklists",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr10d_truckchecklist",
+    "MaxGetRowsCount": 500,
+    "Name": "TruckChecklists",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr10d_cleanfloor": "Clean Floor",
+      "cr10d_driverssafetyequipment": "Driver's safety equipment",
+      "cr10d_dryfloor": "Dry Floor",
+      "cr10d_edgeprotectorsfromdriver": "Edge protectors from driver",
+      "cr10d_edgeprotectorsfromus": "Edge Protectors from us",
+      "cr10d_forwarder": "Forwarder",
+      "cr10d_intacttrucktarpaulin": "Intact Truck Tarpaulin",
+      "cr10d_lashingstrapsfromdriver": "Lashing straps from driver",
+      "cr10d_lashingstrapsfromus": "Lashing straps from us",
+      "cr10d_loadstatus": "Load Status",
+      "cr10d_name": "Name",
+      "cr10d_noodor": "No Odor",
+      "cr10d_observations": "Observations",
+      "cr10d_sapreferencedocument": "SAP Reference Document",
+      "cr10d_signature_driver": "Driver's signature",
+      "cr10d_signature_driverid": "cr10d_Signature_DriverId",
+      "cr10d_staffssignature": "Staff's signature",
+      "cr10d_staffssignatureid": "cr10d_StaffssignatureId",
+      "cr10d_truckchecklist_AsyncOperations": "System Jobs",
+      "cr10d_truckchecklist_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr10d_truckchecklist_DuplicateBaseRecord": "Duplicate Records (cr10d_truckchecklist_DuplicateBaseRecord)",
+      "cr10d_truckchecklist_DuplicateMatchingRecord": "Duplicate Records (cr10d_truckchecklist_DuplicateMatchingRecord)",
+      "cr10d_truckchecklist_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr10d_truckchecklist_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr10d_truckchecklist_ProcessSession": "Process Sessions",
+      "cr10d_truckchecklist_SyncErrors": "Sync Errors",
+      "cr10d_truckchecklistid": "TruckChecklist",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "TruckChecklists",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "TruckChecklists (Views)",
+    "Name": "_cr10d_truckchecklist_views",
+    "RelatedEntityName": "TruckChecklists",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "2c07abb3-9749-4605-9b77-6e46a3a1bbda": "Active TruckChecklists",
+      "2da3afc0-d995-46ce-9586-d3974cdc656f": "Inactive TruckChecklists",
+      "78a374e0-8e46-452e-832f-c234f10f4021": "TruckChecklist Advanced Find View",
+      "afaf7bde-3b80-4b1d-8aaf-c596859b7fa3": "TruckChecklist Associated View",
+      "ed1cb3d6-dbe8-4013-b123-0f34c69fc961": "TruckChecklist Lookup View"
+    }
+  },
+  {
+    "DisplayName": "TruckCheckChoice",
+    "Name": "cr10d_truckcheckchoice",
+    "OptionSetInfoNameMapping": {
+      "155290000": "Yes",
+      "155290001": "Acceptable",
+      "155290002": "No"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": true,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr10d_cleanfloor",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      },
+      "OptionSetReferenceItem1": {
+        "OptionSetReferenceColumnName": "cr10d_driverssafetyequipment",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      },
+      "OptionSetReferenceItem2": {
+        "OptionSetReferenceColumnName": "cr10d_dryfloor",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      },
+      "OptionSetReferenceItem3": {
+        "OptionSetReferenceColumnName": "cr10d_intacttrucktarpaulin",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      },
+      "OptionSetReferenceItem4": {
+        "OptionSetReferenceColumnName": "cr10d_noodor",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      }
+    },
+    "OptionSetTypeKey": "PicklistType",
+    "RelatedColumnInvariantName": "cr10d_cleanfloor",
+    "RelatedEntityName": "TruckChecklists",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status (TruckChecklists)",
+    "Name": "cr10d_truckchecklist_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "TruckChecklists",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (TruckChecklists)",
+    "Name": "cr10d_truckchecklist_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "TruckChecklists"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "TruckChecklists",
+    "Type": "OptionSetInfo"
+  }
+]

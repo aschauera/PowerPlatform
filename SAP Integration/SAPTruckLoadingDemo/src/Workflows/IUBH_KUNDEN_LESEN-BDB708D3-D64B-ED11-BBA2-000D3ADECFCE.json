@@ -1,0 +1,157 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_saperp_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "rkn_sharedsaperp_efd3b"
+        },
+        "api": {
+          "name": "shared_saperp"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "SAP Development (sap_SAPDevelopment)": {
+          "defaultValue": "{\"AppServerHost\":\"137.116.249.0\",\"Client\":\"100\",\"SystemNumber\":\"40\",\"LogonType\":\"ApplicationServer\"}",
+          "type": "String",
+          "metadata": {
+            "schemaName": "sap_SAPDevelopment"
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "9ea8ed94-5176-49e4-aa26-9d69dc374e6b"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Read_SAP_table_with_parsing": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c99dc705-8402-4540-8e0c-2282fb6259de"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_saperp_1",
+              "operationId": "ReadTableVersion3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_saperp"
+            },
+            "parameters": {
+              "x-ms-sap-system": "@parameters('SAP Development (sap_SAPDevelopment)')",
+              "inputParameters/tableName": "KNA1",
+              "inputParameters/FieldNames": [
+                "KUNNR:Customer Number",
+                "NAME1:Name 1",
+                "LAND1:Country/Region Key"
+              ],
+              "inputParameters/RowCount": 9999
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Read_SAP_table_with_parsing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "679bf890-b971-4b38-9d19-6bae42c1262d"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@body('Read_SAP_table_with_parsing')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "FieldsMetadata": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Offset": {
+                        "type": "integer"
+                      },
+                      "Length": {
+                        "type": "integer"
+                      },
+                      "AbapDataType": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Name",
+                      "Offset",
+                      "Length",
+                      "AbapDataType",
+                      "Description"
+                    ]
+                  }
+                },
+                "Rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "KUNNR": {
+                        "type": "string"
+                      },
+                      "NAME1": {
+                        "type": "string"
+                      },
+                      "LAND1": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "KUNNR",
+                      "NAME1",
+                      "LAND1"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

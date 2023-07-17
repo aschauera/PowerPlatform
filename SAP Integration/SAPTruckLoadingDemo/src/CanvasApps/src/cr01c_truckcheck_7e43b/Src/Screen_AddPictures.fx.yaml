@@ -1,0 +1,203 @@
+Screen_AddPictures As screen:
+
+    Button7_4 As button:
+        Height: =71
+        OnSelect: =Back()
+        Text: ="Back"
+        Width: =211
+        X: =65
+        Y: =650
+        ZIndex: =1
+
+    "Gallery_Pictures As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        Height: =635
+        Items: =ImageCollection
+        Layout: =Layout.Vertical
+        TemplatePadding: =0
+        TemplateSize: =246
+        Width: =431
+        X: =915
+        Y: =117
+        ZIndex: =5
+
+        Image3 As image:
+            Height: =175
+            Image: =ThisItem.Image
+            OnSelect: =Select(Parent)
+            Width: =301
+            X: =16
+            Y: =25
+            ZIndex: =1
+
+        button_delete As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.Trash
+            OnSelect: =Remove(ImageCollection,ThisItem)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator2 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Label6 As label:
+            Height: =45
+            OnSelect: =Select(Parent)
+            Size: =10
+            Text: =ThisItem.Filename
+            Visible: =false
+            Width: =366
+            X: =38
+            Y: =200
+            ZIndex: =6
+
+    Rectangle1_1 As rectangle:
+        Width: =1366
+        ZIndex: =6
+
+    Label1_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =50
+        Size: =18
+        Text: ="Truck Compliance Check"
+        Width: =461
+        X: =23
+        Y: =29
+        ZIndex: =7
+
+    Image2_1 As image:
+        Image: =User().Image
+        ImagePosition: =ImagePosition.Fill
+        X: =1266
+        ZIndex: =8
+
+    Label7_2 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: =Concatenate("Hello ", User().FullName)
+        Width: =335
+        X: =930
+        ZIndex: =9
+
+    Label7_3 As label:
+        Align: =Align.Right
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Text: =Now()
+        Width: =254
+        X: =1012
+        Y: =50
+        ZIndex: =10
+
+    Button2_11 As button:
+        DisplayMode: =DisplayMode.Disabled
+        Height: =52
+        OnSelect: =SubmitForm(Form1); Navigate(Screen_AddPictures)
+        Text: ="Take Pictures"
+        X: =484
+        Y: =669
+        ZIndex: =11
+
+    Icon2_8 As icon.NextArrow:
+        Icon: =Icon.NextArrow
+        X: =687
+        Y: =657
+        ZIndex: =12
+
+    AddMediaWithImage1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =12
+
+        UploadedImage1 As image:
+            Height: =492
+            Image: =If(IsBlank(AddMediaButton1.Media), SampleImage, AddMediaButton1.Media)
+            ImagePosition: =ImagePosition.Fill
+            Width: =816
+            X: =65
+            Y: =117
+            ZIndex: =3
+
+        AddMediaButton1 As addMedia:
+            ChangePictureText: ="Add Picture"
+            Height: =492
+            OnChange: |-
+                =If(UploadedImage1.Image=SampleImage, "", Collect(ImageCollection, {Image: UploadedImage1.Image, Filename: lbl_lastsubmit_checklist_1.Text & "_" & Text(Now(), "yyyymmddmmssms" ) & ".jpg"}))
+            Size: =25
+            Width: =816
+            X: =65
+            Y: =117
+            ZIndex: =4
+
+    Button2_12 As button:
+        Height: =52
+        OnSelect: |-
+            =Navigate(Screen_SignReport);
+            Reset(AddMediaButton1);
+        Text: ="Sign"
+        X: =793
+        Y: =669
+        ZIndex: =13
+
+    Icon2_9 As icon.NextArrow:
+        Icon: =Icon.NextArrow
+        X: =1000
+        Y: =657
+        ZIndex: =14
+
+    Button2_13 As button:
+        DisplayMode: =DisplayMode.Disabled
+        Height: =52
+        Text: ="Complete"
+        X: =1106
+        Y: =669
+        ZIndex: =15
+
+    lbl_lastsubmit_checklist_1 As label:
+        Align: =Align.Center
+        Fill: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =48
+        Size: =30
+        Text: =Text(Value(Gallery_deliveries.Selected.VBELN, "en-GB"), "0", "en-GB")
+        Width: =318
+        X: =587
+        Y: =38
+        ZIndex: =16
+
+    Label2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Height: =27
+        Text: ="SAP Delivery"
+        Width: =182
+        X: =644
+        Y: =9
+        ZIndex: =17
+
+    Icon1 As icon.Bus:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Transportation
+        X: =504
+        Y: =18
+        ZIndex: =18
+

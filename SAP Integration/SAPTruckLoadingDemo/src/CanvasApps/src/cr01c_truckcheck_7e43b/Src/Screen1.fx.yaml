@@ -1,0 +1,14 @@
+Screen1 As screen:
+
+    Label10 As label:
+        Text: ="Farbe"
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    TextConfigFillColor As text:
+        Default: ="Blue"
+        X: =238
+        Y: =40
+        ZIndex: =2
+

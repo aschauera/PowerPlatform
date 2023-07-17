@@ -1,25 +1,71 @@
 # SAP Truck loading demo
 
+**All components are provided as-is.**
+**See attached license terms under which this repository is maintained**
+
 ## Setup
 
 ### Option 1: Build from source
 
-Clone this repository and create a Power Platform solution from the source files using [VSCode](https://code.visualstudio.com)
 
-![Install Power Platform Tools in VSCode](./1_InstallPowerPlatformToolsVSCode.png)
+1. Install Power Platform Tools
+
+![Install Power Platform Tools in VSCode](./img/1_InstallPowerPlatformToolsVSCode.png)
 *Figure1: Install Power Platform Tools extension in VSCode*
 
-### Option 2: Download the solution zip file
+
+2. Clone this repository and create a Power Platform solution from the source files using [VSCode](https://code.visualstudio.com)
+
+```bash
+$ mkdir truckloaddemo
+$ cd truckloaddemo
+$ git clone https://github.com/aschauera/PowerPlatform.git
+$ cd SAP\ Integration/SAPTruckLoadingDemo
+$ pac solution pack --zipfile TruckLoadingDemo.zip --folder ./src/
+```
+
+3. Create an authentication profile for your Dataverse environment
+```bash
+pac auth create --environment <EnvironmentId>
+```
+Note: To get the environment ID open a browser and navigate to the [Power Platform Admin center environment list](https://admin.powerplatform.microsoft.com/environments). Open the respective environment and copy the displayed ID.
+
+![Copy environment ID](./img/2_CopyEnvironmentID.png)
+*Copy the environment ID*
+
+4. Import the solution into your environment
+```bash
+pac solution publish
+```
+The solution should be available in the environment after import finishes
+
+**Refer to [Components - Connections](#connections) below to setup the connection to SAP**
+
+### Option 2: Download the prebuilt solution zip file
 
 Download the solution zip file to your computer. Open your browser and navigate to the [Power Apps Maker Portal](https://make.powerapps.com). In the left navigation und Solutions click Import solution and select the downloaded file.
 The solution import will start and take a few minutes.
 
-## Configuration
+**Refer to [Components - Connections](#connections) below to setup the connection to SAP**
 
-## Components
+## Configuration and Components
+
+![Soltiion components](./img/3_SolutionContents.png)
+*Solution components*
 
 ### Connections
+
+The solution uses the SAP ERP connector.Connection references are included in the solution. 
+To use the App, the a connection reference needs to be updated to point to the connection in place on the target environment.
+The following connection references
+- SAP ERP loading data
+
+To create a connection, open your browser and navigate to the Connections section at the [Power Platform Maker Portal](https://make.powerapps.com).
+Click + New Connection on top and search for SAP ERP. Provide the connection credentials. The connection needs an active On Premises data gateway. For details on how to setup the data gateway to SAP, refer to [SAP ERP Connector - Prerequisites](https://learn.microsoft.com/en-us/connectors/saperp/#pre-requisites)
+
 ### Apps
+- Truck Check: Legacy tablet format app, with basic UI.
+
 ### Cloud flows
 
 - IUBH_KUNDEN_LESEN: This flow is called on App start (OnStart) to read the list of customers directly from the SAP system.
@@ -31,3 +77,14 @@ The flow uses the [Power Platform SAP ERP connector](https://learn.microsoft.com
     - LDDAT: The loading date
 
     It returns the parsed JSON body of the response as a typed object to the calling app.
+
+### Environment variables
+
+- Document repository: Contains the URL to the SharePoint site that contains the below list for truck load pictures 
+- Truck load pictures: Contains the URL to the SharePoint library with demo truck load pictures
+
+### Tables
+- TruckChecklist: Dataverse table definition to store load checks
+
+### Choices
+- TruckCheckChoice: Checklist status - Yes|Acceptable|No

@@ -1,0 +1,134 @@
+{
+  "6d2c7485-0980-445f-b25a-c0b9d707cfdf": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3310/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://d365demotss356396.sharepoint.com/sites/DocumentRepository_rkn_shared_sharepointonline_1cc4e52661e44bc8b24ef4388ce3c2c5": {
+        "datasetOverride": {
+          "environmentVariableName": "rkn_shared_sharepointonline_1cc4e52661e44bc8b24ef4388ce3c2c5",
+          "name": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository"
+        },
+        "dataSources": {
+          "TruckLoadPictures": {
+            "tableName": "ed6441e8-d054-40d8-b631-73bb60db3427",
+            "tableNameOverride": {
+              "environmentVariableName": "rkn_shared_sharepointonline_49b5c260541841b6880f0549c380a029",
+              "name": "ed6441e8-d054-40d8-b631-73bb60db3427"
+            }
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "TruckLoadPictures"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "6d2c7485-0980-445f-b25a-c0b9d707cfdf"
+  },
+  "9a7c84b4-4e76-4698-a8e6-429821e857b5": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "f03b97f2-b1a7-4454-ad0c-1f4201f094c3": {
+          "value": "shared_saperp"
+        },
+        "workflowEntityId": {
+          "value": "1f9562f1-fe9a-ed11-aad1-000d3adecfce"
+        },
+        "workflowName": {
+          "value": "6b58dd08-4271-7a46-4f74-b38ba858adeb"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_saperp": {
+          "value": "f03b97f2-b1a7-4454-ad0c-1f4201f094c3"
+        },
+        "workflowEntityId": {
+          "value": "1f9562f1-fe9a-ed11-aad1-000d3adecfce"
+        },
+        "workflowName": {
+          "value": "6b58dd08-4271-7a46-4f74-b38ba858adeb"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "RKN_GET_DELIVERY_LIST"
+    ],
+    "dependencies": {
+      "shared_saperp": "f03b97f2-b1a7-4454-ad0c-1f4201f094c3"
+    },
+    "dependents": [],
+    "id": "9a7c84b4-4e76-4698-a8e6-429821e857b5"
+  },
+  "f03b97f2-b1a7-4454-ad0c-1f4201f094c3": {
+    "connectionRef": {
+      "apiTier": "Premium",
+      "authenticationType": "Basic",
+      "displayName": "SAP ERP",
+      "gatewayObjectIdHint": "60ac611b-094f-407a-99d2-04f88643eeaf",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1637/1.0.1637.3300/saperp/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_saperp",
+      "isOnPremiseConnection": true,
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "9a7c84b4-4e76-4698-a8e6-429821e857b5",
+      "f61847bc-95be-42f3-8d67-0ddab06ec728"
+    ],
+    "id": "f03b97f2-b1a7-4454-ad0c-1f4201f094c3"
+  },
+  "f61847bc-95be-42f3-8d67-0ddab06ec728": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1636/1.0.1636.3297/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "f03b97f2-b1a7-4454-ad0c-1f4201f094c3": {
+          "value": "shared_saperp"
+        },
+        "workflowEntityId": {
+          "value": "bdb708d3-d64b-ed11-bba2-000d3adecfce"
+        },
+        "workflowName": {
+          "value": "1903c604-2827-c80e-07c4-b89380b41b3a"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_saperp": {
+          "value": "f03b97f2-b1a7-4454-ad0c-1f4201f094c3"
+        },
+        "workflowEntityId": {
+          "value": "bdb708d3-d64b-ed11-bba2-000d3adecfce"
+        },
+        "workflowName": {
+          "value": "1903c604-2827-c80e-07c4-b89380b41b3a"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "IUBH_KUNDEN_LESEN"
+    ],
+    "dependencies": {
+      "shared_saperp": "f03b97f2-b1a7-4454-ad0c-1f4201f094c3"
+    },
+    "dependents": [],
+    "id": "f61847bc-95be-42f3-8d67-0ddab06ec728"
+  }
+}

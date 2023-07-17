@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CanvasApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>cr01c_truckcheck_7e43b</Name>
+  <AppVersion>2023-07-14T10:03:56Z</AppVersion>
+  <Status>Ready</Status>
+  <CreatedByClientVersion>3.23071.11.0</CreatedByClientVersion>
+  <MinClientVersion>3.23071.11.0</MinClientVersion>
+  <Tags>{"primaryDeviceWidth":"1366","primaryDeviceHeight":"768","sienaVersion":"20230512T073945Z-3.23012.17.0","deviceCapabilities":"","supportsPortrait":"true","supportsLandscape":"true","primaryFormFactor":"Tablet","publisherVersion":"3.23071.11","minimumRequiredApiVersion":"2.2.0","hasComponent":"false","hasUnlockedComponent":"false","isUnifiedRootApp":"false"}</Tags>
+  <IsCdsUpgraded>0</IsCdsUpgraded>
+  <GalleryItemId xsi:nil="true"></GalleryItemId>
+  <BackgroundColor>rgba(255, 255, 255, 1)</BackgroundColor>
+  <DisplayName>Truck Check</DisplayName>
+  <Description xsi:nil="true"></Description>
+  <CommitMessage xsi:nil="true"></CommitMessage>
+  <Publisher></Publisher>
+  <AuthorizationReferences>[]</AuthorizationReferences>
+  <ConnectionReferences>{"9a7c84b4-4e76-4698-a8e6-429821e857b5":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1645/1.0.1645.3345/logicflows/icon.png","dataSources":["RKN_GET_DELIVERY_LIST"],"dependencies":["f03b97f2-b1a7-4454-ad0c-1f4201f094c3"],"dependents":[],"parameterHints":{"workflowName":{"value":"49dfa624-419f-4356-8a08-5b265462b5de"},"workflowEntityId":{"value":"1f9562f1-fe9a-ed11-aad1-000d3adecfce"},"f03b97f2-b1a7-4454-ad0c-1f4201f094c3":{"value":"shared_saperp"}},"parameterHintsV2":{"workflowName":{"value":"49dfa624-419f-4356-8a08-5b265462b5de"},"workflowEntityId":{"value":"1f9562f1-fe9a-ed11-aad1-000d3adecfce"},"shared_saperp":{"value":"f03b97f2-b1a7-4454-ad0c-1f4201f094c3"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"f03b97f2-b1a7-4454-ad0c-1f4201f094c3":{"id":"/providers/microsoft.powerapps/apis/shared_saperp","displayName":"SAP ERP","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1639/1.0.1639.3319/saperp/icon.png","dataSources":[],"dependencies":[],"dependents":["9a7c84b4-4e76-4698-a8e6-429821e857b5","f61847bc-95be-42f3-8d67-0ddab06ec728"],"parameterHints":{},"parameterHintsV2":{},"gatewayObjectIdHint":"60ac611b-094f-407a-99d2-04f88643eeaf","isOnPremiseConnection":true,"bypassConsent":false,"dataSets":{},"apiTier":"Premium","authenticationType":"Basic"},"f61847bc-95be-42f3-8d67-0ddab06ec728":{"id":"/providers/microsoft.powerapps/apis/shared_logicflows","displayName":"Logic flows","iconUri":"https://connectoricons-prod.azureedge.net/releases/v1.0.1645/1.0.1645.3345/logicflows/icon.png","dataSources":["IUBH_KUNDEN_LESEN"],"dependencies":["f03b97f2-b1a7-4454-ad0c-1f4201f094c3"],"dependents":[],"parameterHints":{"workflowName":{"value":"90c41071-26f6-4cbf-868c-f52ee8fe2904"},"workflowEntityId":{"value":"bdb708d3-d64b-ed11-bba2-000d3adecfce"},"f03b97f2-b1a7-4454-ad0c-1f4201f094c3":{"value":"shared_saperp"}},"parameterHintsV2":{"workflowName":{"value":"90c41071-26f6-4cbf-868c-f52ee8fe2904"},"workflowEntityId":{"value":"bdb708d3-d64b-ed11-bba2-000d3adecfce"},"shared_saperp":{"value":"f03b97f2-b1a7-4454-ad0c-1f4201f094c3"}},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{},"apiTier":"Standard","actions":["Run"]},"6d2c7485-0980-445f-b25a-c0b9d707cfdf":{"id":"/providers/microsoft.powerapps/apis/shared_sharepointonline","displayName":"SharePoint","iconUri":"https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3312/sharepointonline/icon.png","dataSources":["TruckLoadPictures"],"dependencies":[],"dependents":[],"parameterHints":{},"parameterHintsV2":{},"isOnPremiseConnection":false,"bypassConsent":false,"dataSets":{"https://d365demotss356396.sharepoint.com/sites/DocumentRepository_rkn_shared_sharepointonline_1cc4e52661e44bc8b24ef4388ce3c2c5":{"datasetOverride":{"name":"https://d365demotss356396.sharepoint.com/sites/DocumentRepository","environmentVariableName":"rkn_shared_sharepointonline_1cc4e52661e44bc8b24ef4388ce3c2c5"},"dataSources":{"TruckLoadPictures":{"tableName":"ed6441e8-d054-40d8-b631-73bb60db3427","tableNameOverride":{"name":"ed6441e8-d054-40d8-b631-73bb60db3427","environmentVariableName":"rkn_shared_sharepointonline_49b5c260541841b6880f0549c380a029"}}}}},"apiTier":"Standard","actions":["providers/PowerPlatform.Governance/Operations/Read","providers/PowerPlatform.Governance/Operations/Write"]}}</ConnectionReferences>
+  <DatabaseReferences>{"default.cds":{"databaseDetails":{"referenceType":"Environmental","environmentName":"default.cds","overrideValues":{"status":"NotSpecified"}},"dataSources":{"TruckChecklists":{"entitySetName":"cr10d_truckchecklists","logicalName":"cr10d_truckchecklist"}}}}</DatabaseReferences>
+  <AppComponents>[]</AppComponents>
+  <AppComponentDependencies>[]</AppComponentDependencies>
+  <CanConsumeAppPass>1</CanConsumeAppPass>
+  <CanvasAppType>0</CanvasAppType>
+  <BypassConsent>0</BypassConsent>
+  <AdminControlBypassConsent>0</AdminControlBypassConsent>
+  <EmbeddedApp xsi:nil="true"></EmbeddedApp>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <CdsDependencies>{"cdsdependencies":[{"dependencyid":"1f9562f1-fe9a-ed11-aad1-000d3adecfce","componenttype":29,"componenttypeplatformname":"Workflow"},{"dependencyid":"bdb708d3-d64b-ed11-bba2-000d3adecfce","componenttype":29,"componenttypeplatformname":"Workflow"},{"logicalname":"cr10d_truckchecklist","componenttype":1},{"logicalname":"rkn_shared_sharepointonline_1cc4e52661e44bc8b24ef4388ce3c2c5","componenttype":380,"componenttypeplatformname":"EnvironmentVariableDefinition"},{"logicalname":"rkn_shared_sharepointonline_49b5c260541841b6880f0549c380a029","componenttype":380,"componenttypeplatformname":"EnvironmentVariableDefinition"}]}</CdsDependencies>
+  <IsCustomizable>1</IsCustomizable>
+  <BackgroundImageUri>/CanvasApps/cr01c_truckcheck_7e43b_BackgroundImageUri</BackgroundImageUri>
+  <DocumentUri>/CanvasApps/cr01c_truckcheck_7e43b_DocumentUri.msapp</DocumentUri>
+</CanvasApp>

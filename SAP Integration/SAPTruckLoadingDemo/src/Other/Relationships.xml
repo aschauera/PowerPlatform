@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_cr10d_truckchecklist" />
+  <EntityRelationship Name="lk_cr10d_truckchecklist_createdby" />
+  <EntityRelationship Name="lk_cr10d_truckchecklist_modifiedby" />
+  <EntityRelationship Name="owner_cr10d_truckchecklist" />
+  <EntityRelationship Name="team_cr10d_truckchecklist" />
+  <EntityRelationship Name="user_cr10d_truckchecklist" />
+</EntityRelationships>

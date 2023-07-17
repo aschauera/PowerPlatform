@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "f81e2217-c3b4-4c09-ae47-d2b59e4d63f8",
+    "Name": "RKN_GET_DELIVERY_LIST",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "1f9562f1-fe9a-ed11-aad1-000d3adecfce"
+  }
+]
