@@ -3,6 +3,11 @@
 **All components are provided as-is.**
 **See attached license terms under which this repository is maintained**
 
+## Contributing
+
+**Contributions are highly welcome! Feel free to fork the repository and create you own branch. Merges into the main branch are subject to pull request review**
+If you work on your own fork be sure to adjust the URLs mentioned in Setup - Step 2 to clone your own repository instead of the current branch in this repository
+
 ## Setup
 
 ### Option 1: Build from source
