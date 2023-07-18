@@ -1,0 +1,141 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_saperp": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "rkn_sharedsaperp_efd3b"
+        },
+        "api": {
+          "name": "shared_saperp"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "SAP Development (sap_SAPDevelopment)": {
+          "defaultValue": "{\"AppServerHost\":\"137.116.249.0\",\"Client\":\"100\",\"SystemNumber\":\"40\",\"LogonType\":\"ApplicationServer\"}",
+          "type": "String",
+          "metadata": {
+            "schemaName": "sap_SAPDevelopment"
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "122d37aa-5b2f-4e93-b838-3a059b2f84ea"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Read_SAP_table_with_parsing": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "cd2d20ec-55f6-4f07-b2a7-749a04822c6c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_saperp",
+              "operationId": "ReadTableVersion3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_saperp"
+            },
+            "parameters": {
+              "x-ms-sap-system": "@parameters('SAP Development (sap_SAPDevelopment)')",
+              "inputParameters/tableName": "LIKP",
+              "inputParameters/FieldNames": [
+                "VSTEL"
+              ]
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "SELECT:_VSTEL_from_SAP": {
+          "runAfter": {
+            "Read_SAP_table_with_parsing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d9f63c58-51d9-47fb-ad46-7ee1c8ca9c06"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Read_SAP_table_with_parsing')?['body/Rows']",
+            "select": {
+              "ShippingPoint": "@item()?['VSTEL']"
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Get_distinct_shipping_points": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0903f8e2-2054-461e-a80e-397c75f1113c"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@outputs('Get_distinct_shipping_points')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ShippingPoint": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "ShippingPoint"
+                ]
+              }
+            }
+          }
+        },
+        "Get_distinct_shipping_points": {
+          "runAfter": {
+            "SELECT:_VSTEL_from_SAP": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "07a900d6-c0b5-44bb-88d7-3c50bdd0da0a"
+          },
+          "type": "Compose",
+          "inputs": "@union(body('SELECT:_VSTEL_from_SAP'),body('SELECT:_VSTEL_from_SAP'))"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

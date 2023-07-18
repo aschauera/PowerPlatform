@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebResource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebResourceId>{352d091f-5625-ee11-9965-000d3ad98d63}</WebResourceId>
+  <Name>rkn_trucklogocolorful</Name>
+  <DisplayName>Color truck logo</DisplayName>
+  <WebResourceType>5</WebResourceType>
+  <IntroducedVersion>1.0.0.2</IntroducedVersion>
+  <IsEnabledForMobileClient>0</IsEnabledForMobileClient>
+  <IsAvailableForMobileOffline>0</IsAvailableForMobileOffline>
+  <IsCustomizable>1</IsCustomizable>
+  <CanBeDeleted>1</CanBeDeleted>
+  <IsHidden>0</IsHidden>
+  <FileName>/WebResources/rkn_trucklogocolorful352D091F-5625-EE11-9965-000D3AD98D63</FileName>
+</WebResource>

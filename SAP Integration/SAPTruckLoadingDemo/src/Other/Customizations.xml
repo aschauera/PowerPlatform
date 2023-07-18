@@ -8,10 +8,15 @@
   <EntityImageConfigs>
     <EntityImageConfig>
       <parententitylogicalname>cr10d_truckchecklist</parententitylogicalname>
-      <primaryimageattribute>cr10d_signature_driver</primaryimageattribute>
+      <primaryimageattribute>rkn_imageinterior</primaryimageattribute>
     </EntityImageConfig>
   </EntityImageConfigs>
   <AttributeImageConfigs>
+    <AttributeImageConfig>
+      <attributelogicalname>rkn_imageinterior</attributelogicalname>
+      <parententitylogicalname>cr10d_truckchecklist</parententitylogicalname>
+      <canstorefullimage>1</canstorefullimage>
+    </AttributeImageConfig>
     <AttributeImageConfig>
       <attributelogicalname>cr10d_signature_driver</attributelogicalname>
       <parententitylogicalname>cr10d_truckchecklist</parententitylogicalname>
@@ -27,41 +32,15 @@
   <EntityRelationships />
   <OrganizationSettings />
   <optionsets />
+  <WebResources />
   <CustomControls />
   <EntityDataProviders />
   <CanvasApps />
   <connectionreferences>
-    <connectionreference connectionreferencelogicalname="cr01c_sharedsaperp_cd3ea">
-      <connectionreferencedisplayname>SAP ERP RKN_SAP-cd3ea</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_saperp</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-    <connectionreference connectionreferencelogicalname="rkn_sharedsaperp_38111">
-      <connectionreferencedisplayname>SAP ERP SAP_RKN_DEMO-38111</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_saperp</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-    <connectionreference connectionreferencelogicalname="rkn_sharedsaperp_5378d">
-      <connectionreferencedisplayname>SAP ERP SAP_RKN_DEMO-5378d</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_saperp</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
     <connectionreference connectionreferencelogicalname="rkn_sharedsaperp_efd3b">
-      <connectionreferencedisplayname>SAP ERP SAP_RKN_DEMO-efd3b</connectionreferencedisplayname>
+      <connectionreferencedisplayname>SAP ERP loading data</connectionreferencedisplayname>
       <connectorid>/providers/Microsoft.PowerApps/apis/shared_saperp</connectorid>
-      <iscustomizable>1</iscustomizable>
-      <statecode>0</statecode>
-      <statuscode>1</statuscode>
-    </connectionreference>
-    <connectionreference connectionreferencelogicalname="sap_sharedsaperp_81947">
-      <connectionreferencedisplayname>SAP ERP Truck Connection</connectionreferencedisplayname>
-      <connectorid>/providers/Microsoft.PowerApps/apis/shared_saperp</connectorid>
+      <description>Points to the SAP tables with delivery data</description>
       <iscustomizable>1</iscustomizable>
       <statecode>0</statecode>
       <statuscode>1</statuscode>

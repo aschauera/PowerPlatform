@@ -1,0 +1,1 @@
+rkn_redflags: =If(Or(cr10d_cleanfloor = global_cr10d_truckcheckchoice.'155290002',cr10d_dryfloor=global_cr10d_truckcheckchoice.'155290002',cr10d_noodor=global_cr10d_truckcheckchoice.'155290002',cr10d_intacttrucktarpaulin=global_cr10d_truckcheckchoice.'155290002'),1,0)

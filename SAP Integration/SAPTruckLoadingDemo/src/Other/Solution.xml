@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.23062.176" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.23063.164" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>SAP_RKN_DEMO</UniqueName>
     <LocalizedNames>
@@ -79,9 +79,14 @@
     </Publisher>
     <RootComponents>
       <RootComponent type="1" schemaName="cr10d_truckchecklist" behavior="0" />
+      <RootComponent type="29" id="{1c88c234-5225-ee11-9965-000d3ad98d63}" behavior="0" />
       <RootComponent type="29" id="{1f9562f1-fe9a-ed11-aad1-000d3adecfce}" behavior="0" />
       <RootComponent type="29" id="{bdb708d3-d64b-ed11-bba2-000d3adecfce}" behavior="0" />
       <RootComponent type="300" schemaName="cr01c_truckcheck_7e43b" behavior="0" />
+      <RootComponent type="300" schemaName="rkn_truckcheckmobile_9243a" behavior="0" />
+      <RootComponent type="431" schemaName="cr10d_truckchecklist rkn_imageinterior" behavior="0" />
+      <RootComponent type="432" schemaName="cr10d_truckchecklist" behavior="0" />
+      <RootComponent type="61" schemaName="rkn_trucklogocolorful" behavior="0" />
       <RootComponent type="9" schemaName="cr10d_truckcheckchoice" behavior="0" />
     </RootComponents>
     <MissingDependencies />
