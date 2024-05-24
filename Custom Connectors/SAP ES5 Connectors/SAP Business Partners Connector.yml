@@ -1,0 +1,195 @@
+swagger: '2.0'
+info: {version: 1.0.0, title: SAP Demo Gateway, description: SAP Business partner
+    data}
+host: sapes5.sapdevcenter.com
+basePath: /
+schemes: [https]
+consumes: []
+produces: [application/json]
+paths:
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/BusinessPartnerSet:
+    get:
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        __metadata:
+                          type: object
+                          properties:
+                            id: {type: string, description: id}
+                            uri: {type: string, description: uri}
+                            type: {type: string, description: type}
+                            etag: {type: string, description: etag}
+                          description: __metadata
+                        Address:
+                          type: object
+                          properties:
+                            __metadata:
+                              type: object
+                              properties:
+                                type: {type: string, description: type}
+                              description: __metadata
+                            City: {type: string, description: City}
+                            PostalCode: {type: string, description: PostalCode}
+                            Street: {type: string, description: Street}
+                            Building: {type: string, description: Building}
+                            Country: {type: string, description: Country}
+                            AddressType: {type: string, description: AddressType}
+                          description: Address
+                        BusinessPartnerID: {type: string, description: BusinessPartnerID}
+                        CompanyName: {type: string, description: CompanyName}
+                        WebAddress: {type: string, description: WebAddress}
+                        EmailAddress: {type: string, description: EmailAddress}
+                        PhoneNumber: {type: string, description: PhoneNumber}
+                        FaxNumber: {type: string, description: FaxNumber}
+                        LegalForm: {type: string, description: LegalForm}
+                        CurrencyCode: {type: string, description: CurrencyCode}
+                        BusinessPartnerRole: {type: string, description: BusinessPartnerRole}
+                        CreatedAt: {type: string, description: CreatedAt}
+                        ChangedAt: {type: string, description: ChangedAt}
+                        ToSalesOrders:
+                          type: object
+                          properties:
+                            __deferred:
+                              type: object
+                              properties:
+                                uri: {type: string, description: uri}
+                              description: __deferred
+                          description: ToSalesOrders
+                        ToContacts:
+                          type: object
+                          properties:
+                            __deferred:
+                              type: object
+                              properties:
+                                uri: {type: string, description: uri}
+                              description: __deferred
+                          description: ToContacts
+                        ToProducts:
+                          type: object
+                          properties:
+                            __deferred:
+                              type: object
+                              properties:
+                                uri: {type: string, description: uri}
+                              description: __deferred
+                          description: ToProducts
+                    description: results
+                description: d
+      summary: List customers
+      description: List all customers limited by top
+      operationId: ListCustomers
+      x-ms-visibility: important
+      parameters:
+      - {name: $top, in: query, required: true, type: string, x-ms-visibility: important}
+      - {name: $format, in: query, required: false, type: string}
+    post:
+      summary: Update customer
+      description: Update customer
+      operationId: UpdateCustomer
+      parameters:
+      - name: body
+        in: body
+        schema: {type: string}
+        required: true
+      responses:
+        default:
+          description: default
+          schema: {}
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/BusinessPartnerSet('{CustomerId}'):
+    get:
+      summary: Get customer
+      description: Get customer
+      operationId: GetCustomer
+      parameters:
+      - {name: CustomerId, in: path, required: true, type: string}
+      - {name: $format, in: query, required: false, type: string}
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  __metadata:
+                    type: object
+                    properties:
+                      id: {type: string, description: id}
+                      uri: {type: string, description: uri}
+                      type: {type: string, description: type}
+                      etag: {type: string, description: etag}
+                    description: __metadata
+                  Address:
+                    type: object
+                    properties:
+                      __metadata:
+                        type: object
+                        properties:
+                          type: {type: string, description: type}
+                        description: __metadata
+                      City: {type: string, description: City}
+                      PostalCode: {type: string, description: PostalCode}
+                      Street: {type: string, description: Street}
+                      Building: {type: string, description: Building}
+                      Country: {type: string, description: Country}
+                      AddressType: {type: string, description: AddressType}
+                    description: Address
+                  BusinessPartnerID: {type: string, description: BusinessPartnerID}
+                  CompanyName: {type: string, description: CompanyName}
+                  WebAddress: {type: string, description: WebAddress}
+                  EmailAddress: {type: string, description: EmailAddress}
+                  PhoneNumber: {type: string, description: PhoneNumber}
+                  FaxNumber: {type: string, description: FaxNumber}
+                  LegalForm: {type: string, description: LegalForm}
+                  CurrencyCode: {type: string, description: CurrencyCode}
+                  BusinessPartnerRole: {type: string, description: BusinessPartnerRole}
+                  CreatedAt: {type: string, description: CreatedAt}
+                  ChangedAt: {type: string, description: ChangedAt}
+                  ToSalesOrders:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToSalesOrders
+                  ToContacts:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToContacts
+                  ToProducts:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToProducts
+                description: d
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  basic_auth: {type: basic}
+security:
+- basic_auth: []
+tags: []

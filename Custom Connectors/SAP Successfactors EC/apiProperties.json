@@ -1,0 +1,52 @@
+{
+  "properties": {
+    "connectionParameters": {
+      "api_key": {
+        "type": "securestring",
+        "uiDefinition": {
+          "displayName": "API Key",
+          "description": "The API Key for this api",
+          "tooltip": "Provide your API Key",
+          "constraints": {
+            "tabIndex": 2,
+            "clearText": false,
+            "required": "true"
+          }
+        }
+      }
+    },
+    "iconBrandColor": "#007ee5",
+    "capabilities": [],
+    "scriptOperations": [],
+    "publisher": "",
+    "stackOwner": "",
+    "policyTemplateInstances": [
+      {
+        "templateId": "setproperty",
+        "title": "Set period model nav property",
+        "parameters": {
+          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body().periodModelNav.__deferred",
+          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "uri",
+          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "/WorkSchedule(\u0027{@body().externalCode}\u0027)/periodModelNav",
+          "x-ms-apimTemplate-policySection": "Request",
+          "x-ms-apimTemplate-operationName": [
+            "CreateWorkSchedule"
+          ]
+        }
+      },
+      {
+        "templateId": "setproperty",
+        "title": "Set work schedule external name",
+        "parameters": {
+          "x-ms-apimTemplateParameter.newPropertyParentPathTemplate": "@body()",
+          "x-ms-apimTemplateParameter.newPropertySubPathTemplate": "externalName_defaultValue",
+          "x-ms-apimTemplateParameter.propertyValuePathTemplate": "{@body().externalCode}",
+          "x-ms-apimTemplate-policySection": "Request",
+          "x-ms-apimTemplate-operationName": [
+            "CreateWorkSchedule"
+          ]
+        }
+      }
+    ]
+  }
+}

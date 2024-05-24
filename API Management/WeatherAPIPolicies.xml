@@ -1,0 +1,42 @@
+<policies>
+    <inbound>
+        <base />
+        <!-- Extract token from Authorization header parameter -->
+        <set-variable name="addressParameter" value="@(context.Request.Url.Query.GetValueOrDefault("address", ""))" />
+        <set-variable name="bingKey" value="{{BingMapsKey}}" />
+        <set-variable name="bingMapsUrl" value="{{BingMapsApiUrl}}" />
+        <!-- Send request to BING Maps to get lat/lon -->
+        <send-request mode="new" response-variable-name="BingResponse" timeout="20" ignore-error="true">
+            <set-url>@(context.Variables["bingMapsUrl"] + "?q=" +  context.Variables["addressParameter"] + "&amp;key=" + context.Variables["bingKey"])</set-url>
+            <set-method>GET</set-method>
+        </send-request>
+        <!-- Extract coordinates -->
+        <set-variable name="LatLonJSON" value="@(((IResponse)context.Variables["BingResponse"]).Body.As<JObject>())" />
+        <set-variable name="Lat" value="@(((JObject)context.Variables["LatLonJSON"]).SelectToken("$.resourceSets[0].resources[0].geocodePoints[0].coordinates").First()) " />
+        <set-variable name="Lon" value="@(((JObject)context.Variables["LatLonJSON"]).SelectToken("$.resourceSets[0].resources[0].geocodePoints[0].coordinates").Last()) " />
+        <!-- remove /current path from frontend for backend call -->
+        <rewrite-uri template="/" copy-unmatched-params="false" />
+        <!-- remove address parameter, add lat and lon and appid -->
+        <set-query-parameter name="address" exists-action="delete" />
+        <set-query-parameter name="lat" exists-action="override">
+            <value>@(((JValue)context.Variables["Lat"]).ToString())</value>
+        </set-query-parameter>
+        <set-query-parameter name="lon" exists-action="override">
+            <value>@(((JValue)context.Variables["Lon"]).ToString())</value>
+        </set-query-parameter>
+        <set-query-parameter name="appid" exists-action="override">
+            <value>{{OpenWeatherApiKey}}</value>
+        </set-query-parameter>
+        <!-- set backend to openweather-->
+        <set-backend-service base-url="https://api.openweathermap.org/data/2.5/weather" />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <base />
+    </on-error>
+</policies>

@@ -1,0 +1,42 @@
+openapi: 3.0.1
+info:
+  title: Weather
+  description: ''
+  version: '1.0'
+servers:
+  - url: https://tsdemoapigateway.azure-api.net/weather
+paths:
+  /current:
+    get:
+      tags:
+        - weather
+      summary: Current weather for address
+      description: 'Gets the current weather for a given address, which is geocoded by BingMaps'
+      operationId: current-weather-for-address
+      parameters:
+        - name: address
+          in: query
+          description: Street address
+          required: true
+          schema:
+            type: ''
+            properties:
+              address:
+                type: string
+                description: Address to geocode and fetch current weather
+      responses:
+        '200':
+          description: 'null'
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]

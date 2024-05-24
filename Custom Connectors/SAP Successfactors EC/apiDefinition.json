@@ -1,0 +1,3571 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "SAP SucessFactors EC",
+    "description": "SAP SucessFactors EC connector for employment and job data"
+  },
+  "host": "sandbox.api.sap.com",
+  "basePath": "/successfactors/odata/v2",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/EmpEmployment": {
+      "get": {
+        "summary": "List employments",
+        "description": "List employments from SF EC",
+        "operationId": "ListEmployments",
+        "parameters": [
+          {
+            "name": "$top",
+            "default": "10",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "description": "Accept"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "d": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "StockEndDate": {
+                            "type": "string",
+                            "description": "StockEndDate"
+                          },
+                          "assignmentClass": {
+                            "type": "string",
+                            "description": "assignmentClass"
+                          },
+                          "benefitsEligibilityStartDate": {
+                            "type": "string",
+                            "description": "benefitsEligibilityStartDate"
+                          },
+                          "benefitsEndDate": {
+                            "type": "string",
+                            "description": "benefitsEndDate"
+                          },
+                          "bonusPayExpirationDate": {
+                            "type": "string",
+                            "description": "bonusPayExpirationDate"
+                          },
+                          "createdBy": {
+                            "type": "string",
+                            "description": "createdBy"
+                          },
+                          "createdDateTime": {
+                            "type": "string",
+                            "description": "createdDateTime"
+                          },
+                          "createdOn": {
+                            "type": "string",
+                            "description": "createdOn"
+                          },
+                          "eligibleForSalContinuation": {
+                            "type": "string",
+                            "description": "eligibleForSalContinuation"
+                          },
+                          "eligibleForStock": {
+                            "type": "string",
+                            "description": "eligibleForStock"
+                          },
+                          "employeeFirstEmployment": {
+                            "type": "string",
+                            "description": "employeeFirstEmployment"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "description": "endDate"
+                          },
+                          "firstDateWorked": {
+                            "type": "string",
+                            "description": "firstDateWorked"
+                          },
+                          "includeAllRecords": {
+                            "type": "string",
+                            "description": "includeAllRecords"
+                          },
+                          "initialOptionGrant": {
+                            "type": "string",
+                            "description": "initialOptionGrant"
+                          },
+                          "initialStockGrant": {
+                            "type": "string",
+                            "description": "initialStockGrant"
+                          },
+                          "isContingentWorker": {
+                            "type": "string",
+                            "description": "isContingentWorker"
+                          },
+                          "isECRecord": {
+                            "type": "string",
+                            "description": "isECRecord"
+                          },
+                          "jobNumber": {
+                            "type": "string",
+                            "description": "jobNumber"
+                          },
+                          "lastDateWorked": {
+                            "type": "string",
+                            "description": "lastDateWorked"
+                          },
+                          "lastModifiedBy": {
+                            "type": "string",
+                            "description": "lastModifiedBy"
+                          },
+                          "lastModifiedDateTime": {
+                            "type": "string",
+                            "description": "lastModifiedDateTime"
+                          },
+                          "lastModifiedOn": {
+                            "type": "string",
+                            "description": "lastModifiedOn"
+                          },
+                          "okToRehire": {
+                            "type": "string",
+                            "description": "okToRehire"
+                          },
+                          "originalStartDate": {
+                            "type": "string",
+                            "description": "originalStartDate"
+                          },
+                          "payrollEndDate": {
+                            "type": "string",
+                            "description": "payrollEndDate"
+                          },
+                          "personIdExternal": {
+                            "type": "string",
+                            "description": "personIdExternal"
+                          },
+                          "prevEmployeeId": {
+                            "type": "string",
+                            "description": "prevEmployeeId"
+                          },
+                          "professionalServiceDate": {
+                            "type": "string",
+                            "description": "professionalServiceDate"
+                          },
+                          "regretTermination": {
+                            "type": "string",
+                            "description": "regretTermination"
+                          },
+                          "salaryEndDate": {
+                            "type": "string",
+                            "description": "salaryEndDate"
+                          },
+                          "seniorityDate": {
+                            "type": "string",
+                            "description": "seniorityDate"
+                          },
+                          "serviceDate": {
+                            "type": "string",
+                            "description": "serviceDate"
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "description": "startDate"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "description": "userId"
+                          },
+                          "empBeneficiaryNav": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "string",
+                                "description": "value"
+                              }
+                            },
+                            "description": "empBeneficiaryNav"
+                          },
+                          "empJobRelationshipNav": {
+                            "type": "object",
+                            "properties": {
+                              "results": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "createdBy": {
+                                      "type": "string",
+                                      "description": "createdBy"
+                                    },
+                                    "createdDateTime": {
+                                      "type": "string",
+                                      "description": "createdDateTime"
+                                    },
+                                    "createdOn": {
+                                      "type": "string",
+                                      "description": "createdOn"
+                                    },
+                                    "endDate": {
+                                      "type": "string",
+                                      "description": "endDate"
+                                    },
+                                    "lastModifiedBy": {
+                                      "type": "string",
+                                      "description": "lastModifiedBy"
+                                    },
+                                    "lastModifiedDateTime": {
+                                      "type": "string",
+                                      "description": "lastModifiedDateTime"
+                                    },
+                                    "lastModifiedOn": {
+                                      "type": "string",
+                                      "description": "lastModifiedOn"
+                                    },
+                                    "operation": {
+                                      "type": "string",
+                                      "description": "operation"
+                                    },
+                                    "relUserId": {
+                                      "type": "string",
+                                      "description": "relUserId"
+                                    },
+                                    "relationshipType": {
+                                      "type": "string",
+                                      "description": "relationshipType"
+                                    },
+                                    "startDate": {
+                                      "type": "string",
+                                      "description": "startDate"
+                                    },
+                                    "userId": {
+                                      "type": "string",
+                                      "description": "userId"
+                                    },
+                                    "employmentNav": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string",
+                                          "description": "value"
+                                        }
+                                      },
+                                      "description": "employmentNav"
+                                    },
+                                    "relEmploymentNav": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string",
+                                          "description": "value"
+                                        }
+                                      },
+                                      "description": "relEmploymentNav"
+                                    }
+                                  }
+                                },
+                                "description": "results"
+                              }
+                            },
+                            "description": "empJobRelationshipNav"
+                          },
+                          "empPensionPayoutNav": {
+                            "type": "object",
+                            "properties": {
+                              "createdBy": {
+                                "type": "string",
+                                "description": "createdBy"
+                              },
+                              "createdDateTime": {
+                                "type": "string",
+                                "description": "createdDateTime"
+                              },
+                              "createdOn": {
+                                "type": "string",
+                                "description": "createdOn"
+                              },
+                              "employmentNav": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "value"
+                                  }
+                                },
+                                "description": "employmentNav"
+                              },
+                              "endDate": {
+                                "type": "string",
+                                "description": "endDate"
+                              },
+                              "lastModifiedBy": {
+                                "type": "string",
+                                "description": "lastModifiedBy"
+                              },
+                              "lastModifiedDateTime": {
+                                "type": "string",
+                                "description": "lastModifiedDateTime"
+                              },
+                              "lastModifiedOn": {
+                                "type": "string",
+                                "description": "lastModifiedOn"
+                              },
+                              "payrollEndDate": {
+                                "type": "string",
+                                "description": "payrollEndDate"
+                              },
+                              "personIdExternal": {
+                                "type": "string",
+                                "description": "personIdExternal"
+                              },
+                              "plannedEndDate": {
+                                "type": "string",
+                                "description": "plannedEndDate"
+                              },
+                              "startDate": {
+                                "type": "string",
+                                "description": "startDate"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "userId"
+                              }
+                            },
+                            "description": "empPensionPayoutNav"
+                          },
+                          "empWorkPermitNav": {
+                            "type": "object",
+                            "properties": {
+                              "results": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "attachment": {
+                                      "type": "string",
+                                      "description": "attachment"
+                                    },
+                                    "attachmentFileName": {
+                                      "type": "string",
+                                      "description": "attachmentFileName"
+                                    },
+                                    "attachmentFileSize": {
+                                      "type": "string",
+                                      "description": "attachmentFileSize"
+                                    },
+                                    "attachmentFileType": {
+                                      "type": "string",
+                                      "description": "attachmentFileType"
+                                    },
+                                    "attachmentId": {
+                                      "type": "string",
+                                      "description": "attachmentId"
+                                    },
+                                    "attachmentMimeType": {
+                                      "type": "string",
+                                      "description": "attachmentMimeType"
+                                    },
+                                    "attachmentStatus": {
+                                      "type": "string",
+                                      "description": "attachmentStatus"
+                                    },
+                                    "country": {
+                                      "type": "string",
+                                      "description": "country"
+                                    },
+                                    "createdBy": {
+                                      "type": "string",
+                                      "description": "createdBy"
+                                    },
+                                    "createdDateTime": {
+                                      "type": "string",
+                                      "description": "createdDateTime"
+                                    },
+                                    "createdOn": {
+                                      "type": "string",
+                                      "description": "createdOn"
+                                    },
+                                    "documentNumber": {
+                                      "type": "string",
+                                      "description": "documentNumber"
+                                    },
+                                    "documentTitle": {
+                                      "type": "string",
+                                      "description": "documentTitle"
+                                    },
+                                    "documentType": {
+                                      "type": "string",
+                                      "description": "documentType"
+                                    },
+                                    "expirationDate": {
+                                      "type": "string",
+                                      "description": "expirationDate"
+                                    },
+                                    "isValidated": {
+                                      "type": "string",
+                                      "description": "isValidated"
+                                    },
+                                    "issueDate": {
+                                      "type": "string",
+                                      "description": "issueDate"
+                                    },
+                                    "issuePlace": {
+                                      "type": "string",
+                                      "description": "issuePlace"
+                                    },
+                                    "issuingAuthority": {
+                                      "type": "string",
+                                      "description": "issuingAuthority"
+                                    },
+                                    "lastModifiedBy": {
+                                      "type": "string",
+                                      "description": "lastModifiedBy"
+                                    },
+                                    "lastModifiedDateTime": {
+                                      "type": "string",
+                                      "description": "lastModifiedDateTime"
+                                    },
+                                    "lastModifiedOn": {
+                                      "type": "string",
+                                      "description": "lastModifiedOn"
+                                    },
+                                    "notes": {
+                                      "type": "string",
+                                      "description": "notes"
+                                    },
+                                    "userId": {
+                                      "type": "string",
+                                      "description": "userId"
+                                    },
+                                    "employmentNav": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string",
+                                          "description": "value"
+                                        }
+                                      },
+                                      "description": "employmentNav"
+                                    }
+                                  }
+                                },
+                                "description": "results"
+                              }
+                            },
+                            "description": "empWorkPermitNav"
+                          },
+                          "jobInfoNav": {
+                            "type": "object",
+                            "properties": {
+                              "results": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "assedicCertInitialStateNum": {
+                                      "type": "string",
+                                      "description": "assedicCertInitialStateNum"
+                                    },
+                                    "assedicCertObjectNum": {
+                                      "type": "string",
+                                      "description": "assedicCertObjectNum"
+                                    },
+                                    "businessUnit": {
+                                      "type": "string",
+                                      "description": "businessUnit"
+                                    },
+                                    "calcMethodIndicator": {
+                                      "type": "string",
+                                      "description": "calcMethodIndicator"
+                                    },
+                                    "commitmentIndicator": {
+                                      "type": "string",
+                                      "description": "commitmentIndicator"
+                                    },
+                                    "company": {
+                                      "type": "string",
+                                      "description": "company"
+                                    },
+                                    "contractReferenceForAed": {
+                                      "type": "string",
+                                      "description": "contractReferenceForAed"
+                                    },
+                                    "contractType": {
+                                      "type": "string",
+                                      "description": "contractType"
+                                    },
+                                    "costCenter": {
+                                      "type": "string",
+                                      "description": "costCenter"
+                                    },
+                                    "countryOfCompany": {
+                                      "type": "string",
+                                      "description": "countryOfCompany"
+                                    },
+                                    "createdBy": {
+                                      "type": "string",
+                                      "description": "createdBy"
+                                    },
+                                    "createdDateTime": {
+                                      "type": "string",
+                                      "description": "createdDateTime"
+                                    },
+                                    "createdOn": {
+                                      "type": "string",
+                                      "description": "createdOn"
+                                    },
+                                    "defaultOvertimeCompensationVariant": {
+                                      "type": "string",
+                                      "description": "defaultOvertimeCompensationVariant"
+                                    },
+                                    "department": {
+                                      "type": "string",
+                                      "description": "department"
+                                    },
+                                    "division": {
+                                      "type": "string",
+                                      "description": "division"
+                                    },
+                                    "eeo1JobCategory": {
+                                      "type": "string",
+                                      "description": "eeo1JobCategory"
+                                    },
+                                    "eeo4JobCategory": {
+                                      "type": "string",
+                                      "description": "eeo4JobCategory"
+                                    },
+                                    "eeo5JobCategory": {
+                                      "type": "string",
+                                      "description": "eeo5JobCategory"
+                                    },
+                                    "eeo6JobCategory": {
+                                      "type": "string",
+                                      "description": "eeo6JobCategory"
+                                    },
+                                    "eeoClass": {
+                                      "type": "string",
+                                      "description": "eeoClass"
+                                    },
+                                    "electoralCollegeForWorkersRepresentatives": {
+                                      "type": "string",
+                                      "description": "electoralCollegeForWorkersRepresentatives"
+                                    },
+                                    "electoralCollegeForWorksCouncil": {
+                                      "type": "string",
+                                      "description": "electoralCollegeForWorksCouncil"
+                                    },
+                                    "empRelationship": {
+                                      "type": "string",
+                                      "description": "empRelationship"
+                                    },
+                                    "emplStatus": {
+                                      "type": "string",
+                                      "description": "emplStatus"
+                                    },
+                                    "employeeClass": {
+                                      "type": "string",
+                                      "description": "employeeClass"
+                                    },
+                                    "employeeWorkgroupMembership": {
+                                      "type": "string",
+                                      "description": "employeeWorkgroupMembership"
+                                    },
+                                    "employmentType": {
+                                      "type": "string",
+                                      "description": "employmentType"
+                                    },
+                                    "endDate": {
+                                      "type": "string",
+                                      "description": "endDate"
+                                    },
+                                    "event": {
+                                      "type": "string",
+                                      "description": "event"
+                                    },
+                                    "eventReason": {
+                                      "type": "string",
+                                      "description": "eventReason"
+                                    },
+                                    "exclExecutiveSector": {
+                                      "type": "string",
+                                      "description": "exclExecutiveSector"
+                                    },
+                                    "expectedReturnDate": {
+                                      "type": "string",
+                                      "description": "expectedReturnDate"
+                                    },
+                                    "familyRelationshipWithEmployer": {
+                                      "type": "string",
+                                      "description": "familyRelationshipWithEmployer"
+                                    },
+                                    "fgtsDate": {
+                                      "type": "string",
+                                      "description": "fgtsDate"
+                                    },
+                                    "fgtsOptant": {
+                                      "type": "string",
+                                      "description": "fgtsOptant"
+                                    },
+                                    "fgtsPercent": {
+                                      "type": "string",
+                                      "description": "fgtsPercent"
+                                    },
+                                    "flsaStatus": {
+                                      "type": "string",
+                                      "description": "flsaStatus"
+                                    },
+                                    "fte": {
+                                      "type": "string",
+                                      "description": "fte"
+                                    },
+                                    "harmfulAgentExposure": {
+                                      "type": "string",
+                                      "description": "harmfulAgentExposure"
+                                    },
+                                    "hazard": {
+                                      "type": "string",
+                                      "description": "hazard"
+                                    },
+                                    "healthRisk": {
+                                      "type": "string",
+                                      "description": "healthRisk"
+                                    },
+                                    "holidayCalendarCode": {
+                                      "type": "string",
+                                      "description": "holidayCalendarCode"
+                                    },
+                                    "isCompetitionClauseActive": {
+                                      "type": "string",
+                                      "description": "isCompetitionClauseActive"
+                                    },
+                                    "isFulltimeEmployee": {
+                                      "type": "string",
+                                      "description": "isFulltimeEmployee"
+                                    },
+                                    "isSideLineJobAllowed": {
+                                      "type": "string",
+                                      "description": "isSideLineJobAllowed"
+                                    },
+                                    "jobCode": {
+                                      "type": "string",
+                                      "description": "jobCode"
+                                    },
+                                    "jobTitle": {
+                                      "type": "string",
+                                      "description": "jobTitle"
+                                    },
+                                    "laborProtection": {
+                                      "type": "string",
+                                      "description": "laborProtection"
+                                    },
+                                    "lastModifiedBy": {
+                                      "type": "string",
+                                      "description": "lastModifiedBy"
+                                    },
+                                    "lastModifiedDateTime": {
+                                      "type": "string",
+                                      "description": "lastModifiedDateTime"
+                                    },
+                                    "lastModifiedOn": {
+                                      "type": "string",
+                                      "description": "lastModifiedOn"
+                                    },
+                                    "location": {
+                                      "type": "string",
+                                      "description": "location"
+                                    },
+                                    "managerId": {
+                                      "type": "string",
+                                      "description": "managerId"
+                                    },
+                                    "mandatoryWorkBreakRecord": {
+                                      "type": "string",
+                                      "description": "mandatoryWorkBreakRecord"
+                                    },
+                                    "municipalInseeCode": {
+                                      "type": "string",
+                                      "description": "municipalInseeCode"
+                                    },
+                                    "notes": {
+                                      "type": "string",
+                                      "description": "notes"
+                                    },
+                                    "operation": {
+                                      "type": "string",
+                                      "description": "operation"
+                                    },
+                                    "payGrade": {
+                                      "type": "string",
+                                      "description": "payGrade"
+                                    },
+                                    "payScaleArea": {
+                                      "type": "string",
+                                      "description": "payScaleArea"
+                                    },
+                                    "payScaleGroup": {
+                                      "type": "string",
+                                      "description": "payScaleGroup"
+                                    },
+                                    "payScaleLevel": {
+                                      "type": "string",
+                                      "description": "payScaleLevel"
+                                    },
+                                    "payScaleType": {
+                                      "type": "string",
+                                      "description": "payScaleType"
+                                    },
+                                    "pcfm": {
+                                      "type": "string",
+                                      "description": "pcfm"
+                                    },
+                                    "pensionProtection": {
+                                      "type": "string",
+                                      "description": "pensionProtection"
+                                    },
+                                    "permitIndicator": {
+                                      "type": "string",
+                                      "description": "permitIndicator"
+                                    },
+                                    "position": {
+                                      "type": "string",
+                                      "description": "position"
+                                    },
+                                    "positionEntryDate": {
+                                      "type": "string",
+                                      "description": "positionEntryDate"
+                                    },
+                                    "probationPeriodEndDate": {
+                                      "type": "string",
+                                      "description": "probationPeriodEndDate"
+                                    },
+                                    "regularTemp": {
+                                      "type": "string",
+                                      "description": "regularTemp"
+                                    },
+                                    "residentVote": {
+                                      "type": "string",
+                                      "description": "residentVote"
+                                    },
+                                    "retired": {
+                                      "type": "string",
+                                      "description": "retired"
+                                    },
+                                    "seqNumber": {
+                                      "type": "string",
+                                      "description": "seqNumber"
+                                    },
+                                    "sickPaySupplement": {
+                                      "type": "string",
+                                      "description": "sickPaySupplement"
+                                    },
+                                    "standardHours": {
+                                      "type": "string",
+                                      "description": "standardHours"
+                                    },
+                                    "startDate": {
+                                      "type": "string",
+                                      "description": "startDate"
+                                    },
+                                    "teachersPension": {
+                                      "type": "string",
+                                      "description": "teachersPension"
+                                    },
+                                    "timeRecordingAdmissibilityCode": {
+                                      "type": "string",
+                                      "description": "timeRecordingAdmissibilityCode"
+                                    },
+                                    "timeRecordingProfileCode": {
+                                      "type": "string",
+                                      "description": "timeRecordingProfileCode"
+                                    },
+                                    "timeRecordingVariant": {
+                                      "type": "string",
+                                      "description": "timeRecordingVariant"
+                                    },
+                                    "timeTypeProfileCode": {
+                                      "type": "string",
+                                      "description": "timeTypeProfileCode"
+                                    },
+                                    "timezone": {
+                                      "type": "string",
+                                      "description": "timezone"
+                                    },
+                                    "travelDistance": {
+                                      "type": "string",
+                                      "description": "travelDistance"
+                                    },
+                                    "tupeOrgNumber": {
+                                      "type": "string",
+                                      "description": "tupeOrgNumber"
+                                    },
+                                    "userId": {
+                                      "type": "string",
+                                      "description": "userId"
+                                    },
+                                    "workLocation": {
+                                      "type": "string",
+                                      "description": "workLocation"
+                                    },
+                                    "workerCategory": {
+                                      "type": "string",
+                                      "description": "workerCategory"
+                                    },
+                                    "workingDaysPerWeek": {
+                                      "type": "string",
+                                      "description": "workingDaysPerWeek"
+                                    },
+                                    "workingTimeDirective": {
+                                      "type": "string",
+                                      "description": "workingTimeDirective"
+                                    },
+                                    "workscheduleCode": {
+                                      "type": "string",
+                                      "description": "workscheduleCode"
+                                    },
+                                    "wtdHoursLimit": {
+                                      "type": "string",
+                                      "description": "wtdHoursLimit"
+                                    },
+                                    "employmentNav": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string",
+                                          "description": "value"
+                                        }
+                                      },
+                                      "description": "employmentNav"
+                                    },
+                                    "managerEmploymentNav": {
+                                      "type": "object",
+                                      "properties": {
+                                        "value": {
+                                          "type": "string",
+                                          "description": "value"
+                                        }
+                                      },
+                                      "description": "managerEmploymentNav"
+                                    }
+                                  }
+                                },
+                                "description": "results"
+                              }
+                            },
+                            "description": "jobInfoNav"
+                          }
+                        }
+                      },
+                      "description": "results"
+                    }
+                  },
+                  "description": "d"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message"
+                    },
+                    "target": {
+                      "type": "string",
+                      "description": "target"
+                    },
+                    "details": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "code"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "message"
+                          },
+                          "target": {
+                            "type": "string",
+                            "description": "target"
+                          }
+                        }
+                      },
+                      "description": "details"
+                    },
+                    "innererror": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "innererror"
+                    }
+                  },
+                  "description": "error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/EmpEmployment(personIdExternal=\u0027%7B%7BexternalUserId%7D%7D\u0027,userId=\u0027%7B%7BuserId%7D%7D\u0027)": {
+      "get": {
+        "summary": "Get employment",
+        "description": "Get a single employment record",
+        "operationId": "GetEmployment",
+        "parameters": [
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "description": "Accept"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "d": {
+                  "type": "object",
+                  "properties": {
+                    "StockEndDate": {
+                      "type": "string",
+                      "description": "StockEndDate"
+                    },
+                    "assignmentClass": {
+                      "type": "string",
+                      "description": "assignmentClass"
+                    },
+                    "benefitsEligibilityStartDate": {
+                      "type": "string",
+                      "description": "benefitsEligibilityStartDate"
+                    },
+                    "benefitsEndDate": {
+                      "type": "string",
+                      "description": "benefitsEndDate"
+                    },
+                    "bonusPayExpirationDate": {
+                      "type": "string",
+                      "description": "bonusPayExpirationDate"
+                    },
+                    "createdBy": {
+                      "type": "string",
+                      "description": "createdBy"
+                    },
+                    "createdDateTime": {
+                      "type": "string",
+                      "description": "createdDateTime"
+                    },
+                    "createdOn": {
+                      "type": "string",
+                      "description": "createdOn"
+                    },
+                    "eligibleForSalContinuation": {
+                      "type": "string",
+                      "description": "eligibleForSalContinuation"
+                    },
+                    "eligibleForStock": {
+                      "type": "string",
+                      "description": "eligibleForStock"
+                    },
+                    "employeeFirstEmployment": {
+                      "type": "string",
+                      "description": "employeeFirstEmployment"
+                    },
+                    "endDate": {
+                      "type": "string",
+                      "description": "endDate"
+                    },
+                    "firstDateWorked": {
+                      "type": "string",
+                      "description": "firstDateWorked"
+                    },
+                    "includeAllRecords": {
+                      "type": "string",
+                      "description": "includeAllRecords"
+                    },
+                    "initialOptionGrant": {
+                      "type": "string",
+                      "description": "initialOptionGrant"
+                    },
+                    "initialStockGrant": {
+                      "type": "string",
+                      "description": "initialStockGrant"
+                    },
+                    "isContingentWorker": {
+                      "type": "string",
+                      "description": "isContingentWorker"
+                    },
+                    "isECRecord": {
+                      "type": "string",
+                      "description": "isECRecord"
+                    },
+                    "jobNumber": {
+                      "type": "string",
+                      "description": "jobNumber"
+                    },
+                    "lastDateWorked": {
+                      "type": "string",
+                      "description": "lastDateWorked"
+                    },
+                    "lastModifiedBy": {
+                      "type": "string",
+                      "description": "lastModifiedBy"
+                    },
+                    "lastModifiedDateTime": {
+                      "type": "string",
+                      "description": "lastModifiedDateTime"
+                    },
+                    "lastModifiedOn": {
+                      "type": "string",
+                      "description": "lastModifiedOn"
+                    },
+                    "okToRehire": {
+                      "type": "string",
+                      "description": "okToRehire"
+                    },
+                    "originalStartDate": {
+                      "type": "string",
+                      "description": "originalStartDate"
+                    },
+                    "payrollEndDate": {
+                      "type": "string",
+                      "description": "payrollEndDate"
+                    },
+                    "personIdExternal": {
+                      "type": "string",
+                      "description": "personIdExternal"
+                    },
+                    "prevEmployeeId": {
+                      "type": "string",
+                      "description": "prevEmployeeId"
+                    },
+                    "professionalServiceDate": {
+                      "type": "string",
+                      "description": "professionalServiceDate"
+                    },
+                    "regretTermination": {
+                      "type": "string",
+                      "description": "regretTermination"
+                    },
+                    "salaryEndDate": {
+                      "type": "string",
+                      "description": "salaryEndDate"
+                    },
+                    "seniorityDate": {
+                      "type": "string",
+                      "description": "seniorityDate"
+                    },
+                    "serviceDate": {
+                      "type": "string",
+                      "description": "serviceDate"
+                    },
+                    "startDate": {
+                      "type": "string",
+                      "description": "startDate"
+                    },
+                    "userId": {
+                      "type": "string",
+                      "description": "userId"
+                    },
+                    "empBeneficiaryNav": {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "string",
+                          "description": "value"
+                        }
+                      },
+                      "description": "empBeneficiaryNav"
+                    },
+                    "empJobRelationshipNav": {
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "createdBy": {
+                                "type": "string",
+                                "description": "createdBy"
+                              },
+                              "createdDateTime": {
+                                "type": "string",
+                                "description": "createdDateTime"
+                              },
+                              "createdOn": {
+                                "type": "string",
+                                "description": "createdOn"
+                              },
+                              "endDate": {
+                                "type": "string",
+                                "description": "endDate"
+                              },
+                              "lastModifiedBy": {
+                                "type": "string",
+                                "description": "lastModifiedBy"
+                              },
+                              "lastModifiedDateTime": {
+                                "type": "string",
+                                "description": "lastModifiedDateTime"
+                              },
+                              "lastModifiedOn": {
+                                "type": "string",
+                                "description": "lastModifiedOn"
+                              },
+                              "operation": {
+                                "type": "string",
+                                "description": "operation"
+                              },
+                              "relUserId": {
+                                "type": "string",
+                                "description": "relUserId"
+                              },
+                              "relationshipType": {
+                                "type": "string",
+                                "description": "relationshipType"
+                              },
+                              "startDate": {
+                                "type": "string",
+                                "description": "startDate"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "userId"
+                              },
+                              "employmentNav": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "value"
+                                  }
+                                },
+                                "description": "employmentNav"
+                              },
+                              "relEmploymentNav": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "value"
+                                  }
+                                },
+                                "description": "relEmploymentNav"
+                              }
+                            }
+                          },
+                          "description": "results"
+                        }
+                      },
+                      "description": "empJobRelationshipNav"
+                    },
+                    "empPensionPayoutNav": {
+                      "type": "object",
+                      "properties": {
+                        "createdBy": {
+                          "type": "string",
+                          "description": "createdBy"
+                        },
+                        "createdDateTime": {
+                          "type": "string",
+                          "description": "createdDateTime"
+                        },
+                        "createdOn": {
+                          "type": "string",
+                          "description": "createdOn"
+                        },
+                        "employmentNav": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "string",
+                              "description": "value"
+                            }
+                          },
+                          "description": "employmentNav"
+                        },
+                        "endDate": {
+                          "type": "string",
+                          "description": "endDate"
+                        },
+                        "lastModifiedBy": {
+                          "type": "string",
+                          "description": "lastModifiedBy"
+                        },
+                        "lastModifiedDateTime": {
+                          "type": "string",
+                          "description": "lastModifiedDateTime"
+                        },
+                        "lastModifiedOn": {
+                          "type": "string",
+                          "description": "lastModifiedOn"
+                        },
+                        "payrollEndDate": {
+                          "type": "string",
+                          "description": "payrollEndDate"
+                        },
+                        "personIdExternal": {
+                          "type": "string",
+                          "description": "personIdExternal"
+                        },
+                        "plannedEndDate": {
+                          "type": "string",
+                          "description": "plannedEndDate"
+                        },
+                        "startDate": {
+                          "type": "string",
+                          "description": "startDate"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "description": "userId"
+                        }
+                      },
+                      "description": "empPensionPayoutNav"
+                    },
+                    "empWorkPermitNav": {
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "attachment": {
+                                "type": "string",
+                                "description": "attachment"
+                              },
+                              "attachmentFileName": {
+                                "type": "string",
+                                "description": "attachmentFileName"
+                              },
+                              "attachmentFileSize": {
+                                "type": "string",
+                                "description": "attachmentFileSize"
+                              },
+                              "attachmentFileType": {
+                                "type": "string",
+                                "description": "attachmentFileType"
+                              },
+                              "attachmentId": {
+                                "type": "string",
+                                "description": "attachmentId"
+                              },
+                              "attachmentMimeType": {
+                                "type": "string",
+                                "description": "attachmentMimeType"
+                              },
+                              "attachmentStatus": {
+                                "type": "string",
+                                "description": "attachmentStatus"
+                              },
+                              "country": {
+                                "type": "string",
+                                "description": "country"
+                              },
+                              "createdBy": {
+                                "type": "string",
+                                "description": "createdBy"
+                              },
+                              "createdDateTime": {
+                                "type": "string",
+                                "description": "createdDateTime"
+                              },
+                              "createdOn": {
+                                "type": "string",
+                                "description": "createdOn"
+                              },
+                              "documentNumber": {
+                                "type": "string",
+                                "description": "documentNumber"
+                              },
+                              "documentTitle": {
+                                "type": "string",
+                                "description": "documentTitle"
+                              },
+                              "documentType": {
+                                "type": "string",
+                                "description": "documentType"
+                              },
+                              "expirationDate": {
+                                "type": "string",
+                                "description": "expirationDate"
+                              },
+                              "isValidated": {
+                                "type": "string",
+                                "description": "isValidated"
+                              },
+                              "issueDate": {
+                                "type": "string",
+                                "description": "issueDate"
+                              },
+                              "issuePlace": {
+                                "type": "string",
+                                "description": "issuePlace"
+                              },
+                              "issuingAuthority": {
+                                "type": "string",
+                                "description": "issuingAuthority"
+                              },
+                              "lastModifiedBy": {
+                                "type": "string",
+                                "description": "lastModifiedBy"
+                              },
+                              "lastModifiedDateTime": {
+                                "type": "string",
+                                "description": "lastModifiedDateTime"
+                              },
+                              "lastModifiedOn": {
+                                "type": "string",
+                                "description": "lastModifiedOn"
+                              },
+                              "notes": {
+                                "type": "string",
+                                "description": "notes"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "userId"
+                              },
+                              "employmentNav": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "value"
+                                  }
+                                },
+                                "description": "employmentNav"
+                              }
+                            }
+                          },
+                          "description": "results"
+                        }
+                      },
+                      "description": "empWorkPermitNav"
+                    },
+                    "jobInfoNav": {
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "assedicCertInitialStateNum": {
+                                "type": "string",
+                                "description": "assedicCertInitialStateNum"
+                              },
+                              "assedicCertObjectNum": {
+                                "type": "string",
+                                "description": "assedicCertObjectNum"
+                              },
+                              "businessUnit": {
+                                "type": "string",
+                                "description": "businessUnit"
+                              },
+                              "calcMethodIndicator": {
+                                "type": "string",
+                                "description": "calcMethodIndicator"
+                              },
+                              "commitmentIndicator": {
+                                "type": "string",
+                                "description": "commitmentIndicator"
+                              },
+                              "company": {
+                                "type": "string",
+                                "description": "company"
+                              },
+                              "contractReferenceForAed": {
+                                "type": "string",
+                                "description": "contractReferenceForAed"
+                              },
+                              "contractType": {
+                                "type": "string",
+                                "description": "contractType"
+                              },
+                              "costCenter": {
+                                "type": "string",
+                                "description": "costCenter"
+                              },
+                              "countryOfCompany": {
+                                "type": "string",
+                                "description": "countryOfCompany"
+                              },
+                              "createdBy": {
+                                "type": "string",
+                                "description": "createdBy"
+                              },
+                              "createdDateTime": {
+                                "type": "string",
+                                "description": "createdDateTime"
+                              },
+                              "createdOn": {
+                                "type": "string",
+                                "description": "createdOn"
+                              },
+                              "defaultOvertimeCompensationVariant": {
+                                "type": "string",
+                                "description": "defaultOvertimeCompensationVariant"
+                              },
+                              "department": {
+                                "type": "string",
+                                "description": "department"
+                              },
+                              "division": {
+                                "type": "string",
+                                "description": "division"
+                              },
+                              "eeo1JobCategory": {
+                                "type": "string",
+                                "description": "eeo1JobCategory"
+                              },
+                              "eeo4JobCategory": {
+                                "type": "string",
+                                "description": "eeo4JobCategory"
+                              },
+                              "eeo5JobCategory": {
+                                "type": "string",
+                                "description": "eeo5JobCategory"
+                              },
+                              "eeo6JobCategory": {
+                                "type": "string",
+                                "description": "eeo6JobCategory"
+                              },
+                              "eeoClass": {
+                                "type": "string",
+                                "description": "eeoClass"
+                              },
+                              "electoralCollegeForWorkersRepresentatives": {
+                                "type": "string",
+                                "description": "electoralCollegeForWorkersRepresentatives"
+                              },
+                              "electoralCollegeForWorksCouncil": {
+                                "type": "string",
+                                "description": "electoralCollegeForWorksCouncil"
+                              },
+                              "empRelationship": {
+                                "type": "string",
+                                "description": "empRelationship"
+                              },
+                              "emplStatus": {
+                                "type": "string",
+                                "description": "emplStatus"
+                              },
+                              "employeeClass": {
+                                "type": "string",
+                                "description": "employeeClass"
+                              },
+                              "employeeWorkgroupMembership": {
+                                "type": "string",
+                                "description": "employeeWorkgroupMembership"
+                              },
+                              "employmentType": {
+                                "type": "string",
+                                "description": "employmentType"
+                              },
+                              "endDate": {
+                                "type": "string",
+                                "description": "endDate"
+                              },
+                              "event": {
+                                "type": "string",
+                                "description": "event"
+                              },
+                              "eventReason": {
+                                "type": "string",
+                                "description": "eventReason"
+                              },
+                              "exclExecutiveSector": {
+                                "type": "string",
+                                "description": "exclExecutiveSector"
+                              },
+                              "expectedReturnDate": {
+                                "type": "string",
+                                "description": "expectedReturnDate"
+                              },
+                              "familyRelationshipWithEmployer": {
+                                "type": "string",
+                                "description": "familyRelationshipWithEmployer"
+                              },
+                              "fgtsDate": {
+                                "type": "string",
+                                "description": "fgtsDate"
+                              },
+                              "fgtsOptant": {
+                                "type": "string",
+                                "description": "fgtsOptant"
+                              },
+                              "fgtsPercent": {
+                                "type": "string",
+                                "description": "fgtsPercent"
+                              },
+                              "flsaStatus": {
+                                "type": "string",
+                                "description": "flsaStatus"
+                              },
+                              "fte": {
+                                "type": "string",
+                                "description": "fte"
+                              },
+                              "harmfulAgentExposure": {
+                                "type": "string",
+                                "description": "harmfulAgentExposure"
+                              },
+                              "hazard": {
+                                "type": "string",
+                                "description": "hazard"
+                              },
+                              "healthRisk": {
+                                "type": "string",
+                                "description": "healthRisk"
+                              },
+                              "holidayCalendarCode": {
+                                "type": "string",
+                                "description": "holidayCalendarCode"
+                              },
+                              "isCompetitionClauseActive": {
+                                "type": "string",
+                                "description": "isCompetitionClauseActive"
+                              },
+                              "isFulltimeEmployee": {
+                                "type": "string",
+                                "description": "isFulltimeEmployee"
+                              },
+                              "isSideLineJobAllowed": {
+                                "type": "string",
+                                "description": "isSideLineJobAllowed"
+                              },
+                              "jobCode": {
+                                "type": "string",
+                                "description": "jobCode"
+                              },
+                              "jobTitle": {
+                                "type": "string",
+                                "description": "jobTitle"
+                              },
+                              "laborProtection": {
+                                "type": "string",
+                                "description": "laborProtection"
+                              },
+                              "lastModifiedBy": {
+                                "type": "string",
+                                "description": "lastModifiedBy"
+                              },
+                              "lastModifiedDateTime": {
+                                "type": "string",
+                                "description": "lastModifiedDateTime"
+                              },
+                              "lastModifiedOn": {
+                                "type": "string",
+                                "description": "lastModifiedOn"
+                              },
+                              "location": {
+                                "type": "string",
+                                "description": "location"
+                              },
+                              "managerId": {
+                                "type": "string",
+                                "description": "managerId"
+                              },
+                              "mandatoryWorkBreakRecord": {
+                                "type": "string",
+                                "description": "mandatoryWorkBreakRecord"
+                              },
+                              "municipalInseeCode": {
+                                "type": "string",
+                                "description": "municipalInseeCode"
+                              },
+                              "notes": {
+                                "type": "string",
+                                "description": "notes"
+                              },
+                              "operation": {
+                                "type": "string",
+                                "description": "operation"
+                              },
+                              "payGrade": {
+                                "type": "string",
+                                "description": "payGrade"
+                              },
+                              "payScaleArea": {
+                                "type": "string",
+                                "description": "payScaleArea"
+                              },
+                              "payScaleGroup": {
+                                "type": "string",
+                                "description": "payScaleGroup"
+                              },
+                              "payScaleLevel": {
+                                "type": "string",
+                                "description": "payScaleLevel"
+                              },
+                              "payScaleType": {
+                                "type": "string",
+                                "description": "payScaleType"
+                              },
+                              "pcfm": {
+                                "type": "string",
+                                "description": "pcfm"
+                              },
+                              "pensionProtection": {
+                                "type": "string",
+                                "description": "pensionProtection"
+                              },
+                              "permitIndicator": {
+                                "type": "string",
+                                "description": "permitIndicator"
+                              },
+                              "position": {
+                                "type": "string",
+                                "description": "position"
+                              },
+                              "positionEntryDate": {
+                                "type": "string",
+                                "description": "positionEntryDate"
+                              },
+                              "probationPeriodEndDate": {
+                                "type": "string",
+                                "description": "probationPeriodEndDate"
+                              },
+                              "regularTemp": {
+                                "type": "string",
+                                "description": "regularTemp"
+                              },
+                              "residentVote": {
+                                "type": "string",
+                                "description": "residentVote"
+                              },
+                              "retired": {
+                                "type": "string",
+                                "description": "retired"
+                              },
+                              "seqNumber": {
+                                "type": "string",
+                                "description": "seqNumber"
+                              },
+                              "sickPaySupplement": {
+                                "type": "string",
+                                "description": "sickPaySupplement"
+                              },
+                              "standardHours": {
+                                "type": "string",
+                                "description": "standardHours"
+                              },
+                              "startDate": {
+                                "type": "string",
+                                "description": "startDate"
+                              },
+                              "teachersPension": {
+                                "type": "string",
+                                "description": "teachersPension"
+                              },
+                              "timeRecordingAdmissibilityCode": {
+                                "type": "string",
+                                "description": "timeRecordingAdmissibilityCode"
+                              },
+                              "timeRecordingProfileCode": {
+                                "type": "string",
+                                "description": "timeRecordingProfileCode"
+                              },
+                              "timeRecordingVariant": {
+                                "type": "string",
+                                "description": "timeRecordingVariant"
+                              },
+                              "timeTypeProfileCode": {
+                                "type": "string",
+                                "description": "timeTypeProfileCode"
+                              },
+                              "timezone": {
+                                "type": "string",
+                                "description": "timezone"
+                              },
+                              "travelDistance": {
+                                "type": "string",
+                                "description": "travelDistance"
+                              },
+                              "tupeOrgNumber": {
+                                "type": "string",
+                                "description": "tupeOrgNumber"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "description": "userId"
+                              },
+                              "workLocation": {
+                                "type": "string",
+                                "description": "workLocation"
+                              },
+                              "workerCategory": {
+                                "type": "string",
+                                "description": "workerCategory"
+                              },
+                              "workingDaysPerWeek": {
+                                "type": "string",
+                                "description": "workingDaysPerWeek"
+                              },
+                              "workingTimeDirective": {
+                                "type": "string",
+                                "description": "workingTimeDirective"
+                              },
+                              "workscheduleCode": {
+                                "type": "string",
+                                "description": "workscheduleCode"
+                              },
+                              "wtdHoursLimit": {
+                                "type": "string",
+                                "description": "wtdHoursLimit"
+                              },
+                              "employmentNav": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "value"
+                                  }
+                                },
+                                "description": "employmentNav"
+                              },
+                              "managerEmploymentNav": {
+                                "type": "object",
+                                "properties": {
+                                  "value": {
+                                    "type": "string",
+                                    "description": "value"
+                                  }
+                                },
+                                "description": "managerEmploymentNav"
+                              }
+                            }
+                          },
+                          "description": "results"
+                        }
+                      },
+                      "description": "jobInfoNav"
+                    }
+                  },
+                  "description": "d"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "code"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message"
+                    },
+                    "target": {
+                      "type": "string",
+                      "description": "target"
+                    },
+                    "details": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "code"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "message"
+                          },
+                          "target": {
+                            "type": "string",
+                            "description": "target"
+                          }
+                        }
+                      },
+                      "description": "details"
+                    },
+                    "innererror": {
+                      "type": "object",
+                      "properties": {},
+                      "description": "innererror"
+                    }
+                  },
+                  "description": "error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/EmpJob": {
+      "get": {
+        "summary": "List jobs",
+        "description": "List jobs",
+        "operationId": "ListJobs",
+        "parameters": [
+          {
+            "name": "$top",
+            "default": 10,
+            "in": "query",
+            "type": "number",
+            "required": true,
+            "description": "Number of results",
+            "x-ms-summary": "Top"
+          },
+          {
+            "name": "$filter",
+            "default": "\u003Cstring\u003E",
+            "in": "query",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "application/json",
+            "description": "Accept",
+            "x-ms-visibility": "internal"
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "500",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "d": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__metadata": {
+                            "type": "object",
+                            "properties": {
+                              "uri": {
+                                "type": "string",
+                                "description": "uri",
+                                "title": "",
+                                "x-ms-visibility": "internal"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "type",
+                                "title": "",
+                                "x-ms-visibility": "internal"
+                              }
+                            },
+                            "description": "__metadata"
+                          },
+                          "seqNumber": {
+                            "type": "string",
+                            "description": "seqNumber"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "description": "userId"
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "description": "startDate"
+                          },
+                          "occupationalLevels": {
+                            "type": "string",
+                            "description": "occupationalLevels"
+                          },
+                          "workscheduleCode": {
+                            "type": "string",
+                            "description": "Use the work schedule code to retrieve the users work schedule",
+                            "title": "Work schedule code"
+                          },
+                          "fgtsOptant": {
+                            "type": "boolean",
+                            "description": "fgtsOptant"
+                          },
+                          "commitmentIndicator": {
+                            "type": "string",
+                            "description": "commitmentIndicator"
+                          },
+                          "effectiveLatestChange": {
+                            "type": "boolean",
+                            "description": "effectiveLatestChange"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "description": "endDate"
+                          },
+                          "contractType": {
+                            "type": "string",
+                            "description": "contractType"
+                          },
+                          "mandatoryWorkBreakRecord": {
+                            "type": "string",
+                            "description": "mandatoryWorkBreakRecord"
+                          },
+                          "createdDateTime": {
+                            "type": "string",
+                            "description": "createdDateTime"
+                          },
+                          "jobCode": {
+                            "type": "string",
+                            "description": "jobCode"
+                          },
+                          "validFrom": {
+                            "type": "string",
+                            "description": "validFrom"
+                          },
+                          "fgtsDate": {
+                            "type": "string",
+                            "description": "fgtsDate"
+                          },
+                          "payScaleLevel": {
+                            "type": "string",
+                            "description": "payScaleLevel"
+                          },
+                          "division": {
+                            "type": "string",
+                            "description": "division"
+                          },
+                          "timeTypeProfileCode": {
+                            "type": "string",
+                            "description": "timeTypeProfileCode"
+                          },
+                          "eeoClass": {
+                            "type": "string",
+                            "description": "eeoClass"
+                          },
+                          "hazard": {
+                            "type": "boolean",
+                            "description": "hazard"
+                          },
+                          "fromCurrency": {
+                            "type": "string",
+                            "description": "fromCurrency"
+                          },
+                          "eeo5JobCategory": {
+                            "type": "string",
+                            "description": "eeo5JobCategory"
+                          },
+                          "flsaStatus": {
+                            "type": "string",
+                            "description": "flsaStatus"
+                          },
+                          "educationalEntity": {
+                            "type": "string",
+                            "description": "educationalEntity"
+                          },
+                          "costCenter": {
+                            "type": "string",
+                            "description": "costCenter"
+                          },
+                          "residentVote": {
+                            "type": "boolean",
+                            "description": "residentVote"
+                          },
+                          "timeRecordingProfileCode": {
+                            "type": "string",
+                            "description": "timeRecordingProfileCode"
+                          },
+                          "laborProtection": {
+                            "type": "boolean",
+                            "description": "laborProtection"
+                          },
+                          "exclExecutiveSector": {
+                            "type": "boolean",
+                            "description": "exclExecutiveSector"
+                          },
+                          "isFulltimeEmployee": {
+                            "type": "boolean",
+                            "description": "isFulltimeEmployee"
+                          },
+                          "emplStatus": {
+                            "type": "string",
+                            "description": "emplStatus"
+                          },
+                          "payScaleType": {
+                            "type": "string",
+                            "description": "payScaleType"
+                          },
+                          "countryOfCompany": {
+                            "type": "string",
+                            "description": "countryOfCompany"
+                          },
+                          "eeo6JobCategory": {
+                            "type": "string",
+                            "description": "eeo6JobCategory"
+                          },
+                          "createdOn": {
+                            "type": "string",
+                            "description": "createdOn"
+                          },
+                          "municipalInseeCode": {
+                            "type": "string",
+                            "description": "municipalInseeCode"
+                          },
+                          "healthRisk": {
+                            "type": "boolean",
+                            "description": "healthRisk"
+                          },
+                          "timeRecordingAdmissibilityCode": {
+                            "type": "string",
+                            "description": "timeRecordingAdmissibilityCode"
+                          },
+                          "fte": {
+                            "type": "string",
+                            "description": "fte"
+                          },
+                          "payGrade": {
+                            "type": "string",
+                            "description": "payGrade"
+                          },
+                          "travelDistance": {
+                            "type": "string",
+                            "description": "travelDistance"
+                          },
+                          "event": {
+                            "type": "string",
+                            "description": "event"
+                          },
+                          "timeRecordingVariant": {
+                            "type": "string",
+                            "description": "timeRecordingVariant"
+                          },
+                          "assedicCertObjectNum": {
+                            "type": "string",
+                            "description": "assedicCertObjectNum"
+                          },
+                          "managerId": {
+                            "type": "string",
+                            "description": "managerId"
+                          },
+                          "lastModifiedOn": {
+                            "type": "string",
+                            "description": "lastModifiedOn"
+                          },
+                          "mandatoryInternship": {
+                            "type": "string",
+                            "description": "mandatoryInternship"
+                          },
+                          "dynamicBreakConfigCode": {
+                            "type": "string",
+                            "description": "dynamicBreakConfigCode"
+                          },
+                          "workerCategory": {
+                            "type": "string",
+                            "description": "workerCategory"
+                          },
+                          "defaultOvertimeCompensationVariant": {
+                            "type": "string",
+                            "description": "defaultOvertimeCompensationVariant"
+                          },
+                          "businessUnit": {
+                            "type": "string",
+                            "description": "businessUnit"
+                          },
+                          "lastModifiedDateTime": {
+                            "type": "string",
+                            "description": "lastModifiedDateTime"
+                          },
+                          "notes": {
+                            "type": "string",
+                            "description": "notes"
+                          },
+                          "harmfulAgentExposure": {
+                            "type": "string",
+                            "description": "harmfulAgentExposure"
+                          },
+                          "jobTitle": {
+                            "type": "string",
+                            "description": "jobTitle"
+                          },
+                          "sickPaySupplement": {
+                            "type": "string",
+                            "description": "sickPaySupplement"
+                          },
+                          "electoralCollegeForWorksCouncil": {
+                            "type": "string",
+                            "description": "electoralCollegeForWorksCouncil"
+                          },
+                          "integrationAgent": {
+                            "type": "string",
+                            "description": "integrationAgent"
+                          },
+                          "familyRelationshipWithEmployer": {
+                            "type": "string",
+                            "description": "familyRelationshipWithEmployer"
+                          },
+                          "exchangeRate": {
+                            "type": "string",
+                            "description": "exchangeRate"
+                          },
+                          "internshipLevel": {
+                            "type": "string",
+                            "description": "internshipLevel"
+                          },
+                          "holidayCalendarCode": {
+                            "type": "string",
+                            "description": "holidayCalendarCode"
+                          },
+                          "empRelationship": {
+                            "type": "string",
+                            "description": "empRelationship"
+                          },
+                          "permitIndicator": {
+                            "type": "boolean",
+                            "description": "permitIndicator"
+                          },
+                          "standardHours": {
+                            "type": "string",
+                            "description": "standardHours"
+                          },
+                          "electoralCollegeForWorkersRepresentatives": {
+                            "type": "string",
+                            "description": "electoralCollegeForWorkersRepresentatives"
+                          },
+                          "eeo4JobCategory": {
+                            "type": "string",
+                            "description": "eeo4JobCategory"
+                          },
+                          "eventReason": {
+                            "type": "string",
+                            "description": "eventReason"
+                          },
+                          "isCompetitionClauseActive": {
+                            "type": "boolean",
+                            "description": "isCompetitionClauseActive"
+                          },
+                          "internshipSchool": {
+                            "type": "string",
+                            "description": "internshipSchool"
+                          },
+                          "assedicCertInitialStateNum": {
+                            "type": "string",
+                            "description": "assedicCertInitialStateNum"
+                          },
+                          "includedChallengedPersonQuota": {
+                            "type": "string",
+                            "description": "includedChallengedPersonQuota"
+                          },
+                          "fgtsPercent": {
+                            "type": "string",
+                            "description": "fgtsPercent"
+                          },
+                          "toCurrency": {
+                            "type": "string",
+                            "description": "toCurrency"
+                          },
+                          "position": {
+                            "type": "string",
+                            "description": "position"
+                          },
+                          "payScaleArea": {
+                            "type": "string",
+                            "description": "payScaleArea"
+                          },
+                          "probationPeriodEndDate": {
+                            "type": "string",
+                            "description": "probationPeriodEndDate"
+                          },
+                          "timezone": {
+                            "type": "string",
+                            "description": "timezone"
+                          },
+                          "workingDaysPerWeek": {
+                            "type": "string",
+                            "description": "workingDaysPerWeek"
+                          },
+                          "regularTemp": {
+                            "type": "string",
+                            "description": "regularTemp"
+                          },
+                          "pcfm": {
+                            "type": "boolean",
+                            "description": "pcfm"
+                          },
+                          "workLocation": {
+                            "type": "string",
+                            "description": "workLocation"
+                          },
+                          "contractReferenceForAed": {
+                            "type": "string",
+                            "description": "contractReferenceForAed"
+                          },
+                          "isSideLineJobAllowed": {
+                            "type": "boolean",
+                            "description": "isSideLineJobAllowed"
+                          },
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "retired": {
+                            "type": "boolean",
+                            "description": "retired"
+                          },
+                          "department": {
+                            "type": "string",
+                            "description": "department"
+                          },
+                          "eeo1JobCategory": {
+                            "type": "string",
+                            "description": "eeo1JobCategory"
+                          },
+                          "employeeClass": {
+                            "type": "string",
+                            "description": "employeeClass"
+                          },
+                          "employmentType": {
+                            "type": "string",
+                            "description": "employmentType"
+                          },
+                          "lastModifiedBy": {
+                            "type": "string",
+                            "description": "lastModifiedBy"
+                          },
+                          "payScaleGroup": {
+                            "type": "string",
+                            "description": "payScaleGroup"
+                          },
+                          "employeeWorkgroupMembership": {
+                            "type": "string",
+                            "description": "employeeWorkgroupMembership"
+                          },
+                          "positionEntryDate": {
+                            "type": "string",
+                            "description": "positionEntryDate"
+                          },
+                          "createdBy": {
+                            "type": "string",
+                            "description": "createdBy"
+                          },
+                          "location": {
+                            "type": "string",
+                            "description": "location"
+                          },
+                          "eeo5JobCategoryNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eeo5JobCategoryNav"
+                          },
+                          "toCurrencyNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "toCurrencyNav"
+                          },
+                          "holidayCalendarCodeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "holidayCalendarCodeNav"
+                          },
+                          "occupationalLevelsNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "occupationalLevelsNav"
+                          },
+                          "companyNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "companyNav"
+                          },
+                          "payScaleAreaNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "payScaleAreaNav"
+                          },
+                          "departmentNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "departmentNav"
+                          },
+                          "businessUnitNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "businessUnitNav"
+                          },
+                          "fromCurrencyNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "fromCurrencyNav"
+                          },
+                          "contractTypeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "contractTypeNav"
+                          },
+                          "payScaleTypeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "payScaleTypeNav"
+                          },
+                          "electoralCollegeForWorkersRepresentativesNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "electoralCollegeForWorkersRepresentativesNav"
+                          },
+                          "employeeWorkgroupMembershipNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "employeeWorkgroupMembershipNav"
+                          },
+                          "costCenterNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "costCenterNav"
+                          },
+                          "harmfulAgentExposureNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "harmfulAgentExposureNav"
+                          },
+                          "flsaStatusNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "flsaStatusNav"
+                          },
+                          "employmentTypeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "employmentTypeNav"
+                          },
+                          "userNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "userNav"
+                          },
+                          "payScaleGroupNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "payScaleGroupNav"
+                          },
+                          "timeTypeProfileCodeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "timeTypeProfileCodeNav"
+                          },
+                          "electoralCollegeForWorksCouncilNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "electoralCollegeForWorksCouncilNav"
+                          },
+                          "divisionNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "divisionNav"
+                          },
+                          "internshipLevelNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "internshipLevelNav"
+                          },
+                          "eeo6JobCategoryNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eeo6JobCategoryNav"
+                          },
+                          "eeoClassNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eeoClassNav"
+                          },
+                          "workscheduleCodeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri",
+                                    "title": "",
+                                    "x-ms-visibility": "internal"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "workscheduleCodeNav"
+                          },
+                          "sickPaySupplementNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "sickPaySupplementNav"
+                          },
+                          "employmentNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "employmentNav"
+                          },
+                          "eeo4JobCategoryNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eeo4JobCategoryNav"
+                          },
+                          "workerCategoryNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "workerCategoryNav"
+                          },
+                          "countryOfCompanyNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "countryOfCompanyNav"
+                          },
+                          "commitmentIndicatorNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "commitmentIndicatorNav"
+                          },
+                          "managerEmploymentNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "managerEmploymentNav"
+                          },
+                          "includedChallengedPersonQuotaNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "includedChallengedPersonQuotaNav"
+                          },
+                          "familyRelationshipWithEmployerNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "familyRelationshipWithEmployerNav"
+                          },
+                          "eventNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eventNav"
+                          },
+                          "managerUserNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "managerUserNav"
+                          },
+                          "locationNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "locationNav"
+                          },
+                          "payScaleLevelNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "payScaleLevelNav"
+                          },
+                          "regularTempNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "regularTempNav"
+                          },
+                          "eventReasonNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eventReasonNav"
+                          },
+                          "employeeClassNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "employeeClassNav"
+                          },
+                          "jobCodeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "jobCodeNav"
+                          },
+                          "emplStatusNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "emplStatusNav"
+                          },
+                          "mandatoryInternshipNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "mandatoryInternshipNav"
+                          },
+                          "internshipSchoolNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "internshipSchoolNav"
+                          },
+                          "mandatoryWorkBreakRecordNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "mandatoryWorkBreakRecordNav"
+                          },
+                          "positionNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "positionNav"
+                          },
+                          "wfRequestNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "wfRequestNav"
+                          },
+                          "eeo1JobCategoryNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "eeo1JobCategoryNav"
+                          },
+                          "empRelationshipNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "empRelationshipNav"
+                          },
+                          "payGradeNav": {
+                            "type": "object",
+                            "properties": {
+                              "__deferred": {
+                                "type": "object",
+                                "properties": {
+                                  "uri": {
+                                    "type": "string",
+                                    "description": "uri"
+                                  }
+                                },
+                                "description": "__deferred"
+                              }
+                            },
+                            "description": "payGradeNav"
+                          }
+                        }
+                      },
+                      "description": "results"
+                    }
+                  },
+                  "description": "d"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/EmployeeTime": {
+      "get": {
+        "summary": "List absences",
+        "description": "Lists absences",
+        "operationId": "GetAbsence",
+        "parameters": [
+          {
+            "name": "$format",
+            "default": "json",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "description": "OData style filter expression",
+            "x-ms-summary": "Filter",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "$top",
+            "default": 10,
+            "in": "query",
+            "type": "number",
+            "required": true,
+            "x-ms-summary": "Top",
+            "description": "Number of results",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "$select",
+            "default": "userId,endDate,startDate,timeType,approvalStatus",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "x-ms-visibility": "advanced",
+            "description": "Limit results to the given data fields",
+            "x-ms-summary": "Columns"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "d": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__metadata": {
+                            "type": "object",
+                            "properties": {
+                              "uri": {
+                                "type": "string",
+                                "description": "uri",
+                                "title": "",
+                                "x-ms-visibility": "internal"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "type",
+                                "title": "",
+                                "x-ms-visibility": "internal"
+                              }
+                            },
+                            "description": "__metadata"
+                          },
+                          "approvalStatus": {
+                            "type": "string",
+                            "description": "The approval status",
+                            "title": "Approval Status",
+                            "x-ms-visibility": "important"
+                          },
+                          "endDate": {
+                            "type": "string",
+                            "description": "End date",
+                            "title": "End date",
+                            "x-ms-visibility": "important"
+                          },
+                          "timeType": {
+                            "type": "string",
+                            "description": "Time type",
+                            "title": "Time type"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "description": "userId",
+                            "title": "User Id"
+                          },
+                          "startDate": {
+                            "type": "string",
+                            "description": "Start date",
+                            "title": "Start date",
+                            "x-ms-visibility": "important"
+                          }
+                        }
+                      },
+                      "description": "results"
+                    }
+                  },
+                  "description": "d"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/WorkSchedule": {
+      "get": {
+        "summary": "List work schedules",
+        "description": "Lists all available work schedules",
+        "operationId": "GetWorkSchedules",
+        "parameters": [
+          {
+            "$ref": "#/parameters/Top"
+          },
+          {
+            "name": "$expand",
+            "default": "workScheduleDays",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "$format",
+            "default": "JSON",
+            "in": "query",
+            "type": "string",
+            "required": true,
+            "x-ms-visibility": "internal"
+          },
+          {
+            "name": "$select",
+            "default": "externalCode,externalName_defaultValue,averageHoursPerDay,averageHoursPerWeek,averageHoursPerMonth,averageWorkingDaysPerWeek,flexibleRequestingAllowed,userIdNav",
+            "in": "query",
+            "type": "string",
+            "required": false,
+            "x-ms-visibility": "advanced",
+            "description": "Data fields to return",
+            "x-ms-summary": "Columns"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "d": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "__metadata": {
+                            "type": "object",
+                            "properties": {
+                              "uri": {
+                                "type": "string",
+                                "description": "uri",
+                                "title": "",
+                                "x-ms-visibility": "internal"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "type",
+                                "title": "",
+                                "x-ms-visibility": "internal"
+                              }
+                            },
+                            "description": "__metadata"
+                          },
+                          "externalCode": {
+                            "type": "string",
+                            "description": "Work schedule code",
+                            "title": "Work schedule code",
+                            "x-ms-visibility": "important"
+                          },
+                          "flexibleRequestingAllowed": {
+                            "type": "boolean",
+                            "description": "Is flexible time requesting allowed",
+                            "title": "Flexible requesting",
+                            "enum": [
+                              "",
+                              "true",
+                              "false"
+                            ]
+                          },
+                          "averageHoursPerMonth": {
+                            "type": "number",
+                            "description": "Average working hours per month",
+                            "title": "Avg hours per month",
+                            "format": "float",
+                            "x-ms-visibility": "important"
+                          },
+                          "averageHoursPerDay": {
+                            "type": "number",
+                            "description": "Average working hours per day",
+                            "title": "Avg Hours per Day",
+                            "format": "float",
+                            "x-ms-visibility": "important"
+                          },
+                          "averageWorkingDaysPerWeek": {
+                            "type": "number",
+                            "description": "Average working days per week",
+                            "title": "Avg days per week",
+                            "format": "float"
+                          },
+                          "externalName_defaultValue": {
+                            "type": "string",
+                            "description": "Name",
+                            "title": "Name"
+                          },
+                          "averageHoursPerWeek": {
+                            "type": "number",
+                            "description": "Average working hours per week",
+                            "title": "Avg hours per week",
+                            "format": "float"
+                          }
+                        }
+                      },
+                      "description": "results"
+                    }
+                  },
+                  "description": "d"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Create work schedule",
+        "description": "Creates a new work schedule",
+        "operationId": "CreateWorkSchedule",
+        "parameters": [
+          {
+            "name": "$format",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "externalCode": {
+                  "type": "string",
+                  "description": "The uniqe Work schedule code",
+                  "title": "Code",
+                  "x-ms-visibility": "important"
+                },
+                "externalName_defaultValue": {
+                  "type": "string",
+                  "description": "External Name should match the given work schedule code",
+                  "title": "External name",
+                  "x-ms-visibility": "important"
+                },
+                "timeRecordingVariant": {
+                  "type": "string",
+                  "description": "The time recording mode",
+                  "title": "Time recording variant",
+                  "enum": [
+                    "Duration",
+                    "Clock Times"
+                  ],
+                  "default": "Duration",
+                  "x-ms-visibility": "important"
+                },
+                "startingDate": {
+                  "type": "string",
+                  "description": "The starting date",
+                  "title": "Starting date",
+                  "x-ms-visibility": "important"
+                },
+                "individualWorkSchedule": {
+                  "type": "boolean",
+                  "description": "Is this an individual schedule",
+                  "title": "Individual work schedule",
+                  "enum": [
+                    true,
+                    false
+                  ],
+                  "default": false,
+                  "x-ms-visibility": "important"
+                },
+                "modelCategory": {
+                  "type": "string",
+                  "description": "The category of the work schedule",
+                  "title": "Model category",
+                  "enum": [
+                    "SIMPLE",
+                    "PERIOD",
+                    "SCHEDULE"
+                  ],
+                  "default": "SCHEDULE",
+                  "x-ms-visibility": "important"
+                },
+                "crossMidnightAllowed": {
+                  "type": "boolean",
+                  "description": "Is cross midnight allowed",
+                  "title": "Cross midnight allowed",
+                  "enum": [
+                    true,
+                    false
+                  ],
+                  "default": false,
+                  "x-ms-visibility": "important"
+                },
+                "periodModelNav": {
+                  "type": "object",
+                  "properties": {
+                    "__deferred": {
+                      "type": "object",
+                      "properties": {
+                        "uri": {
+                          "type": "string",
+                          "description": "Link to respective work periad",
+                          "title": "Work period link",
+                          "default": "/WorkSchedule(\u00275DAY8HOURo\u0027)/periodModelNav",
+                          "x-ms-visibility": "important"
+                        }
+                      },
+                      "description": "__deferred",
+                      "required": [
+                        "uri"
+                      ]
+                    }
+                  },
+                  "description": "periodModelNav",
+                  "required": [
+                    "__deferred"
+                  ]
+                }
+              },
+              "required": [
+                "crossMidnightAllowed",
+                "externalCode",
+                "modelCategory",
+                "periodModelNav",
+                "timeRecordingVariant",
+                "startingDate",
+                "individualWorkSchedule"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {
+    "ListWorkScheduleExpand": {
+      "name": "$expand",
+      "default": "workScheduleDays",
+      "in": "query",
+      "type": "string",
+      "required": true,
+      "x-ms-visibility": "internal"
+    },
+    "jsonformat": {
+      "name": "$format",
+      "default": "JSON",
+      "in": "query",
+      "type": "string",
+      "required": true,
+      "x-ms-visibility": "internal"
+    },
+    "Top": {
+      "name": "$top",
+      "default": 100,
+      "in": "query",
+      "type": "number",
+      "required": true,
+      "description": "Number of results",
+      "x-ms-summary": "Top",
+      "x-ms-visibility": "advanced"
+    },
+    "ListWorkScheduleSelect": {
+      "name": "$select",
+      "default": "externalCode,externalName_defaultValue,averageHoursPerDay,averageHoursPerWeek,averageHoursPerMonth,averageWorkingDaysPerWeek,flexibleRequestingAllowed,userIdNav",
+      "in": "query",
+      "type": "string",
+      "required": false,
+      "x-ms-visibility": "advanced",
+      "description": "Data fields to return",
+      "x-ms-summary": "Columns"
+    }
+  },
+  "responses": {},
+  "securityDefinitions": {
+    "API Key": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "apiKey"
+    }
+  },
+  "security": [
+    {
+      "API Key": []
+    }
+  ],
+  "tags": [],
+  "x-ms-openai-manifest": {
+    "humanName": "SAP Successfactors EC",
+    "modelDescription": "This plugin connects to SAP Successfactors Employee Central to fetch work time and absence data",
+    "contactEmail": "aaschauer@D365DEMOTSS356396.OnMicrosoft.com"
+  }
+}

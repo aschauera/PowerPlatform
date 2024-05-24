@@ -1,0 +1,217 @@
+swagger: '2.0'
+info: {version: 1.0.0, title: SAP DEMO, description: SAP Sales Orders}
+host: sapes5.sapdevcenter.com
+basePath: /
+schemes: [https]
+consumes: []
+produces: [application/json]
+paths:
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet('{SalesOrderID}'):
+    get:
+      summary: Get single sales order
+      description: Gets a single sales order by sales order id
+      operationId: GetSingleSalesOrder
+      parameters:
+      - {name: SalesOrderID, in: path, required: true, type: string, x-ms-visibility: important}
+      - {name: Accept, in: header, required: true, type: string, default: application/json}
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  SalesOrderID: {type: string, description: SalesOrderID}
+                  Note: {type: string, description: Note}
+                  CustomerID: {type: string, description: CustomerID}
+                  CustomerName: {type: string, description: CustomerName}
+                  GrossAmount: {type: string, description: GrossAmount}
+                  NetAmount: {type: string, description: NetAmount}
+                  TaxAmount: {type: string, description: TaxAmount}
+                  LifecycleStatusDescription: {type: string, description: LifecycleStatusDescription}
+                  BillingStatusDescription: {type: string, description: BillingStatusDescription}
+                  DeliveryStatusDescription: {type: string, description: DeliveryStatusDescription}
+                  CreatedAt: {type: string, description: CreatedAt}
+                  ChangedAt: {type: string, description: ChangedAt}
+                  LineItems: {type: string, description: LineItems}
+                description: d
+      x-ms-visibility: important
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet:
+    get:
+      summary: List sales orders
+      description: Lists all sales orders
+      operationId: ListSalesOrders
+      parameters:
+      - {name: $filter, default: '', in: query, type: string, required: true}
+      - {name: $top, default: '', in: query, type: string, required: true}
+      - {name: $skip, default: '', in: query, type: string, required: true}
+      - {name: $select, default: 'SalesOrderID,Note,CustomerID,CustomerName,GrossAmount,NetAmount,TaxAmount,LifecycleStatusDescription,BillingStatusDescription,DeliveryStatusDescription,CreatedAt,ChangedAt,ToLineItems',
+        in: query, type: string, required: true}
+      - {name: Accept, in: header, required: true, type: string, default: ' application/json;odata=verbose',
+        description: Accept}
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        SalesOrderID: {type: string, description: SalesOrderID}
+                        Note: {type: string, description: Note}
+                        CustomerID: {type: string, description: CustomerID}
+                        CustomerName: {type: string, description: CustomerName}
+                        GrossAmount: {type: string, description: GrossAmount}
+                        NetAmount: {type: string, description: NetAmount}
+                        TaxAmount: {type: string, description: TaxAmount}
+                        LifecycleStatusDescription: {type: string, description: LifecycleStatusDescription}
+                        BillingStatusDescription: {type: string, description: BillingStatusDescription}
+                        DeliveryStatusDescription: {type: string, description: DeliveryStatusDescription}
+                        CreatedAt: {type: string, description: CreatedAt}
+                        ChangedAt: {type: string, description: ChangedAt}
+                    description: results
+                description: d
+    post:
+      summary: Create sales order
+      description: Lists all sales orders
+      operationId: CreateSalesOrder
+      parameters:
+      - {name: Accept, in: header, required: true, type: string, default: ' application/json;odata=verbose',
+        description: Accept}
+      - name: body
+        in: body
+        schema: {type: string}
+        required: true
+      responses:
+        default:
+          description: default
+          schema: {}
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet('{SalesOrderId}')/ToLineItems:
+    get:
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        SalesOrderID: {type: string, description: SalesOrderID}
+                        ItemPosition: {type: string, description: ItemPosition}
+                        ProductID: {type: string, description: ProductID}
+                        Note: {type: string, description: Note}
+                        NoteLanguage: {type: string, description: NoteLanguage}
+                        CurrencyCode: {type: string, description: CurrencyCode}
+                        GrossAmount: {type: string, description: GrossAmount}
+                        NetAmount: {type: string, description: NetAmount}
+                        TaxAmount: {type: string, description: TaxAmount}
+                        DeliveryDate: {type: string, description: DeliveryDate}
+                        Quantity: {type: string, description: Quantity}
+                        QuantityUnit: {type: string, description: QuantityUnit}
+                    description: results
+                description: d
+      summary: Get sales order line items
+      description: Lists all line items of a given sales order
+      operationId: GetSalesOrderLineItems
+      parameters:
+      - {name: SalesOrderId, in: path, required: true, type: string}
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/BusinessPartnerSet('{BPId}'):
+    get:
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  __metadata:
+                    type: object
+                    properties:
+                      id: {type: string, description: id}
+                      uri: {type: string, description: uri}
+                      type: {type: string, description: type}
+                      etag: {type: string, description: etag}
+                    description: __metadata
+                  Address:
+                    type: object
+                    properties:
+                      __metadata:
+                        type: object
+                        properties:
+                          type: {type: string, description: type}
+                        description: __metadata
+                      City: {type: string, description: City}
+                      PostalCode: {type: string, description: PostalCode}
+                      Street: {type: string, description: Street}
+                      Building: {type: string, description: Building}
+                      Country: {type: string, description: Country}
+                      AddressType: {type: string, description: AddressType}
+                    description: Address
+                  BusinessPartnerID: {type: string, description: BusinessPartnerID}
+                  CompanyName: {type: string, description: CompanyName}
+                  WebAddress: {type: string, description: WebAddress}
+                  EmailAddress: {type: string, description: EmailAddress}
+                  PhoneNumber: {type: string, description: PhoneNumber}
+                  FaxNumber: {type: string, description: FaxNumber}
+                  LegalForm: {type: string, description: LegalForm}
+                  CurrencyCode: {type: string, description: CurrencyCode}
+                  BusinessPartnerRole: {type: string, description: BusinessPartnerRole}
+                  CreatedAt: {type: string, description: CreatedAt}
+                  ChangedAt: {type: string, description: ChangedAt}
+                  ToSalesOrders:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToSalesOrders
+                  ToContacts:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToContacts
+                  ToProducts:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToProducts
+                description: d
+      summary: GetBusinessPartner
+      operationId: GetBusinessPartner
+      parameters:
+      - {name: BPId, in: path, required: true, type: string, x-ms-visibility: important}
+      - {name: $format, in: query, required: false, type: string}
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  basic_auth: {type: basic}
+security:
+- basic_auth: []
+tags: []

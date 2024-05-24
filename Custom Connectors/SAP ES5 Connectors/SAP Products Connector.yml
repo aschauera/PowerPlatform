@@ -1,0 +1,153 @@
+swagger: '2.0'
+info: {version: 1.0.0, title: SAP Product Data, description: SAP Product Data}
+host: sapes5.sapdevcenter.com
+basePath: /
+schemes: [https]
+consumes: []
+produces: [application/json]
+paths:
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet:
+    get:
+      summary: Get Products
+      description: Get Products
+      operationId: GetProducts
+      parameters:
+      - {name: $top, default: '100', in: query, type: string, required: true}
+      - {name: $format, default: json, in: query, type: string, required: true}
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        __metadata:
+                          type: object
+                          properties:
+                            id: {type: string, description: id}
+                            uri: {type: string, description: uri}
+                            type: {type: string, description: type}
+                            etag: {type: string, description: etag}
+                          description: __metadata
+                        ProductID: {type: string, description: ProductID}
+                        TypeCode: {type: string, description: TypeCode}
+                        Category: {type: string, description: Category}
+                        Name: {type: string, description: Name}
+                        NameLanguage: {type: string, description: NameLanguage}
+                        Description: {type: string, description: Description}
+                        DescriptionLanguage: {type: string, description: DescriptionLanguage}
+                        SupplierID: {type: string, description: SupplierID}
+                        SupplierName: {type: string, description: SupplierName}
+                        TaxTarifCode: {type: integer, format: int32, description: TaxTarifCode}
+                        MeasureUnit: {type: string, description: MeasureUnit}
+                        WeightMeasure: {type: string, description: WeightMeasure}
+                        WeightUnit: {type: string, description: WeightUnit}
+                        CurrencyCode: {type: string, description: CurrencyCode}
+                        Price: {type: string, description: Price}
+                        Width: {type: string, description: Width}
+                        Depth: {type: string, description: Depth}
+                        Height: {type: string, description: Height}
+                        DimUnit: {type: string, description: DimUnit}
+                        CreatedAt: {type: string, description: CreatedAt}
+                        ChangedAt: {type: string, description: ChangedAt}
+                        ToSalesOrderLineItems:
+                          type: object
+                          properties:
+                            __deferred:
+                              type: object
+                              properties:
+                                uri: {type: string, description: uri}
+                              description: __deferred
+                          description: ToSalesOrderLineItems
+                        ToSupplier:
+                          type: object
+                          properties:
+                            __deferred:
+                              type: object
+                              properties:
+                                uri: {type: string, description: uri}
+                              description: __deferred
+                          description: ToSupplier
+                    description: results
+                description: d
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('0114659'): {}
+  /sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('{productId}'):
+    get:
+      summary: Get product
+      description: Get product
+      operationId: GetProduct
+      parameters:
+      - {name: productId, in: path, required: true, type: string}
+      - {name: $format, in: query, required: false, type: string}
+      responses:
+        default:
+          description: default
+          schema:
+            type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  __metadata:
+                    type: object
+                    properties:
+                      id: {type: string, description: id}
+                      uri: {type: string, description: uri}
+                      type: {type: string, description: type}
+                      etag: {type: string, description: etag}
+                    description: __metadata
+                  ProductID: {type: string, description: ProductID}
+                  TypeCode: {type: string, description: TypeCode}
+                  Category: {type: string, description: Category}
+                  Name: {type: string, description: Name}
+                  NameLanguage: {type: string, description: NameLanguage}
+                  Description: {type: string, description: Description}
+                  DescriptionLanguage: {type: string, description: DescriptionLanguage}
+                  SupplierID: {type: string, description: SupplierID}
+                  SupplierName: {type: string, description: SupplierName}
+                  TaxTarifCode: {type: integer, format: int32, description: TaxTarifCode}
+                  MeasureUnit: {type: string, description: MeasureUnit}
+                  WeightMeasure: {type: string, description: WeightMeasure}
+                  WeightUnit: {type: string, description: WeightUnit}
+                  CurrencyCode: {type: string, description: CurrencyCode}
+                  Price: {type: string, description: Price}
+                  Width: {type: string, description: Width}
+                  Depth: {type: string, description: Depth}
+                  Height: {type: string, description: Height}
+                  DimUnit: {type: string, description: DimUnit}
+                  CreatedAt: {type: string, description: CreatedAt}
+                  ChangedAt: {type: string, description: ChangedAt}
+                  ToSalesOrderLineItems:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToSalesOrderLineItems
+                  ToSupplier:
+                    type: object
+                    properties:
+                      __deferred:
+                        type: object
+                        properties:
+                          uri: {type: string, description: uri}
+                        description: __deferred
+                    description: ToSupplier
+                description: d
+definitions: {}
+parameters: {}
+responses: {}
+securityDefinitions:
+  basic_auth: {type: basic}
+security:
+- basic_auth: []
+tags: []
