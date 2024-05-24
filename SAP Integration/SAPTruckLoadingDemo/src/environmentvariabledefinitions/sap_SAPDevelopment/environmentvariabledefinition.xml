@@ -1,0 +1,11 @@
+<environmentvariabledefinition schemaname="sap_SAPDevelopment">
+  <defaultvalue>{"AppServerHost":"sap.clearsoftware.com","Client":"100","SystemNumber":"00","LogonType":"ApplicationServer"}</defaultvalue>
+  <displayname default="SAP Development">
+    <label description="SAP Development" languagecode="1033" />
+  </displayname>
+  <introducedversion>0.6</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000000</type>
+</environmentvariabledefinition>

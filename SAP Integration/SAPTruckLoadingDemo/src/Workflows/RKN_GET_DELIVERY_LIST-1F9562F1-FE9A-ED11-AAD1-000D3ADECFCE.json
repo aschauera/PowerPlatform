@@ -1,0 +1,174 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_saperp_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "rkn_sharedsaperp_efd3b"
+        },
+        "api": {
+          "name": "shared_saperp"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "SAP Development (sap_SAPDevelopment)": {
+          "defaultValue": "{\"AppServerHost\":\"137.116.249.0\",\"Client\":\"100\",\"SystemNumber\":\"40\",\"LogonType\":\"ApplicationServer\"}",
+          "type": "String",
+          "metadata": {
+            "schemaName": "sap_SAPDevelopment"
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "9b485e57-1c0b-4b54-8042-8af4fe821ff7"
+          },
+          "type": "Request",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ReadSAPtablewithparsing_WherefiltersItem-1": {
+                  "type": "string"
+                },
+                "ReadSAPtablewithparsing_WherefiltersItem-1_1": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "ReadSAPtablewithparsing_WherefiltersItem-1",
+                "ReadSAPtablewithparsing_WherefiltersItem-1_1"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Read_SAP_table_with_parsing": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "00574628-a1f9-44b3-9303-d875ebce3b01"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_saperp_1",
+              "operationId": "ReadTableVersion3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_saperp"
+            },
+            "parameters": {
+              "x-ms-sap-system": "@parameters('SAP Development (sap_SAPDevelopment)')",
+              "inputParameters/tableName": "LIKP",
+              "inputParameters/FieldNames": [
+                "VBELN:Delivery",
+                "VSTEL:Shipping Point / Receiving Point",
+                "LDDAT:Loading Date",
+                "KUNNR:Ship-to Party"
+              ],
+              "inputParameters/WhereFilters": [
+                "VSTEL = '@{triggerBody()['ReadSAPtablewithparsing_WherefiltersItem-1']}' AND LDDAT GE '@{triggerBody()['ReadSAPtablewithparsing_WherefiltersItem-1_1']}'"
+              ]
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Read_SAP_table_with_parsing": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b7997a72-8abe-4256-97a6-1baaf51c78b0"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@body('Read_SAP_table_with_parsing')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "FieldsMetadata": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "Name": {
+                        "type": "string"
+                      },
+                      "Offset": {
+                        "type": "integer"
+                      },
+                      "Length": {
+                        "type": "integer"
+                      },
+                      "AbapDataType": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "Name",
+                      "Offset",
+                      "Length",
+                      "AbapDataType",
+                      "Description"
+                    ]
+                  }
+                },
+                "Rows": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "VBELN": {
+                        "type": "string"
+                      },
+                      "VSTEL": {
+                        "type": "string"
+                      },
+                      "LDDAT": {
+                        "type": "string"
+                      },
+                      "KUNNR": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "VBELN",
+                      "VSTEL",
+                      "LDDAT",
+                      "KUNNR"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

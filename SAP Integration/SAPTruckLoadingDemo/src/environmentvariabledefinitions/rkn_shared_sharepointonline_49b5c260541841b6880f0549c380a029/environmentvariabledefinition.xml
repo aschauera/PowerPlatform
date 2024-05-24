@@ -1,0 +1,15 @@
+<environmentvariabledefinition schemaname="rkn_shared_sharepointonline_49b5c260541841b6880f0549c380a029">
+  <apiid>/providers/microsoft.powerapps/apis/shared_sharepointonline</apiid>
+  <displayname default="TruckLoadPictures">
+    <label description="TruckLoadPictures" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0.2</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <parameterkey>table</parameterkey>
+  <parentdefinitionid>
+    <schemaname>rkn_shared_sharepointonline_1cc4e52661e44bc8b24ef4388ce3c2c5</schemaname>
+  </parentdefinitionid>
+  <secretstore>0</secretstore>
+  <type>100000004</type>
+</environmentvariabledefinition>

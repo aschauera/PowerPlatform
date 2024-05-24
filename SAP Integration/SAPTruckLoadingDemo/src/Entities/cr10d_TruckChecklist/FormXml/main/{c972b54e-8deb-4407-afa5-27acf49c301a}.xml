@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{c972b54e-8deb-4407-afa5-27acf49c301a}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{fb5ae9c8-d7fa-481d-8069-b85db66ae77b}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{592a5209-93a4-4a8b-b8b1-c142f1766495}">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{3868a83b-1c42-4aa6-a676-2c24d7b9be0a}">
+                        <labels>
+                          <label description="Name" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_name" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="cr10d_name" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{0b3786e9-ea4a-4f0f-bfce-92c4fa97ff50}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Clean Floor" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_cleanfloor" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr10d_cleanfloor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{eb227c04-9e9a-4d04-9936-8bf86ea9883f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Dry Floor" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_dryfloor" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr10d_dryfloor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{034c17bf-7b9c-45b1-a596-9b6e17f5284c}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Driver's safety equipment" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_driverssafetyequipment" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr10d_driverssafetyequipment" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{85df3ae3-f8d7-4176-ad2c-f8bf163af56b}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Driver's signature" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_signature_driver" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="cr10d_signature_driver" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{87df3f37-9d2f-4408-bdaf-466a2fdb4100}" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Owner" languagecode="1033" />
+                        </labels>
+                        <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{006ac0ed-edc3-475a-bb89-c9f8d196f5fa}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Edge protectors from driver" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_edgeprotectorsfromdriver" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cr10d_edgeprotectorsfromdriver" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{78736408-f540-4998-a9a4-33b311f1400f}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Edge Protectors from us" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_edgeprotectorsfromus" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cr10d_edgeprotectorsfromus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{cbcd527a-b198-4e31-b518-15ea4d175337}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Forwarder" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_forwarder" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cr10d_forwarder" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{341c44ff-1aa9-4a50-9827-6f399d830006}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="ImageInterior" languagecode="1033" />
+                        </labels>
+                        <control id="rkn_imageinterior" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="rkn_imageinterior" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{ffb7422b-8352-4f19-b932-04407ad3d94a}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Intact Truck Tarpaulin" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_intacttrucktarpaulin" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr10d_intacttrucktarpaulin" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5e92f2f6-5935-4174-93e5-c15bef6c40a1}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Lashing straps from driver" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_lashingstrapsfromdriver" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cr10d_lashingstrapsfromdriver" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{4b74afe2-3cf8-49bd-811a-23bef387a31e}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Lashing straps from us" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_lashingstrapsfromus" classid="{C6D124CA-7EDA-4A60-AEA9-7FB8D318B68F}" datafieldname="cr10d_lashingstrapsfromus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{5582d011-06f3-437f-9725-6ad28574ad7d}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Load Status" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_loadstatus" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cr10d_loadstatus" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{a4ab632a-f9a8-4bc0-96b9-4da953bd07fc}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="No Odor" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_noodor" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="cr10d_noodor" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{3b2f8d78-cf1a-4fd4-ba87-c499ada63537}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Observations" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_observations" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cr10d_observations" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{d606159e-644c-4aa7-9678-e5f774bf6b67}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="SAP Reference Document" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_sapreferencedocument" classid="{4273EDBD-AC1D-40D3-9FB2-095C621B552D}" datafieldname="cr10d_sapreferencedocument" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{6ae63a37-d052-4b21-9218-c10b0c535fbf}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Staff's signature" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_staffssignature" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="cr10d_staffssignature" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+        <tab name="tab_2" id="93a2ffad-ed61-447a-8d52-12f69291596e" IsUserDefined="0" locklevel="0" showlabel="true">
+          <labels>
+            <label description="Signatures and Images" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="50%">
+              <sections>
+                <section name="tab_2_section_1" id="783ba1cf-ca3c-4777-9c64-3af1ab2f1006" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{b53e85a8-4b46-4dda-813f-c33c40052a12}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{785e27b7-5655-4040-bd55-372a055b4fcb}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Driver's signature" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_signature_driver" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="cr10d_signature_driver" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+                <section name="tab_2_section_5" id="58f0d928-2496-4c63-9cfb-095e89b7c0cd" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="11" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{41d86618-6992-4751-99b5-a43dbc0bb8ab}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                      <cell showlabel="false" locklevel="0" id="{9e90e321-c1eb-41d2-b16a-22176c1c19a9}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{338fdb88-a568-4c33-9a0b-c16ddd31fd28}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="ImageInterior" languagecode="1033" />
+                        </labels>
+                        <control id="rkn_imageinterior" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="rkn_imageinterior" disabled="false" />
+                      </cell>
+                      <cell locklevel="0" id="{e0eeb79f-d974-421b-9510-4a60ee4710a8}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+            <column width="50%">
+              <sections>
+                <section name="tab_2_section_2" id="a3f30c79-2aa7-48f9-b7a4-c464a20eeaa8" IsUserDefined="0" locklevel="0" showlabel="true" showbar="false" layout="varwidth" celllabelalignment="Left" celllabelposition="Left" columns="1" labelwidth="115">
+                  <labels>
+                    <label description="New Section" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell showlabel="false" locklevel="0" id="{88dfde6c-da5e-4f73-b458-c0bd5dac51dd}">
+                        <labels>
+                          <label description="" languagecode="1033" />
+                        </labels>
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{297aca59-43dd-4a59-b01b-e70d0bab2cf7}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Staff's signature" languagecode="1033" />
+                        </labels>
+                        <control id="cr10d_staffssignature" classid="{7E548B0D-209C-477B-9DCD-F0F44472381D}" datafieldname="cr10d_staffssignature" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{84473937-e719-4c3e-b50c-e1ad47ebfcfc}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{c1ba842d-d9b5-4e9f-8bca-faddeb9cd056}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a66c1d70-da49-4668-a842-742610a07b28}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{39feca35-295f-47a5-a58b-4378860c8a6a}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{864f6c22-1d72-4c45-a6d5-039e6a85b83f}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{dfcd30ba-bb75-4372-8b55-6ab16fc5b2ec}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{47f10858-ca43-46ab-939f-3dbffe8e2f48}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{fc066bf1-3e66-4c15-a258-be5ab142b083}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

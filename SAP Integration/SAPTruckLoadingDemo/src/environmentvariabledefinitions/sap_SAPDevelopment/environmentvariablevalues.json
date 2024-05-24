@@ -1,0 +1,9 @@
+{
+  "environmentvariablevalues": {
+    "environmentvariablevalue": {
+      "@environmentvariablevalueid": "7f126052-335f-ed11-9561-000d3adecfce",
+      "iscustomizable": "1",
+      "value": "{\"AppServerHost\":\"137.116.249.0\",\"Client\":\"100\",\"SystemNumber\":\"40\",\"LogonType\":\"ApplicationServer\"}"
+    }
+  }
+}
