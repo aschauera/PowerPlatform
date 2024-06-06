@@ -1,0 +1,18 @@
+<customapi uniquename="msdyn_aibdptdunningemailclassification375594505b73406485d8350f35923a5b">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Classify the text in  EmailText  . Decide whether the text represents a dunning letter, an order or a delivery confirmation. If it is a dunning letter respond with &quot;Dunning Letter&quot;, if it is an order respond with &quot;Order&quot;, if it is a delivery confirmation respond with &quot;Delivery note&quot;, otherwise respo">
+    <label description="Classify the text in  EmailText  . Decide whether the text represents a dunning letter, an order or a delivery confirmation. If it is a dunning letter respond with &quot;Dunning Letter&quot;, if it is an order respond with &quot;Order&quot;, if it is a delivery confirmation respond with &quot;Delivery note&quot;, otherwise respo" languagecode="1033" />
+  </description>
+  <displayname default="Document Intelligence - Email Classification">
+    <label description="Document Intelligence - Email Classification" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>DocumentIntelligenceEmailClassification</name>
+  <plugintypeid>
+    <plugintypeexportkey>727e8789-bd29-46fa-b00a-3a49605eeb06</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

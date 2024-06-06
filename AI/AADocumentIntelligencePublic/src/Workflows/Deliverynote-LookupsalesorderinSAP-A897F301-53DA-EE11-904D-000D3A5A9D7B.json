@@ -1,0 +1,130 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sap-20sales-20orders-5f9bc410dd92140d2a-5f40012dcb1caec358": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsap20sales20orders5f9bc410dd92140d2a5f40012dcb1caec358_ca72a"
+        },
+        "api": {
+          "name": "shared_sap-20sales-20orders-5f9bc410dd92140d2a-5f40012dcb1caec358"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "756b0e66-12ff-4aec-ae83-1fbb83c35bff"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "SalesOrderID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_single_sales_order": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "971b3770-cc5c-478a-b291-da204ef0b680"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "SalesOrderID": "@triggerBody()['text']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sap-20sales-20orders-5f9bc410dd92140d2a-5f40012dcb1caec358",
+              "operationId": "GetSingleSalesOrder",
+              "connectionName": "shared_sap-20sales-20orders-5f9bc410dd92140d2a-5f40012dcb1caec358"
+            }
+          }
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "Get_single_sales_order": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6ef57fb1-9afd-458d-89d9-3bd276b69fdb"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "salesorderid": {
+                  "title": "SalesOrderID",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "taxamount": {
+                  "title": "TaxAmount",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "customername": {
+                  "title": "CustomerName",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "amount": {
+                  "title": "Amount",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "status": {
+                  "title": "Status",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "salesorderid": "@outputs('Get_single_sales_order')?['body/d/SalesOrderID']",
+              "taxamount": "@outputs('Get_single_sales_order')?['body/d/TaxAmount']",
+              "customername": "@outputs('Get_single_sales_order')?['body/d/CustomerName']",
+              "amount": "@outputs('Get_single_sales_order')?['body/d/NetAmount']",
+              "status": "@outputs('Get_single_sales_order')?['body/d/DeliveryStatusDescription']"
+            }
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

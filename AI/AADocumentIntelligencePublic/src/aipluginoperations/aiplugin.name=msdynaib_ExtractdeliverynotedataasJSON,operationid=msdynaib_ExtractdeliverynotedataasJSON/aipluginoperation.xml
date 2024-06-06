@@ -1,0 +1,14 @@
+<aipluginoperation aiplugin.name="msdynaib_ExtractdeliverynotedataasJSON" operationid="msdynaib_ExtractdeliverynotedataasJSON">
+  <aipluginoperationexportkey>aiplugin.name=msdynaib_ExtractdeliverynotedataasJSON,operationid=msdynaib_ExtractdeliverynotedataasJSON</aipluginoperationexportkey>
+  <customapi>
+    <uniquename>msdyn_aibdptextractdeliverynotedataasjson019db13a95ec4fa0b21b08f6503f6985</uniquename>
+  </customapi>
+  <description>Extract the following information from  Text :  Article number, Article name, Amount, Delivery Address. Use JSON format for your response.
+
+</description>
+  <iscustomizable>1</iscustomizable>
+  <msdyn_aimodel>
+    <msdyn_aimodelid>019db13a-95ec-4fa0-b21b-08f6503f6985</msdyn_aimodelid>
+  </msdyn_aimodel>
+  <name>msdynaib_ExtractdeliverynotedataasJSON</name>
+</aipluginoperation>

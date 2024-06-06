@@ -1,0 +1,142 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsharepointonline_26f34"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_wordonlinebusiness": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedwordonlinebusiness_23669"
+        },
+        "api": {
+          "name": "shared_wordonlinebusiness"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_file_is_created_(properties_only)": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "d321c21c-22e4-4808-8f21-4cec11c8df55"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetOnNewFileItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "table": "cf78883b-15ea-4255-b50e-02bf8c7efd99",
+              "folderPath": "/AI Builder documents/Invoices"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "SP:_Get_word_doc": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "57aed50c-c866-4439-9847-5c49f11849f5"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetFileContent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "id": "@triggerOutputs()?['body/{Identifier}']",
+              "inferContentType": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "WORD:_Convert": {
+          "runAfter": {
+            "SP:_Get_word_doc": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e757757a-2bc7-4337-9c51-f31dd1f4335c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_wordonlinebusiness",
+              "operationId": "GetFilePDF",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_wordonlinebusiness"
+            },
+            "parameters": {
+              "source": "groups/445c86e3-bda7-4e41-9a6a-32b15cf2ed11",
+              "drive": "b!vp6MsYquqESjdkf-yRgmw04YfCSuI2dEnCxuLS0_RH47iHjP6hVVQrUOAr-Mfv2Z",
+              "file": "Invoices/@{triggerOutputs()?['body/{FilenameWithExtension}']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "SP:_Save_PDF": {
+          "runAfter": {
+            "WORD:_Convert": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0c9ed5e5-34ee-445d-af42-deac1fdb1843"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "CreateFile",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "folderPath": "/AI Builder documents/Invoices",
+              "name": "@{triggerOutputs()?['body/{Name}']}.pdf",
+              "body": "@body('WORD:_Convert')"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "runtimeConfiguration": {
+            "contentTransfer": {
+              "transferMode": "Chunked"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

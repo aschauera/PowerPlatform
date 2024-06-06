@@ -1,0 +1,147 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsharepointonline_26f34"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedcommondataserviceforapps_2aa5d"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "When_a_dunning_letter_is_created": {
+          "recurrence": {
+            "frequency": "Minute",
+            "interval": 1
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "d39659fd-ba0b-47bd-b88f-c0085f2e920f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "table": "cf78883b-15ea-4255-b50e-02bf8c7efd99",
+              "folderPath": "/AI Builder documents/Dunning Letters"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "GetOnNewFileItems",
+              "connectionName": "shared_sharepointonline"
+            }
+          }
+        }
+      },
+      "actions": {
+        "Extract_information_from_documents": {
+          "runAfter": {
+            "Get_dunning_letter_content": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8e6c72b2-d50e-49c5-8a45-14170ce90e9f",
+            "flowSystemMetadata": {
+              "portalOperationId": "aibuilderpredict_formsprocessing",
+              "portalOperationGroup": "aibuilder",
+              "portalOperationApiDisplayNameOverride": "AI Builder",
+              "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+              "portalOperationBrandColorOverride": "#0A76C4",
+              "portalOperationApiTierOverride": "Standard"
+            }
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "recordId": "d078882a-7bbc-47b8-bd57-4b02d76fd1f0",
+              "item/requestv2/mimeType": "application/pdf",
+              "item/requestv2/base64Encoded": "@body('Get_dunning_letter_content')"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "aibuilderpredict_formsprocessing",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          }
+        },
+        "Get_dunning_letter_content": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "3c7b59d7-8d9d-44e9-9907-9421e97f8f27"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "id": "@triggerBody()?['{Identifier}']",
+              "inferContentType": true
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+              "operationId": "GetFileContent",
+              "connectionName": "shared_sharepointonline"
+            }
+          }
+        },
+        "Create_dunning_data": {
+          "runAfter": {
+            "Extract_information_from_documents": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2b838fc7-76d0-4af3-86fa-ef9fdfaaeea3"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "aschi_dunningletterses",
+              "item/aschi_name": "Dunning letter from @{body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['vendorName']?['text']}",
+              "item/aschi_customer": "@body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['customerName']?['value']",
+              "item/aschi_customeraddress": "@body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['customerAddressRecipient']?['value']",
+              "item/aschi_documentlink": "@triggerOutputs()?['body/{Link}']",
+              "item/aschi_due": "@body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['dueDate']?['value']",
+              "item/aschi_dunninggrade": "@body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['DunningGrade']?['value']",
+              "item/aschi_total": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/invoiceTotal/value']",
+              "item/aschi_vendor": "@body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['vendorName']?['value']",
+              "item/aschi_vendoremail": "@body('Extract_information_from_documents')?['responsev2']?['predictionOutput']?['labels']?['VendorEmail']?['value']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

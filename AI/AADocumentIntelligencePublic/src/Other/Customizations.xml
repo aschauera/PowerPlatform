@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Entities />
+  <Roles />
+  <Workflows />
+  <FieldSecurityProfiles />
+  <Templates />
+  <EntityMaps />
+  <EntityRelationships />
+  <OrganizationSettings />
+  <optionsets />
+  <CustomControls />
+  <AppModules />
+  <EntityDataProviders />
+  <AIModels>
+    <AIModel>
+      <msdyn_aimodelid>{019db13a-95ec-4fa0-b21b-08f6503f6985}</msdyn_aimodelid>
+      <msdyn_name>Extract delivery note data as JSON</msdyn_name>
+      <msdyn_templateid>{edfdb190-3791-45d8-9a6c-8f90a37c278a}</msdyn_templateid>
+      <statecode>1</statecode>
+      <statuscode>1</statuscode>
+      <IsCustomizable>1</IsCustomizable>
+      <msdyn_activerunconfigurationid>{dd8791a8-12e5-ee11-904c-000d3a58dacb}</msdyn_activerunconfigurationid>
+      <AIConfigurations>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{dd8791a8-12e5-ee11-904c-000d3a58dacb}</msdyn_aiconfigurationid>
+          <msdyn_customconfiguration>{"version":"GptDynamicPrompt-1","prompt":[{"type":"literal","text":"Extract the following information from "},{"type":"inputVariable","id":"Text","text":"Text"},{"type":"literal","text":":  Article number, Article name, Amount, Delivery Address. Use JSON format for your response.\n\n"}]}</msdyn_customconfiguration>
+          <msdyn_majoriterationnumber>1</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_name>019db13a-95ec-4fa0-b21b-08f6503f6985_2024-03-18T10:31:24.563Z</msdyn_name>
+          <msdyn_modelrundataspecification>H4sIAAAAAAAACoWQzQrCMBCEX0X2nIsgHnKrPwUvFlrxHu1WAzUJyQYspe9uUitKW/A6+81MJi0UBq+ptg9BZ7ROagV8yeCgjKdca9orktQAb2EnnalFcxQPBA4yAsAgIbLy4gldZERZSgoZot5qRfikqTGZIAwy81aAk/XI4NSYiG6Ew/WqCAXqBl2QZwN79TejErX7hnzsXQjIPP2ZpXtismt+ytA8KmJQSSXdPUfh4m+OXWl/XQznmXd2L7oau5SVAQAA</msdyn_modelrundataspecification>
+          <msdyn_type>190690001</msdyn_type>
+          <msdyn_aimodelid>{019db13a-95ec-4fa0-b21b-08f6503f6985}</msdyn_aimodelid>
+          <msdyn_trainedmodelaiconfigurationpareid>{b63a99a2-12e5-ee11-904c-000d3a58dacb}</msdyn_trainedmodelaiconfigurationpareid>
+          <statecode>2</statecode>
+          <statuscode>7</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{b63a99a2-12e5-ee11-904c-000d3a58dacb}</msdyn_aiconfigurationid>
+          <msdyn_majoriterationnumber>1</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_modeldata>ec70c03d-6e16-4553-ab7c-6936fa9badba</msdyn_modeldata>
+          <msdyn_name>019db13a-95ec-4fa0-b21b-08f6503f6985_2024-03-18T10:31:10.808Z</msdyn_name>
+          <msdyn_modelrundataspecification>
+        {
+          "schemaVersion": 2,
+          "input": {},
+          "output": {}
+        }
+      </msdyn_modelrundataspecification>
+          <msdyn_type>190690000</msdyn_type>
+          <msdyn_aimodelid>{019db13a-95ec-4fa0-b21b-08f6503f6985}</msdyn_aimodelid>
+          <statecode>2</statecode>
+          <statuscode>6</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+      </AIConfigurations>
+    </AIModel>
+    <AIModel>
+      <msdyn_aimodelid>{37559450-5b73-4064-85d8-350f35923a5b}</msdyn_aimodelid>
+      <msdyn_name>Document Intelligence - Email Classification</msdyn_name>
+      <msdyn_templateid>{edfdb190-3791-45d8-9a6c-8f90a37c278a}</msdyn_templateid>
+      <statecode>1</statecode>
+      <statuscode>1</statuscode>
+      <IsCustomizable>1</IsCustomizable>
+      <msdyn_activerunconfigurationid>{ad77a1fd-dcd6-ee11-9079-000d3a5a9d7b}</msdyn_activerunconfigurationid>
+      <AIConfigurations>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{ad77a1fd-dcd6-ee11-9079-000d3a5a9d7b}</msdyn_aiconfigurationid>
+          <msdyn_customconfiguration>{"version":"GptDynamicPrompt-1","prompt":[{"type":"literal","text":"Classify the text in "},{"type":"inputVariable","id":"EmailText_a83c864ac2855278345","text":"EmailText"},{"type":"literal","text":" . Decide whether the text represents a dunning letter, an order or a delivery confirmation. If it is a dunning letter respond with \"Dunning Letter\", if it is an order respond with \"Order\", if it is a delivery confirmation respond with \"Delivery note\", otherwise respond with \"Other\". Only respond with the given response and do not add additional text in your response. \n\n"}]}</msdyn_customconfiguration>
+          <msdyn_majoriterationnumber>5</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_name>37559450-5b73-4064-85d8-350f35923a5b_2024-02-29T08:31:54.765Z</msdyn_name>
+          <msdyn_modelrundataspecification>H4sIAAAAAAAACoWQTQuCQBCG/0rMeS+ZmnjrS+iSYNI1JttqQHcXd4Qk/O9pn5RB151n3mffucDayCzSZYG8kaUlrSAcClgqU3GiNS8UE9cQXmBO1uRYr7CQEAJ1AAiYMJe0q1jajsH9nrjNwHymFcsz9xcnPURAbO4vEHJZSQFpbTp0ilb67roVqCM0AhYFUp62K1sMRlngu5g5gec542Dken3TC/8wHDC3b8UzvGnj44r/lNY3otf6d9GH+Usk4ECK7CmRaLtbf29Ft+ngMf7xz+YKQEw7/7MBAAA=</msdyn_modelrundataspecification>
+          <msdyn_type>190690001</msdyn_type>
+          <msdyn_aimodelid>{37559450-5b73-4064-85d8-350f35923a5b}</msdyn_aimodelid>
+          <msdyn_trainedmodelaiconfigurationpareid>{00a55030-4994-ee11-be37-000d3a5a915c}</msdyn_trainedmodelaiconfigurationpareid>
+          <statecode>2</statecode>
+          <statuscode>7</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+        <AIConfiguration>
+          <msdyn_aiconfigurationid>{00a55030-4994-ee11-be37-000d3a5a915c}</msdyn_aiconfigurationid>
+          <msdyn_majoriterationnumber>1</msdyn_majoriterationnumber>
+          <msdyn_minoriterationnumber>0</msdyn_minoriterationnumber>
+          <msdyn_modeldata>aa46ad0e-bc11-4c12-8206-4d7ce4fab050</msdyn_modeldata>
+          <msdyn_name>37559450-5b73-4064-85d8-350f35923a5b_2023-12-06T15:07:35.733Z</msdyn_name>
+          <msdyn_modelrundataspecification>
+        {
+          "schemaVersion": 2,
+          "input": {},
+          "output": {}
+        }
+      </msdyn_modelrundataspecification>
+          <msdyn_type>190690000</msdyn_type>
+          <msdyn_aimodelid>{37559450-5b73-4064-85d8-350f35923a5b}</msdyn_aimodelid>
+          <statecode>2</statecode>
+          <statuscode>6</statuscode>
+          <IsCustomizable>1</IsCustomizable>
+          <msdyn_templateversion>1</msdyn_templateversion>
+        </AIConfiguration>
+      </AIConfigurations>
+    </AIModel>
+  </AIModels>
+  <Languages>
+    <Language>1033</Language>
+  </Languages>
+</ImportExportXml>

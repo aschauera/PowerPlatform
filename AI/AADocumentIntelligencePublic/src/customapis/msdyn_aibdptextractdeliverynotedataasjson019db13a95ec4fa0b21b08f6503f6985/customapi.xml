@@ -1,0 +1,18 @@
+<customapi uniquename="msdyn_aibdptextractdeliverynotedataasjson019db13a95ec4fa0b21b08f6503f6985">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Extract the following information from  Text :  Article number, Article name, Amount, Delivery Address. Use JSON format for your response.&#xA;&#xA;">
+    <label description="Extract the following information from  Text :  Article number, Article name, Amount, Delivery Address. Use JSON format for your response.&#xA;&#xA;" languagecode="1033" />
+  </description>
+  <displayname default="Extract delivery note data as JSON">
+    <label description="Extract delivery note data as JSON" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>ExtractdeliverynotedataasJSON</name>
+  <plugintypeid>
+    <plugintypeexportkey>727e8789-bd29-46fa-b00a-3a49605eeb06</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

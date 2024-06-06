@@ -1,0 +1,12 @@
+<aipluginoperation aiplugin.name="msdynaib_DunningEmailClassification" operationid="msdynaib_DunningEmailClassification">
+  <aipluginoperationexportkey>aiplugin.name=msdynaib_DunningEmailClassification,operationid=msdynaib_DunningEmailClassification</aipluginoperationexportkey>
+  <customapi>
+    <uniquename>msdyn_aibdptdunningemailclassification375594505b73406485d8350f35923a5b</uniquename>
+  </customapi>
+  <description>Classify the text in  EmailText  . Decide whether the text represents a dunning letter, an order or a delivery confirmation. If it is a dunning letter respond with "Dunning Letter", if it is an order respond with "Order", if it is a delivery confirmation respond with "Delivery note", otherwise respo</description>
+  <iscustomizable>1</iscustomizable>
+  <msdyn_aimodel>
+    <msdyn_aimodelid>37559450-5b73-4064-85d8-350f35923a5b</msdyn_aimodelid>
+  </msdyn_aimodel>
+  <name>msdynaib_DocumentIntelligenceEmailClassification</name>
+</aipluginoperation>

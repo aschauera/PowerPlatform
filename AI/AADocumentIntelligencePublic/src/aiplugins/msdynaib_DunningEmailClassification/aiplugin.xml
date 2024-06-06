@@ -1,0 +1,12 @@
+<aiplugin name="msdynaib_DunningEmailClassification">
+  <humandescription>Classify the text in  EmailText  . Decide whether the text represents a dunning letter, an order or a delivery confirmation. If it is a dunning letter respond with "Dunning Letter", if it is an order respond with "Order", if it is a delivery confirmation respond with "Delivery note", otherwise respo</humandescription>
+  <humanname>Document Intelligence - Email Classification</humanname>
+  <iscustomizable>1</iscustomizable>
+  <modeldescription>Classify the text in  EmailText  . Decide whether the text represents a dunning letter, an order or a delivery confirmation. If it is a dunning letter respond with "Dunning Letter", if it is an order respond with "Order", if it is a delivery confirmation respond with "Delivery note", otherwise respo</modeldescription>
+  <modelname>Document Intelligence - Email Classification</modelname>
+  <pluginsubtype>0</pluginsubtype>
+  <plugintype>0</plugintype>
+  <schemaversion>0</schemaversion>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiplugin>

@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="EmailText_a83c864ac2855278345">
+  <description default="EmailText">
+    <label description="EmailText" languagecode="1033" />
+  </description>
+  <displayname default="EmailText">
+    <label description="EmailText" languagecode="1033" />
+  </displayname>
+  <iscustomizable>0</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>msdyn_aibdpt.EmailText_a83c864ac2855278345</name>
+  <type>10</type>
+</customapirequestparameter>

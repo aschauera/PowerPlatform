@@ -1,0 +1,419 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedcommondataserviceforapps_2aa5d"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_cardsforpowerapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedcardsforpowerapps_28e63"
+        },
+        "api": {
+          "name": "shared_cardsforpowerapps"
+        }
+      },
+      "shared_teams": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedteams_8d1a6"
+        },
+        "api": {
+          "name": "shared_teams"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsharepointonline_26f34"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_invoice_is_created": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "28dc22da-3bf7-4c1a-b125-964286d8cd41"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetOnNewFileItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "table": "cf78883b-15ea-4255-b50e-02bf8c7efd99",
+              "folderPath": "/AI Builder documents/Invoices/Incoming"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": []
+        }
+      },
+      "actions": {
+        "Extract_information_from_documents": {
+          "runAfter": {
+            "Get_file_content": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e7ac588c-e531-4154-af28-732fd898a74a",
+            "flowSystemMetadata": {
+              "portalOperationId": "aibuilderpredict_formsprocessing",
+              "portalOperationGroup": "aibuilder",
+              "portalOperationApiDisplayNameOverride": "AI Builder",
+              "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+              "portalOperationBrandColorOverride": "#0A76C4",
+              "portalOperationApiTierOverride": "Standard"
+            }
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "aibuilderpredict_formsprocessing",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "recordId": "df839cb5-6e3d-4023-9c82-5f2b5fdf92ea",
+              "item/requestv2/mimeType": "application/pdf",
+              "item/requestv2/base64Encoded": "@body('Get_file_content')",
+              "item/requestv2/pages": "1"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Store_invoice_data": {
+          "actions": {
+            "Create_invoice_meta_data": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "3201d450-5044-4304-86b6-de7b9aca810b"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "aschi_invoices",
+                  "item/aschi_name": "Invoice @{outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/invoiceId/text']}",
+                  "item/aschi_customer": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/customerName/value']",
+                  "item/aschi_customeraddress": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/customerAddressRecipient/text']",
+                  "item/aschi_customerno": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/customerId/text']",
+                  "item/aschi_date": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/invoiceDate/value']",
+                  "item/aschi_grosstotal": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/invoiceTotal/value']",
+                  "item/aschi_invoiceno": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/invoiceId/text']",
+                  "item/aschi_paymentterms": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/paymentTerms/text']",
+                  "item/aschi_tax": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/totalTax/value']",
+                  "item/aschi_total": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/subTotal/value']",
+                  "item/aschi_vatclassification": "@variables('VAT classification')",
+                  "item/aschi_vatremarkscore": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/VAT_00206a1b37265d064f40dac11c17db6ce89d/confidence']",
+                  "item/aschi_vatremarks": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/VAT_00206a1b37265d064f40dac11c17db6ce89d/text']",
+                  "item/aschi_vendor": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/vendorName/text']",
+                  "item/aschi_vendoraddress": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/vendorAddressRecipient/text']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Append_invoice_document": {
+              "runAfter": {
+                "Set_payment_terms": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "59bd1c4b-83de-4744-a657-1251c43146a4"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateEntityFileImageFieldContent",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "aschi_invoices",
+                  "recordId": "@outputs('Create_invoice_meta_data')?['body/aschi_invoiceid']",
+                  "fileImageFieldName": "aschi_document",
+                  "item": "@body('Get_file_content')",
+                  "x-ms-file-name": "@triggerOutputs()?['body/{FilenameWithExtension}']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Set_payment_terms": {
+              "runAfter": {
+                "Create_invoice_meta_data": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e7468904-d20d-4893-9958-617f2f0b09e1"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "PaymentTerms",
+                "value": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/paymentTerms/text']"
+              }
+            }
+          },
+          "runAfter": {
+            "If__a_VAT_remark_is_found": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b74eeca7-0773-4333-9cb6-2e7d6ac6a29e"
+          },
+          "type": "Scope"
+        },
+        "If_VAT_remark_confidence_is_below_or_missing_threshold": {
+          "actions": {
+            "Create_card_for_reviewer": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "d1a8626d-e476-4a39-9cd2-f4f5103f0edf"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_cardsforpowerapps",
+                  "operationId": "CreateCardInstance",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_cardsforpowerapps"
+                },
+                "parameters": {
+                  "cardId": "9c673532-df31-ee11-bdf4-000d3ad98d63",
+                  "cardRequest/inputs/InvoiceID": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/invoiceId/text']",
+                  "cardRequest/inputs/Vender": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/vendorName/text']",
+                  "cardRequest/inputs/DocumentLink": "@triggerOutputs()?['body/{Link}']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Save_file_to_AI_Builder_feedback_loop": {
+              "runAfter": {
+                "Post_a_notification_in_the_invoice_capturing_team": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a8d94185-8ef7-43a6-bbfd-713b85bbbaa0",
+                "flowSystemMetadata": {
+                  "portalOperationId": "aibuilderfeedback_addfiletofeedbackloop",
+                  "portalOperationGroup": "aibuilder",
+                  "portalOperationApiDisplayNameOverride": "AI Builder",
+                  "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                  "portalOperationBrandColorOverride": "#0A76C4",
+                  "portalOperationApiTierOverride": "Standard"
+                }
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "aibuilderfeedback_addfiletofeedbackloop",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "recordId": "df839cb5-6e3d-4023-9c82-5f2b5fdf92ea",
+                  "item/predictionInput/base64Encoded": "@body('Get_file_content')",
+                  "item/inputName": "Unclear invoice",
+                  "item/predictionOutput": "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Post_a_notification_in_the_invoice_capturing_team": {
+              "runAfter": {
+                "Create_card_for_reviewer": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7d253a90-17fd-4de9-8076-bad0f989c461"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_teams",
+                  "operationId": "PostCardToConversation",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
+                },
+                "parameters": {
+                  "poster": "Power Apps",
+                  "location": "Channel",
+                  "body/recipient/groupId": "b3ca432d-f9dd-4a24-93b8-f10ba1d3eaf0",
+                  "body/recipient/channelId": "19:MBVwhqdxIt4bzauuprU_B_EFRr3X81pFEcXm98zdCyg1@thread.tacv2",
+                  "body/messageBody": "@outputs('Create_card_for_reviewer')?['body/Card']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Extract_information_from_documents": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "or": [
+              {
+                "equals": [
+                  "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/VAT_00206a1b37265d064f40dac11c17db6ce89d/text']",
+                  "@null"
+                ]
+              },
+              {
+                "less": [
+                  "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/VAT_00206a1b37265d064f40dac11c17db6ce89d/confidence']",
+                  0.7
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "bcbcc8a6-dd5a-4271-b362-e419f8aea3a9"
+          },
+          "type": "If"
+        },
+        "Get_file_content": {
+          "runAfter": {
+            "INIT:PaymentTerms": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "dfa3139f-738a-462d-8e35-4bb5c5edf93a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetFileContent",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "id": "@triggerOutputs()?['body/{Identifier}']",
+              "inferContentType": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "If__a_VAT_remark_is_found": {
+          "actions": {
+            "Extract_VAT_classification": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "dbdc39b3-a80c-4eff-b2ef-7db9dc35e67d"
+              },
+              "type": "Compose",
+              "inputs": "@substring(outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/VAT_00206a1b37265d064f40dac11c17db6ce89d/text'],0,2)"
+            },
+            "Set_variable": {
+              "runAfter": {
+                "Extract_VAT_classification": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b39fa424-410d-4e81-b0e0-16348c05a619"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "VAT classification",
+                "value": "@{outputs('Extract_VAT_classification')}"
+              }
+            }
+          },
+          "runAfter": {
+            "If_VAT_remark_confidence_is_below_or_missing_threshold": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@outputs('Extract_information_from_documents')?['body/responsev2/predictionOutput/labels/VAT_00206a1b37265d064f40dac11c17db6ce89d/value']",
+                "@null"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "a295cbfc-aa72-41fd-9495-4bce100950fa"
+          },
+          "type": "If"
+        },
+        "INIT:_VAT_classification": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "841f10ba-c0ca-452d-89a8-8741e55ab9bb"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "VAT classification",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "INIT:PaymentTerms": {
+          "runAfter": {
+            "INIT:_VAT_classification": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7de093df-4831-4fa9-bbcc-e61b19d63145"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "PaymentTerms",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

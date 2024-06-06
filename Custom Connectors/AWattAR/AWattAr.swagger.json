@@ -1,0 +1,100 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AWattAr",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "api.awattar.at",
+  "basePath": "/v1/marketdata",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "object": {
+                  "type": "string",
+                  "description": "object"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "start_timestamp": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "Start of period",
+                        "title": "Start"
+                      },
+                      "end_timestamp": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "End of period",
+                        "title": "End"
+                      },
+                      "marketprice": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "Marketprice (Gross price needs to be calculated as: Market price * 0.03 (3%) + 1,500 Cent/kWh + 20% MwSt.)",
+                        "title": "Market price"
+                      },
+                      "unit": {
+                        "type": "string",
+                        "description": "unit",
+                        "title": "Unit"
+                      }
+                    }
+                  },
+                  "description": "data"
+                },
+                "url": {
+                  "type": "string",
+                  "description": "url"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get energy",
+        "description": "Get energy prices",
+        "operationId": "GetEnergy",
+        "parameters": [
+          {
+            "name": "start",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "Start time",
+            "x-ms-summary": "Start time in epoch seconds",
+            "x-ms-visibility": "advanced"
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "description": "End time",
+            "x-ms-summary": "End time in epoch seconds",
+            "x-ms-visibility": "advanced"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}

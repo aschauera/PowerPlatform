@@ -1,0 +1,309 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsharepointonline_26f34"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedcommondataserviceforapps_2aa5d"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_sap-20products-5f9bc410dd92140d2a-5f40012dcb1caec358": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsap20products5f9bc410dd92140d2a5f40012dcb1caec358_9dbb9"
+        },
+        "api": {
+          "name": "shared_sap-20products-5f9bc410dd92140d2a-5f40012dcb1caec358"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_new_delivery_note_file_is_created": {
+          "recurrence": {
+            "interval": 1,
+            "frequency": "Minute"
+          },
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "23f6c86e-276a-40dc-b26f-425d39de65d1"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_sharepointonline",
+              "operationId": "GetOnNewFileItems",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+            },
+            "parameters": {
+              "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+              "table": "cf78883b-15ea-4255-b50e-02bf8c7efd99",
+              "folderPath": "/AI Builder documents/Delivery Notes"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Analyze_document_and_store_data": {
+          "actions": {
+            "Get_delivery_note_content": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "b56ea8ae-d545-43ee-9b8f-f993c18dd825"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_sharepointonline",
+                  "operationId": "GetFileContent",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                },
+                "parameters": {
+                  "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+                  "id": "@triggerBody()?['{Identifier}']",
+                  "inferContentType": true
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Extract_information_from_delivery_note": {
+              "runAfter": {
+                "Get_delivery_note_content": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "flowSystemMetadata": {
+                  "portalOperationId": "aibuilderpredict_formsprocessing",
+                  "portalOperationGroup": "aibuilder",
+                  "portalOperationApiDisplayNameOverride": "AI Builder",
+                  "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                  "portalOperationBrandColorOverride": "#0A76C4",
+                  "portalOperationApiTierOverride": "Standard"
+                },
+                "operationMetadataId": "41f6594f-13d4-4fc4-bfbc-1e0420a246f5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "aibuilderpredict_formsprocessing",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "recordId": "08baf02c-fd70-4310-b6c7-07b458d604d1",
+                  "item/requestv2/mimeType": "image/png",
+                  "item/requestv2/base64Encoded": "@body('Get_delivery_note_content')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Create_delivery_data": {
+              "runAfter": {
+                "Extract_information_from_delivery_note": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1ba07c71-fab4-4b2d-9ce3-22bb71c5e4df"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "aschi_deliveryreceipts",
+                  "item/aschi_deliverynumber": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Delivery1be81e527b7204adb0d3c857a8b667a5']?['value']",
+                  "item/aschi_customeraddress": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Recipien454d039112717bcd39c9fa8a7a605beb']?['value']",
+                  "item/aschi_customernumber": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Customer8d50687e114a4bec0d9ae437f36d46ad']?['value']",
+                  "item/aschi_deliverto": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Recipient']?['value']",
+                  "item/aschi_deliveryaddress": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Recipien454d039112717bcd39c9fa8a7a605beb']?['value']",
+                  "item/aschi_document": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository/@{triggerOutputs()?['body/{FullPath}']}",
+                  "item/aschi_email": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Email']?['value']",
+                  "item/aschi_invoicenumber": "@body('Extract_information_from_delivery_note')?['responsev2']?['predictionOutput']?['labels']?['Delivery1be81e527b7204adb0d3c857a8b667a5']?['value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "INIT_SAP_password": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fef6b26a-511c-437a-910d-eb218c6edca2"
+          },
+          "type": "Scope"
+        },
+        "INIT_SAP_sales_order_id": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "426048fa-0afc-46ed-9213-ea73f0465457"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SAP Sales order",
+                "type": "string",
+                "value": "0500000000"
+              }
+            ]
+          }
+        },
+        "INIT_SAP_password": {
+          "runAfter": {
+            "INIT_SAP_sales_order_id": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "999ec026-84f7-4208-957d-61c54296fce5"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "SAP password",
+                "type": "string",
+                "value": "sap#017Kralerhof"
+              }
+            ]
+          }
+        },
+        "SAP_Integration_Options": {
+          "actions": {
+            "Connect_SAP_-_Direct_Option": {
+              "actions": {
+                "Get_SAP_Sales_order": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "11554f8f-868e-4497-a4b9-d92d86ecc1fc"
+                  },
+                  "type": "Http",
+                  "inputs": {
+                    "method": "GET",
+                    "uri": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/SalesOrderSet('@{variables('SAP Sales order')}')",
+                    "headers": {
+                      "$format": "json",
+                      "x-csrf-token": "fetch"
+                    },
+                    "authentication": {
+                      "type": "Basic",
+                      "username": "S0021740857",
+                      "password": "@{variables('SAP password')}"
+                    }
+                  },
+                  "runtimeConfiguration": {
+                    "secureData": {
+                      "properties": [
+                        "inputs"
+                      ]
+                    }
+                  }
+                },
+                "Update_SAP": {
+                  "runAfter": {
+                    "Get_SAP_Sales_order": [
+                      "Failed"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "b3eed16a-3911-416f-9460-8cb7601d4c7d"
+                  },
+                  "type": "Http",
+                  "inputs": {
+                    "method": "PATCH",
+                    "uri": "https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/ProductSet('EPM-000190')",
+                    "headers": {
+                      "x-csrf-token": "@{outputs('Get_SAP_Sales_order')?['headers']['x-csrf-token']}",
+                      "etag": "@{outputs('Get_SAP_Sales_order')?['headers']['etag']}",
+                      "If-Match": "@{outputs('Get_SAP_Sales_order')?['headers']['etag']}"
+                    },
+                    "body": "@body('Get_SAP_Sales_order')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "1894ab09-59e9-42cc-a609-494410951b61"
+              },
+              "type": "Scope"
+            },
+            "Connect_SAP_-_Custom_connector": {
+              "actions": {
+                "Get_product": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "47d74c6b-6324-4102-a364-c3af535da14a"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_sap-20products-5f9bc410dd92140d2a-5f40012dcb1caec358",
+                      "operationId": "GetProduct",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_sap-20products-5f9bc410dd92140d2a-5f40012dcb1caec358"
+                    },
+                    "parameters": {
+                      "productId": "HT-2001"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Connect_SAP_-_Direct_Option": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1f95267b-2751-427a-ad04-e5d87276d7cd"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "Analyze_document_and_store_data": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e12123fd-8a8e-40f9-a8c3-35be9e114f34"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ImportExportXml version="9.2.24045.212" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SolutionManifest>
+    <UniqueName>AADocumentIntelligencePublic</UniqueName>
+    <LocalizedNames>
+      <LocalizedName description="[AA] Document Intelligence Public" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions />
+    <Version>1.0.0.0</Version>
+    <Managed>2</Managed>
+    <Publisher>
+      <UniqueName>Aschi</UniqueName>
+      <LocalizedNames>
+        <LocalizedName description="Andreas Aschauer" languagecode="1033" />
+      </LocalizedNames>
+      <Descriptions>
+        <Description description="Aschi" languagecode="1033" />
+      </Descriptions>
+      <EMailAddress xsi:nil="true"></EMailAddress>
+      <SupportingWebsiteUrl xsi:nil="true"></SupportingWebsiteUrl>
+      <CustomizationPrefix>aschi</CustomizationPrefix>
+      <CustomizationOptionValuePrefix>39774</CustomizationOptionValuePrefix>
+      <Addresses>
+        <Address>
+          <AddressNumber>1</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+        <Address>
+          <AddressNumber>2</AddressNumber>
+          <AddressTypeCode>1</AddressTypeCode>
+          <City xsi:nil="true"></City>
+          <County xsi:nil="true"></County>
+          <Country xsi:nil="true"></Country>
+          <Fax xsi:nil="true"></Fax>
+          <FreightTermsCode xsi:nil="true"></FreightTermsCode>
+          <ImportSequenceNumber xsi:nil="true"></ImportSequenceNumber>
+          <Latitude xsi:nil="true"></Latitude>
+          <Line1 xsi:nil="true"></Line1>
+          <Line2 xsi:nil="true"></Line2>
+          <Line3 xsi:nil="true"></Line3>
+          <Longitude xsi:nil="true"></Longitude>
+          <Name xsi:nil="true"></Name>
+          <PostalCode xsi:nil="true"></PostalCode>
+          <PostOfficeBox xsi:nil="true"></PostOfficeBox>
+          <PrimaryContactName xsi:nil="true"></PrimaryContactName>
+          <ShippingMethodCode>1</ShippingMethodCode>
+          <StateOrProvince xsi:nil="true"></StateOrProvince>
+          <Telephone1 xsi:nil="true"></Telephone1>
+          <Telephone2 xsi:nil="true"></Telephone2>
+          <Telephone3 xsi:nil="true"></Telephone3>
+          <TimeZoneRuleVersionNumber xsi:nil="true"></TimeZoneRuleVersionNumber>
+          <UPSZone xsi:nil="true"></UPSZone>
+          <UTCOffset xsi:nil="true"></UTCOffset>
+          <UTCConversionTimeZoneCode xsi:nil="true"></UTCConversionTimeZoneCode>
+        </Address>
+      </Addresses>
+    </Publisher>
+    <RootComponents>
+      <RootComponent type="1" schemaName="aschi_deliveryreceipt" behavior="2" />
+      <RootComponent type="1" schemaName="aschi_dunningletters" behavior="2" />
+      <RootComponent type="1" schemaName="aschi_invoice" behavior="2" />
+      <RootComponent type="29" id="{152cfeef-49da-ee11-904d-000d3a5a9d7b}" behavior="0" />
+      <RootComponent type="29" id="{408815ad-e1d6-ee11-9079-000d3a5a9d7b}" behavior="0" />
+      <RootComponent type="29" id="{8a23e459-7a2c-ee11-bdf4-000d3ad98d63}" behavior="0" />
+      <RootComponent type="29" id="{9e0c234d-742c-ee11-bdf4-000d3ad98d63}" behavior="0" />
+      <RootComponent type="29" id="{a897f301-53da-ee11-904d-000d3a5a9d7b}" behavior="0" />
+      <RootComponent type="29" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" behavior="0" />
+      <RootComponent type="29" id="{e05b8986-4f94-ee11-be37-000d3ad98d63}" behavior="0" />
+      <RootComponent type="401" id="{019db13a-95ec-4fa0-b21b-08f6503f6985}" behavior="0" />
+      <RootComponent type="401" id="{37559450-5b73-4064-85d8-350f35923a5b}" behavior="0" />
+      <RootComponent type="80" schemaName="aschi_InvoiceCapturing" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required type="1" schemaName="aschi_deliveryreceipt" displayName="Delivery receipt" solution="Active" />
+        <Dependent type="1" schemaName="aschi_deliveryreceipt" displayName="Delivery receipt" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aschi_dunningletters" displayName="Dunning letters" solution="Active" />
+        <Dependent type="1" schemaName="aschi_dunningletters" displayName="Dunning letters" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="1" schemaName="aschi_invoice" displayName="Scanned Invoice" solution="Active" />
+        <Dependent type="1" schemaName="aschi_invoice" displayName="Scanned Invoice" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="61" schemaName="aschi_docIntelligenceLogo" displayName="aschi_docIntelligenceLogo" solution="Active" />
+        <Dependent type="80" schemaName="aschi_InvoiceCapturing" displayName="Invoice Capturing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="62" schemaName="aschi_InvoiceCapturing" solution="Active" />
+        <Dependent type="80" schemaName="aschi_InvoiceCapturing" displayName="Invoice Capturing" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="90" schemaName="Microsoft.Dynamics.AI.Plugins.CustomApis.AIPluginPredict, Microsoft.Dynamics.AI.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" displayName="Microsoft.Dynamics.AI.Plugins.CustomApis.AIPluginPredict" solution="msdyn_AISolution (202404.4.16.1)" id="{727e8789-bd29-46fa-b00a-3a49605eeb06}">
+          <package>msdyn_AISolutionAnchor (202404.4.16.1)</package>
+        </Required>
+        <Dependent type="CustomAPI" displayName="msdyn_aibdptdunningemailclassification375594505b73406485d8350f35923a5b" id.uniquename="msdyn_aibdptdunningemailclassification375594505b73406485d8350f35923a5b" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="90" schemaName="Microsoft.Dynamics.AI.Plugins.CustomApis.AIPluginPredict, Microsoft.Dynamics.AI.Plugins, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" displayName="Microsoft.Dynamics.AI.Plugins.CustomApis.AIPluginPredict" solution="msdyn_AISolution (202404.4.16.1)" id="{727e8789-bd29-46fa-b00a-3a49605eeb06}">
+          <package>msdyn_AISolutionAnchor (202404.4.16.1)</package>
+        </Required>
+        <Dependent type="CustomAPI" displayName="msdyn_aibdptextractdeliverynotedataasjson019db13a95ec4fa0b21b08f6503f6985" id.uniquename="msdyn_aibdptextractdeliverynotedataasjson019db13a95ec4fa0b21b08f6503f6985" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedapprovals_f5df9" solution="Active" id.connectionreferencelogicalname="aschi_sharedapprovals_f5df9" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcardsforpowerapps_28e63" solution="Active" id.connectionreferencelogicalname="aschi_sharedcardsforpowerapps_28e63" />
+        <Dependent type="29" displayName="Incoice processor - Process invoices from SharePoint" id="{9e0c234d-742c-ee11-bdf4-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcardsforpowerapps_28e63" solution="Active" id.connectionreferencelogicalname="aschi_sharedcardsforpowerapps_28e63" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcommondataserviceforapps_2aa5d" solution="Active" id.connectionreferencelogicalname="aschi_sharedcommondataserviceforapps_2aa5d" />
+        <Dependent type="29" displayName="Delivery note processor - Process from mobile app" id="{152cfeef-49da-ee11-904d-000d3a5a9d7b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcommondataserviceforapps_2aa5d" solution="Active" id.connectionreferencelogicalname="aschi_sharedcommondataserviceforapps_2aa5d" />
+        <Dependent type="29" displayName="Delivery note processor - Process note from SharePoint" id="{408815ad-e1d6-ee11-9079-000d3a5a9d7b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcommondataserviceforapps_2aa5d" solution="Active" id.connectionreferencelogicalname="aschi_sharedcommondataserviceforapps_2aa5d" />
+        <Dependent type="29" displayName="Incoice processor - Process invoices from SharePoint" id="{9e0c234d-742c-ee11-bdf4-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcommondataserviceforapps_2aa5d" solution="Active" id.connectionreferencelogicalname="aschi_sharedcommondataserviceforapps_2aa5d" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedcommondataserviceforapps_2aa5d" solution="Active" id.connectionreferencelogicalname="aschi_sharedcommondataserviceforapps_2aa5d" />
+        <Dependent type="29" displayName="Dunning processor - Process dunning letter from SharePoint" id="{e05b8986-4f94-ee11-be37-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedconversionservice_42070" solution="Active" id.connectionreferencelogicalname="aschi_sharedconversionservice_42070" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsap20products5f9bc410dd92140d2a5f40012dcb1caec358_9dbb9" solution="Active" id.connectionreferencelogicalname="aschi_sharedsap20products5f9bc410dd92140d2a5f40012dcb1caec358_9dbb9" />
+        <Dependent type="29" displayName="Delivery note processor - Process note from SharePoint" id="{408815ad-e1d6-ee11-9079-000d3a5a9d7b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsap20sales20orders5f9bc410dd92140d2a5f40012dcb1caec358_ca72a" solution="Active" id.connectionreferencelogicalname="aschi_sharedsap20sales20orders5f9bc410dd92140d2a5f40012dcb1caec358_ca72a" />
+        <Dependent type="29" displayName="Delivery note - Lookup sales order in SAP" id="{a897f301-53da-ee11-904d-000d3a5a9d7b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsharepointonline_26f34" solution="Active" id.connectionreferencelogicalname="aschi_sharedsharepointonline_26f34" />
+        <Dependent type="29" displayName="Delivery note processor - Process note from SharePoint" id="{408815ad-e1d6-ee11-9079-000d3a5a9d7b}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsharepointonline_26f34" solution="Active" id.connectionreferencelogicalname="aschi_sharedsharepointonline_26f34" />
+        <Dependent type="29" displayName="Invoice generator - Convert Word to PDF" id="{8a23e459-7a2c-ee11-bdf4-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsharepointonline_26f34" solution="Active" id.connectionreferencelogicalname="aschi_sharedsharepointonline_26f34" />
+        <Dependent type="29" displayName="Incoice processor - Process invoices from SharePoint" id="{9e0c234d-742c-ee11-bdf4-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsharepointonline_26f34" solution="Active" id.connectionreferencelogicalname="aschi_sharedsharepointonline_26f34" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedsharepointonline_26f34" solution="Active" id.connectionreferencelogicalname="aschi_sharedsharepointonline_26f34" />
+        <Dependent type="29" displayName="Dunning processor - Process dunning letter from SharePoint" id="{e05b8986-4f94-ee11-be37-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedteams_8d1a6" solution="Active" id.connectionreferencelogicalname="aschi_sharedteams_8d1a6" />
+        <Dependent type="29" displayName="Incoice processor - Process invoices from SharePoint" id="{9e0c234d-742c-ee11-bdf4-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedteams_8d1a6" solution="Active" id.connectionreferencelogicalname="aschi_sharedteams_8d1a6" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="aschi_sharedwordonlinebusiness_23669" solution="Active" id.connectionreferencelogicalname="aschi_sharedwordonlinebusiness_23669" />
+        <Dependent type="29" displayName="Invoice generator - Convert Word to PDF" id="{8a23e459-7a2c-ee11-bdf4-000d3ad98d63}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="connectionreference" displayName="new_sharedoffice365_d1c71" solution="Active" id.connectionreferencelogicalname="new_sharedoffice365_d1c71" />
+        <Dependent type="29" displayName="Document Intelligence - Classify Email with attachments" id="{b7e43855-eb98-ee11-be37-000d3a5a915c}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="AllowNotificationsEarlyAccess" solution="AppNotifications (10.0.0.16)" id.uniquename="AllowNotificationsEarlyAccess" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=aschi_InvoiceCapturing,settingdefinitionid.uniquename=AllowNotificationsEarlyAccess" id.parentappmoduleid.uniquename="aschi_InvoiceCapturing" id.settingdefinitionid.uniquename="AllowNotificationsEarlyAccess" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required type="SettingDefinition" displayName="FluentThemingPreview" solution="msdyn_PowerAppsThemingSettings (1.0.0.11)" id.uniquename="FluentThemingPreview" />
+        <Dependent type="AppSetting" displayName="parentappmoduleid.uniquename=aschi_InvoiceCapturing,settingdefinitionid.uniquename=FluentThemingPreview" id.parentappmoduleid.uniquename="aschi_InvoiceCapturing" id.settingdefinitionid.uniquename="FluentThemingPreview" />
+      </MissingDependency>
+    </MissingDependencies>
+  </SolutionManifest>
+</ImportExportXml>

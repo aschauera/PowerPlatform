@@ -1,0 +1,408 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_teams": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedteams_8d1a6"
+        },
+        "api": {
+          "name": "shared_teams"
+        }
+      },
+      "shared_cardsforpowerapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedcardsforpowerapps_28e63"
+        },
+        "api": {
+          "name": "shared_cardsforpowerapps"
+        }
+      },
+      "shared_sharepointonline": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedsharepointonline_26f34"
+        },
+        "api": {
+          "name": "shared_sharepointonline"
+        }
+      },
+      "shared_conversionservice": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedconversionservice_42070"
+        },
+        "api": {
+          "name": "shared_conversionservice"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedcommondataserviceforapps_2aa5d"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_approvals": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "aschi_sharedapprovals_f5df9"
+        },
+        "api": {
+          "name": "shared_approvals"
+        }
+      },
+      "shared_office365-2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_d1c71"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_new_mail_with_attachment_arrives": {
+          "splitOn": "@triggerOutputs()?['body/value']",
+          "metadata": {
+            "operationMetadataId": "d22da17f-759d-4076-b1fe-81b970032086",
+            "Id::AAMkAGMzMTM3ZDg4LTFiNzAtNDZjOS04YTRiLWU1NTBjZjk4MDk3YgAuAAAAAAD5H6Dbhh5hQalMkP1HEGG7AQCWi2ifco2dTZwS6ZtLM9z2AAAAAAEMAAA=": "Inbox"
+          },
+          "type": "OpenApiConnectionNotification",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365-2",
+              "operationId": "OnNewEmailV3",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "folderPath": "Id::AAMkAGMzMTM3ZDg4LTFiNzAtNDZjOS04YTRiLWU1NTBjZjk4MDk3YgAuAAAAAAD5H6Dbhh5hQalMkP1HEGG7AQCWi2ifco2dTZwS6ZtLM9z2AAAAAAEMAAA=",
+              "includeAttachments": true,
+              "subjectFilter": "Document Intelligence",
+              "importance": "Any",
+              "fetchOnlyWithAttachment": true
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Marked_for_review": {
+          "actions": {
+            "Post_a_card_for_manual_classification": {
+              "actions": {
+                "For_each": {
+                  "foreach": "@outputs('Approve_GPT_classification_result')?['body']?['responses']",
+                  "actions": {
+                    "Request_manual_classification": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "7a537368-ad89-48d8-8499-55061590b754"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "poster": "Flow bot",
+                          "location": "Chat with Flow bot",
+                          "body/recipient": "@items('For_each')?['responder']?['email']",
+                          "body/messageBody": "@{outputs('Create_card_for_manual_classification')?['body/Card']}"
+                        },
+                        "host": {
+                          "connectionName": "shared_teams",
+                          "operationId": "PostCardToConversation",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_teams"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Create_card_for_manual_classification": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "cf1efced-a11f-4181-acba-3ecb084070d4"
+                  },
+                  "type": "Foreach"
+                },
+                "Create_card_for_manual_classification": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "5381c4ab-7500-414c-958f-85aa5f062a90"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "parameters": {
+                      "cardId": "c76f8509-ee98-ee11-be37-000d3a5a915c",
+                      "cardRequest/inputs/Text": "@body('CONVERT:_Email_body_to_plain_text')",
+                      "cardRequest/inputs/GPTCategory": "@outputs('GPT:_Classify_email_text_into_document_category')?['body/responsev2/predictionOutput/text']"
+                    },
+                    "host": {
+                      "connectionName": "shared_cardsforpowerapps",
+                      "operationId": "CreateCardInstance",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_cardsforpowerapps"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "3929b571-cfb6-448c-b24f-253070927f69"
+              },
+              "type": "Scope"
+            }
+          },
+          "runAfter": {
+            "Classify_and_approve_text": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "For_each_attachment": {
+                "foreach": "@triggerOutputs()?['body/attachments']",
+                "actions": {
+                  "Get_attachment_content": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "3ca726ca-cc98-4085-8bb4-e7d05cafd17e"
+                    },
+                    "type": "Compose",
+                    "inputs": "@item()?['contentBytes']"
+                  },
+                  "Document_category": {
+                    "runAfter": {
+                      "Get_attachment_content": [
+                        "Succeeded"
+                      ]
+                    },
+                    "cases": {
+                      "Dunning_Letter": {
+                        "case": "Dunning Letter",
+                        "actions": {
+                          "Create_dunning_letter_attachment_in_dunning_letter_share": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "bab063cd-1a65-44e7-abae-8444c089f475"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "parameters": {
+                                "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+                                "folderPath": "/AI Builder documents/Dunning Letters",
+                                "name": "@item()?['name']",
+                                "body": "@base64ToBinary(outputs('Get_attachment_content'))"
+                              },
+                              "host": {
+                                "connectionName": "shared_sharepointonline",
+                                "operationId": "CreateFile",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          }
+                        }
+                      },
+                      "Invoice": {
+                        "case": "Invoice",
+                        "actions": {
+                          "Create_invoice_in_invoice_intake_share": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "acbd8ae3-9423-40a5-8359-5b4dfb0795db"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "parameters": {
+                                "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+                                "folderPath": "/AI Builder documents/Invoices/Incoming",
+                                "name": "@item()?['name']",
+                                "body": "@base64ToBinary(outputs('Get_attachment_content'))"
+                              },
+                              "host": {
+                                "connectionName": "shared_sharepointonline",
+                                "operationId": "CreateFile",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          }
+                        }
+                      },
+                      "Delivery_Note": {
+                        "case": "Delivery note",
+                        "actions": {
+                          "Create_delivery_note_in_delivery_note_share": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "acbd8ae3-9423-40a5-8359-5b4dfb0795db"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "parameters": {
+                                "dataset": "https://d365demotss356396.sharepoint.com/sites/DocumentRepository",
+                                "folderPath": "/AI Builder documents/Delivery Notes",
+                                "name": "@item()?['name']",
+                                "body": "@base64ToBinary(outputs('Get_attachment_content'))"
+                              },
+                              "host": {
+                                "connectionName": "shared_sharepointonline",
+                                "operationId": "CreateFile",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "default": {
+                      "actions": {}
+                    },
+                    "expression": "@outputs('GPT:_Classify_email_text_into_document_category')?['body/responsev2/predictionOutput/text']",
+                    "metadata": {
+                      "operationMetadataId": "b89a2e27-5b2c-460d-8a1f-27656d92844d"
+                    },
+                    "type": "Switch"
+                  }
+                },
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "9cae4d65-0fd4-4f7a-97f0-557c5350a8d0"
+                },
+                "type": "Foreach"
+              }
+            }
+          },
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@outputs('Approve_GPT_classification_result')?['body/outcome']",
+                  "Mark for review"
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "87dfa872-c48b-4539-844d-f432fe6de26a"
+          },
+          "type": "If"
+        },
+        "Classify_and_approve_text": {
+          "actions": {
+            "CONVERT:_Email_body_to_plain_text": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "eeedbd2f-7a49-425e-9483-0f1dd24901fd"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_conversionservice",
+                  "operationId": "HtmlToText",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_conversionservice"
+                },
+                "parameters": {
+                  "Content": "<p>@{triggerOutputs()?['body/body']}</p>"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "GPT:_Classify_email_text_into_document_category": {
+              "runAfter": {
+                "CONVERT:_Email_body_to_plain_text": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e76b4292-89b3-4bf5-bdcb-00a88d4941e3",
+                "flowSystemMetadata": {
+                  "portalOperationId": "aibuilderpredict_customprompt",
+                  "portalOperationGroup": "aibuilder",
+                  "portalOperationApiDisplayNameOverride": "AI Builder",
+                  "portalOperationIconOverride": "https://content.powerapps.com/resource/makerx/static/pauto/images/designeroperations/aiBuilderNew.51dbdb6b.png",
+                  "portalOperationBrandColorOverride": "#0A76C4",
+                  "portalOperationApiTierOverride": "Standard"
+                }
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "parameters": {
+                  "recordId": "37559450-5b73-4064-85d8-350f35923a5b",
+                  "item/requestv2/EmailText_a83c864ac2855278345": "@body('CONVERT:_Email_body_to_plain_text')"
+                },
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "aibuilderpredict_customprompt",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Approve_GPT_classification_result": {
+              "runAfter": {
+                "GPT:_Classify_email_text_into_document_category": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ec1384ad-eb00-465a-992c-42e53b0f2744"
+              },
+              "type": "OpenApiConnectionWebhook",
+              "inputs": {
+                "parameters": {
+                  "approvalType": "CustomResponse",
+                  "WebhookApprovalCreationInput/responseOptions": [
+                    "Mark correct",
+                    "Mark for review"
+                  ],
+                  "WebhookApprovalCreationInput/title": "AI classifier - Review: @{triggerOutputs()?['body/subject']}",
+                  "WebhookApprovalCreationInput/assignedTo": "aaschauer@D365DEMOTSS356396.onmicrosoft.com;",
+                  "WebhookApprovalCreationInput/details": "I received the a message called @{triggerOutputs()?['body/subject']} on: @{triggerOutputs()?['body/receivedDateTime']}\n\n#### The message was classified as: @{outputs('GPT:_Classify_email_text_into_document_category')?['body/responsev2/predictionOutput/text']}\n### Here is the original text for review\n\n@{body('CONVERT:_Email_body_to_plain_text')}\n\n### Call to action\nPlease mark as correct or for review if there was a mistake.\nIf marked correct, the document attached will be extracted and processed.",
+                  "WebhookApprovalCreationInput/enableNotifications": true,
+                  "WebhookApprovalCreationInput/enableReassignment": true
+                },
+                "host": {
+                  "connectionName": "shared_approvals",
+                  "operationId": "StartAndWaitForAnApproval",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_approvals"
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "description": "Human in the loop component"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "2d9f70cc-7b38-4f29-abd0-0d8fbe904cd2"
+          },
+          "type": "Scope",
+          "description": "Uses GPT to classify text and sends a human in the loop approval"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

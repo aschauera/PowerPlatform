@@ -1,0 +1,16 @@
+<aiplugin name="msdynaib_ExtractdeliverynotedataasJSON">
+  <humandescription>Extract the following information from  Text :  Article number, Article name, Amount, Delivery Address. Use JSON format for your response.
+
+</humandescription>
+  <humanname>Extract delivery note data as JSON</humanname>
+  <iscustomizable>1</iscustomizable>
+  <modeldescription>Extract the following information from  Text :  Article number, Article name, Amount, Delivery Address. Use JSON format for your response.
+
+</modeldescription>
+  <modelname>Extract delivery note data as JSON</modelname>
+  <pluginsubtype>0</pluginsubtype>
+  <plugintype>0</plugintype>
+  <schemaversion>0</schemaversion>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</aiplugin>
