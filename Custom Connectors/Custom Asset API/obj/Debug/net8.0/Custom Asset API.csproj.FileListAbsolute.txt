@@ -1,0 +1,33 @@
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\appsettings.Development.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\appsettings.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Custom Asset API.exe
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Custom Asset API.deps.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Custom Asset API.runtimeconfig.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Custom Asset API.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Custom Asset API.pdb
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.csproj.AssemblyReference.cache
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.AssemblyInfoInputs.cache
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.AssemblyInfo.cs
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.csproj.CoreCompileInputs.cache
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.MvcApplicationPartsAssemblyInfo.cs
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.MvcApplicationPartsAssemblyInfo.cache
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.sourcelink.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets.build.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets.development.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets\msbuild.Custom Asset API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets\msbuild.build.Custom Asset API.props
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Custom Asset API.props
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Custom Asset API.props
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\scopedcss\bundle\Custom Asset API.styles.css
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom A.0EC5C081.Up2Date
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\refint\Custom Asset API.dll
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.pdb
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\Custom Asset API.genruntimeconfig.cache
+C:\Repos\PowerPlatform\Custom Connectors\Custom Asset API\obj\Debug\net8.0\ref\Custom Asset API.dll

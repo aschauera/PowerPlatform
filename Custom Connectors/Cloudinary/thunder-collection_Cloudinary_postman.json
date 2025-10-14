@@ -1,0 +1,82 @@
+{
+    "info": {
+        "_postman_id": "9b6d4ab4-da59-4105-8397-c7e3e209ca9b",
+        "name": "Cloudinary",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Cloudinary - Get images",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://api.cloudinary.com/v1_1/di74x03jm/resources/image",
+                    "path": [
+                        "v1_1",
+                        "<>",
+                        "resources",
+                        "image"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "cloudinary",
+                        "com"
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "<>",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "<>",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Cloudinary - Get videos",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://api.cloudinary.com/v1_1/di74x03jm/resources/video",
+                    "path": [
+                        "v1_1",
+                        "di74x03jm",
+                        "resources",
+                        "video"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "cloudinary",
+                        "com"
+                    ]
+                },
+                "auth": {
+                    "type": "basic",
+                    "basic": [
+                        {
+                            "key": "username",
+                            "value": "296267178998968",
+                            "type": "string"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Eht6aRtxpBCpU_1pAKNQV7kBflE",
+                            "type": "string"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

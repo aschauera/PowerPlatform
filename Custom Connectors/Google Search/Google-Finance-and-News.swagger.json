@@ -1,0 +1,2047 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Default title",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "www.searchapi.io",
+  "basePath": "/api/v1/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/search": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "search_metadata": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "id"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "status"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "created_at"
+                    },
+                    "request_time_taken": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "request_time_taken"
+                    },
+                    "parsing_time_taken": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "parsing_time_taken"
+                    },
+                    "total_time_taken": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "total_time_taken"
+                    },
+                    "request_url": {
+                      "type": "string",
+                      "description": "request_url"
+                    },
+                    "html_url": {
+                      "type": "string",
+                      "description": "html_url"
+                    },
+                    "json_url": {
+                      "type": "string",
+                      "description": "json_url"
+                    }
+                  },
+                  "description": "search_metadata"
+                },
+                "search_parameters": {
+                  "type": "object",
+                  "properties": {
+                    "engine": {
+                      "type": "string",
+                      "description": "engine"
+                    },
+                    "q": {
+                      "type": "string",
+                      "description": "q"
+                    },
+                    "hl": {
+                      "type": "string",
+                      "description": "hl"
+                    }
+                  },
+                  "description": "search_parameters"
+                },
+                "summary": {
+                  "type": "object",
+                  "properties": {
+                    "title": {
+                      "type": "string",
+                      "description": "title"
+                    },
+                    "stock": {
+                      "type": "string",
+                      "description": "stock"
+                    },
+                    "exchange": {
+                      "type": "string",
+                      "description": "exchange"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "price"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "currency"
+                    },
+                    "date": {
+                      "type": "string",
+                      "description": "date"
+                    },
+                    "price_change": {
+                      "type": "object",
+                      "properties": {
+                        "percentage": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "percentage"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "amount"
+                        },
+                        "movement": {
+                          "type": "string",
+                          "description": "movement"
+                        }
+                      },
+                      "description": "price_change"
+                    }
+                  },
+                  "description": "summary"
+                },
+                "graph": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "price": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "price"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "currency"
+                      },
+                      "date": {
+                        "type": "string",
+                        "description": "date"
+                      },
+                      "volume": {
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "volume"
+                      }
+                    }
+                  },
+                  "description": "graph"
+                },
+                "knowledge_graph": {
+                  "type": "object",
+                  "properties": {},
+                  "description": "knowledge_graph"
+                },
+                "news": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "title"
+                      },
+                      "articles": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "snippet": {
+                              "type": "string",
+                              "description": "snippet"
+                            },
+                            "link": {
+                              "type": "string",
+                              "description": "link"
+                            },
+                            "source": {
+                              "type": "string",
+                              "description": "source"
+                            },
+                            "date": {
+                              "type": "string",
+                              "description": "date"
+                            },
+                            "thumbnail": {
+                              "type": "string",
+                              "description": "thumbnail"
+                            }
+                          }
+                        },
+                        "description": "articles"
+                      }
+                    }
+                  },
+                  "description": "news"
+                },
+                "articles": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "snippet": {
+                        "type": "string",
+                        "description": "snippet"
+                      },
+                      "link": {
+                        "type": "string",
+                        "description": "link"
+                      },
+                      "source": {
+                        "type": "string",
+                        "description": "source"
+                      },
+                      "date": {
+                        "type": "string",
+                        "description": "date"
+                      },
+                      "thumbnail": {
+                        "type": "string",
+                        "description": "thumbnail"
+                      }
+                    }
+                  },
+                  "description": "articles"
+                },
+                "financials": {
+                  "type": "object",
+                  "properties": {
+                    "quarterly": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "year": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "year"
+                          },
+                          "quarter": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "quarter"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "currency"
+                          },
+                          "revenue": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "revenue"
+                          },
+                          "net_income": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "net_income"
+                          },
+                          "earnings_per_share": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "earnings_per_share"
+                          },
+                          "net_profit_margin": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "net_profit_margin"
+                          },
+                          "net_change_in_cash": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "net_change_in_cash"
+                          },
+                          "cash_and_short_investments": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_and_short_investments"
+                          },
+                          "total_assets": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "total_assets"
+                          },
+                          "total_equity": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "total_equity"
+                          },
+                          "total_liabilities": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "total_liabilities"
+                          },
+                          "shares_outstanding": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "shares_outstanding"
+                          },
+                          "cash_from_operations": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_from_operations"
+                          },
+                          "cash_from_investing": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_from_investing"
+                          },
+                          "cash_from_financing": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_from_financing"
+                          },
+                          "free_cash_flow": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "free_cash_flow"
+                          },
+                          "return_on_assets_percentage": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "return_on_assets_percentage"
+                          },
+                          "price_to_book": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "price_to_book"
+                          },
+                          "operating_expense": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "operating_expense"
+                          }
+                        }
+                      },
+                      "description": "quarterly"
+                    },
+                    "annual": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "year": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "year"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "currency"
+                          },
+                          "revenue": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "revenue"
+                          },
+                          "net_income": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "net_income"
+                          },
+                          "earnings_per_share": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "earnings_per_share"
+                          },
+                          "net_profit_margin": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "net_profit_margin"
+                          },
+                          "net_change_in_cash": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "net_change_in_cash"
+                          },
+                          "cash_and_short_investments": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_and_short_investments"
+                          },
+                          "total_assets": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "total_assets"
+                          },
+                          "total_equity": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "total_equity"
+                          },
+                          "total_liabilities": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "total_liabilities"
+                          },
+                          "shares_outstanding": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "shares_outstanding"
+                          },
+                          "cash_from_operations": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_from_operations"
+                          },
+                          "cash_from_investing": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_from_investing"
+                          },
+                          "cash_from_financing": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "cash_from_financing"
+                          },
+                          "free_cash_flow": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "free_cash_flow"
+                          },
+                          "return_on_assets_percentage": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "return_on_assets_percentage"
+                          },
+                          "price_to_book": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "price_to_book"
+                          },
+                          "operating_expense": {
+                            "type": "object",
+                            "properties": {
+                              "value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "value"
+                              },
+                              "last_year_value": {
+                                "type": "integer",
+                                "format": "int32",
+                                "description": "last_year_value"
+                              },
+                              "price_change": {
+                                "type": "object",
+                                "properties": {
+                                  "percentage": {
+                                    "type": "number",
+                                    "format": "float",
+                                    "description": "percentage"
+                                  },
+                                  "amount": {
+                                    "type": "integer",
+                                    "format": "int32",
+                                    "description": "amount"
+                                  },
+                                  "movement": {
+                                    "type": "string",
+                                    "description": "movement"
+                                  }
+                                },
+                                "description": "price_change"
+                              }
+                            },
+                            "description": "operating_expense"
+                          }
+                        }
+                      },
+                      "description": "annual"
+                    }
+                  },
+                  "description": "financials"
+                },
+                "markets": {
+                  "type": "object",
+                  "properties": {
+                    "futures": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "stock": {
+                            "type": "string",
+                            "description": "stock"
+                          },
+                          "exchange": {
+                            "type": "string",
+                            "description": "exchange"
+                          },
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "link"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "price"
+                          },
+                          "price_change": {
+                            "type": "object",
+                            "properties": {
+                              "percentage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "percentage"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "amount"
+                              },
+                              "movement": {
+                                "type": "string",
+                                "description": "movement"
+                              }
+                            },
+                            "description": "price_change"
+                          }
+                        }
+                      },
+                      "description": "futures"
+                    },
+                    "us": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "stock": {
+                            "type": "string",
+                            "description": "stock"
+                          },
+                          "exchange": {
+                            "type": "string",
+                            "description": "exchange"
+                          },
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "link"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "price"
+                          },
+                          "price_change": {
+                            "type": "object",
+                            "properties": {
+                              "percentage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "percentage"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "amount"
+                              },
+                              "movement": {
+                                "type": "string",
+                                "description": "movement"
+                              }
+                            },
+                            "description": "price_change"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          }
+                        }
+                      },
+                      "description": "us"
+                    },
+                    "europe": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "stock": {
+                            "type": "string",
+                            "description": "stock"
+                          },
+                          "exchange": {
+                            "type": "string",
+                            "description": "exchange"
+                          },
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "link"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "price"
+                          },
+                          "price_change": {
+                            "type": "object",
+                            "properties": {
+                              "percentage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "percentage"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "amount"
+                              },
+                              "movement": {
+                                "type": "string",
+                                "description": "movement"
+                              }
+                            },
+                            "description": "price_change"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          }
+                        }
+                      },
+                      "description": "europe"
+                    },
+                    "asia": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "stock": {
+                            "type": "string",
+                            "description": "stock"
+                          },
+                          "exchange": {
+                            "type": "string",
+                            "description": "exchange"
+                          },
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "link"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "price"
+                          },
+                          "price_change": {
+                            "type": "object",
+                            "properties": {
+                              "percentage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "percentage"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "amount"
+                              },
+                              "movement": {
+                                "type": "string",
+                                "description": "movement"
+                              }
+                            },
+                            "description": "price_change"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          }
+                        }
+                      },
+                      "description": "asia"
+                    },
+                    "currencies": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "link"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "price"
+                          },
+                          "price_change": {
+                            "type": "object",
+                            "properties": {
+                              "percentage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "percentage"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "amount"
+                              },
+                              "movement": {
+                                "type": "string",
+                                "description": "movement"
+                              }
+                            },
+                            "description": "price_change"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          }
+                        }
+                      },
+                      "description": "currencies"
+                    },
+                    "crypto": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "company": {
+                            "type": "string",
+                            "description": "company"
+                          },
+                          "link": {
+                            "type": "string",
+                            "description": "link"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "name"
+                          },
+                          "price": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "price"
+                          },
+                          "price_change": {
+                            "type": "object",
+                            "properties": {
+                              "percentage": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "percentage"
+                              },
+                              "amount": {
+                                "type": "number",
+                                "format": "float",
+                                "description": "amount"
+                              },
+                              "movement": {
+                                "type": "string",
+                                "description": "movement"
+                              }
+                            },
+                            "description": "price_change"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date"
+                          }
+                        }
+                      },
+                      "description": "crypto"
+                    }
+                  },
+                  "description": "markets"
+                },
+                "compare_to": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "stock": {
+                        "type": "string",
+                        "description": "stock"
+                      },
+                      "exchange": {
+                        "type": "string",
+                        "description": "exchange"
+                      },
+                      "company": {
+                        "type": "string",
+                        "description": "company"
+                      },
+                      "link": {
+                        "type": "string",
+                        "description": "link"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name"
+                      },
+                      "price": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "price"
+                      },
+                      "price_change": {
+                        "type": "object",
+                        "properties": {
+                          "percentage": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "percentage"
+                          },
+                          "amount": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "amount"
+                          },
+                          "movement": {
+                            "type": "string",
+                            "description": "movement"
+                          }
+                        },
+                        "description": "price_change"
+                      },
+                      "date": {
+                        "type": "string",
+                        "description": "date"
+                      }
+                    }
+                  },
+                  "description": "compare_to"
+                },
+                "discover_more": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "title"
+                      },
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "stock": {
+                              "type": "string",
+                              "description": "stock"
+                            },
+                            "link": {
+                              "type": "string",
+                              "description": "link"
+                            },
+                            "name": {
+                              "type": "string",
+                              "description": "name"
+                            },
+                            "price": {
+                              "type": "number",
+                              "format": "float",
+                              "description": "price"
+                            },
+                            "price_change": {
+                              "type": "object",
+                              "properties": {
+                                "percentage": {
+                                  "type": "number",
+                                  "format": "float",
+                                  "description": "percentage"
+                                },
+                                "movement": {
+                                  "type": "string",
+                                  "description": "movement"
+                                }
+                              },
+                              "description": "price_change"
+                            }
+                          }
+                        },
+                        "description": "items"
+                      }
+                    }
+                  },
+                  "description": "discover_more"
+                }
+              }
+            },
+            "headers": {
+              "Content-Type": {
+                "description": "Content-Type",
+                "type": "string"
+              },
+              "Transfer-Encoding": {
+                "description": "Transfer-Encoding",
+                "type": "string"
+              },
+              "Connection": {
+                "description": "Connection",
+                "type": "string"
+              },
+              "Date": {
+                "description": "Date",
+                "type": "string"
+              },
+              "x-runtime": {
+                "description": "x-runtime",
+                "type": "number"
+              },
+              "strict-transport-security": {
+                "description": "strict-transport-security",
+                "type": "string"
+              },
+              "x-frame-options": {
+                "description": "x-frame-options",
+                "type": "string"
+              },
+              "x-xss-protection": {
+                "description": "x-xss-protection",
+                "type": "integer"
+              },
+              "x-content-type-options": {
+                "description": "x-content-type-options",
+                "type": "string"
+              },
+              "x-permitted-cross-domain-policies": {
+                "description": "x-permitted-cross-domain-policies",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "engine",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "default": "google_finance",
+            "description": "The search engine to use",
+            "x-ms-summary": "Search product",
+            "x-ms-visibility": "important",
+            "enum": [
+              "google_finance",
+              "google_news"
+            ]
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "description": "Stock symbol and exchange (eg: MSFT:NASDAQ)",
+            "x-ms-summary": "Stock symbol",
+            "x-ms-visibility": "important"
+          }
+        ],
+        "summary": "Get stock price",
+        "description": "Get stock price",
+        "operationId": "GetStockPrice"
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "API key": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "api_key"
+    }
+  },
+  "security": [
+    {
+      "API key": []
+    }
+  ],
+  "tags": []
+}

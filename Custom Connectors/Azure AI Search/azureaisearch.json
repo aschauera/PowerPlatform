@@ -1,0 +1,420 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Azrue AI Search",
+      "description": "Use an Azure AI search instance to retrieve content",
+      "version": "1.0"
+    },
+    "host": "@environmentVariables(\"aschi_AISearchUrl\")",
+    "basePath": "/",
+    "schemes": [
+      "https"
+    ],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+      "/indexes": {
+        "get": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "@odata.context": {
+                    "type": "string",
+                    "description": "@odata.context",
+                    "title": "",
+                    "x-ms-visibility": "internal"
+                  },
+                  "value": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@odata.etag": {
+                          "type": "string",
+                          "description": "@odata.etag",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "The name of the search index",
+                          "title": "Index name",
+                          "x-ms-visibility": "important"
+                        },
+                        "defaultScoringProfile": {
+                          "type": "string",
+                          "description": "defaultScoringProfile",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "fields": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "description": "name"
+                              },
+                              "type": {
+                                "type": "string",
+                                "description": "type"
+                              },
+                              "searchable": {
+                                "type": "boolean",
+                                "description": "searchable"
+                              },
+                              "filterable": {
+                                "type": "boolean",
+                                "description": "filterable"
+                              },
+                              "retrievable": {
+                                "type": "boolean",
+                                "description": "retrievable"
+                              },
+                              "sortable": {
+                                "type": "boolean",
+                                "description": "sortable"
+                              },
+                              "facetable": {
+                                "type": "boolean",
+                                "description": "facetable"
+                              },
+                              "key": {
+                                "type": "boolean",
+                                "description": "key"
+                              },
+                              "indexAnalyzer": {
+                                "type": "string",
+                                "description": "indexAnalyzer"
+                              },
+                              "searchAnalyzer": {
+                                "type": "string",
+                                "description": "searchAnalyzer"
+                              },
+                              "analyzer": {
+                                "type": "string",
+                                "description": "analyzer"
+                              },
+                              "dimensions": {
+                                "type": "string",
+                                "description": "dimensions"
+                              },
+                              "vectorSearchProfile": {
+                                "type": "string",
+                                "description": "vectorSearchProfile"
+                              },
+                              "synonymMaps": {
+                                "type": "array",
+                                "items": {},
+                                "description": "synonymMaps"
+                              }
+                            }
+                          },
+                          "description": "fields"
+                        },
+                        "scoringProfiles": {
+                          "type": "array",
+                          "items": {},
+                          "description": "scoringProfiles"
+                        },
+                        "corsOptions": {
+                          "type": "string",
+                          "description": "corsOptions",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "suggesters": {
+                          "type": "array",
+                          "items": {},
+                          "description": "suggesters"
+                        },
+                        "analyzers": {
+                          "type": "array",
+                          "items": {},
+                          "description": "analyzers"
+                        },
+                        "tokenizers": {
+                          "type": "array",
+                          "items": {},
+                          "description": "tokenizers"
+                        },
+                        "tokenFilters": {
+                          "type": "array",
+                          "items": {},
+                          "description": "tokenFilters"
+                        },
+                        "charFilters": {
+                          "type": "array",
+                          "items": {},
+                          "description": "charFilters"
+                        },
+                        "encryptionKey": {
+                          "type": "string",
+                          "description": "encryptionKey",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "similarity": {
+                          "type": "object",
+                          "properties": {
+                            "@odata.type": {
+                              "type": "string",
+                              "description": "@odata.type",
+                              "title": "",
+                              "x-ms-visibility": "internal"
+                            },
+                            "k1": {
+                              "type": "string",
+                              "description": "k1",
+                              "title": "",
+                              "x-ms-visibility": "internal"
+                            },
+                            "b": {
+                              "type": "string",
+                              "description": "b",
+                              "title": "",
+                              "x-ms-visibility": "internal"
+                            }
+                          },
+                          "description": "similarity"
+                        },
+                        "vectorSearch": {
+                          "type": "string",
+                          "description": "vectorSearch",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "semantic": {
+                          "type": "object",
+                          "properties": {
+                            "defaultConfiguration": {
+                              "type": "string",
+                              "description": "defaultConfiguration",
+                              "title": "",
+                              "x-ms-visibility": "internal"
+                            },
+                            "configurations": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string",
+                                    "description": "name"
+                                  },
+                                  "prioritizedFields": {
+                                    "type": "object",
+                                    "properties": {
+                                      "titleField": {
+                                        "type": "object",
+                                        "properties": {
+                                          "fieldName": {
+                                            "type": "string",
+                                            "description": "fieldName"
+                                          }
+                                        },
+                                        "description": "titleField"
+                                      },
+                                      "prioritizedContentFields": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "fieldName": {
+                                              "type": "string",
+                                              "description": "fieldName"
+                                            }
+                                          }
+                                        },
+                                        "description": "prioritizedContentFields"
+                                      },
+                                      "prioritizedKeywordsFields": {
+                                        "type": "array",
+                                        "items": {},
+                                        "description": "prioritizedKeywordsFields"
+                                      }
+                                    },
+                                    "description": "prioritizedFields"
+                                  }
+                                }
+                              },
+                              "description": "configurations"
+                            }
+                          },
+                          "description": "semantic"
+                        }
+                      }
+                    },
+                    "description": "value"
+                  }
+                }
+              }
+            }
+          },
+          "summary": "Get indexes",
+          "description": "List the available search indexes",
+          "operationId": "GetIndexes",
+          "parameters": [
+            {
+              "name": "api-version",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "default": "2023-11-01",
+              "x-ms-visibility": "internal"
+            }
+          ]
+        }
+      },
+      "/indexes/{index}/docs": {
+        "get": {
+          "responses": {
+            "default": {
+              "description": "default",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "@odata.context": {
+                    "type": "string",
+                    "description": "@odata.context",
+                    "title": "",
+                    "x-ms-visibility": "internal"
+                  },
+                  "value": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "@search.score": {
+                          "type": "number",
+                          "format": "float",
+                          "description": "@search.score",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "content": {
+                          "type": "string",
+                          "description": "content",
+                          "title": "Content"
+                        },
+                        "filepath": {
+                          "type": "string",
+                          "description": "filepath",
+                          "title": "Filepath"
+                        },
+                        "title": {
+                          "type": "string",
+                          "description": "title",
+                          "title": "Title",
+                          "x-ms-visibility": "important"
+                        },
+                        "url": {
+                          "type": "string",
+                          "description": "url",
+                          "title": "Url",
+                          "x-ms-visibility": "important"
+                        },
+                        "id": {
+                          "type": "string",
+                          "description": "id",
+                          "title": "",
+                          "x-ms-visibility": "internal"
+                        },
+                        "chunk_id": {
+                          "type": "string",
+                          "description": "chunk_id",
+                          "title": "Chunk ID",
+                          "x-ms-visibility": "advanced"
+                        },
+                        "last_updated": {
+                          "type": "string",
+                          "description": "last_updated",
+                          "title": "Last updated",
+                          "x-ms-visibility": "advanced"
+                        }
+                      }
+                    },
+                    "description": "value"
+                  }
+                }
+              }
+            }
+          },
+          "summary": "Query",
+          "description": "Query the provided search index",
+          "operationId": "Query",
+          "parameters": [
+            {
+              "name": "index",
+              "in": "path",
+              "required": true,
+              "type": "string",
+              "x-ms-dynamic-values": {
+                "operationId": "GetIndexes",
+                "value-path": "name",
+                "value-collection": "value",
+                "value-title": "name",
+                "parameters": {
+                  "api-version": "2023-11-01"
+                }
+              },
+              "x-ms-visibility": "important",
+              "description": "The name of the search index to query",
+              "x-ms-summary": "The name of the search index to query"
+            },
+            {
+              "name": "api-version",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "default": "2023-11-01",
+              "x-ms-visibility": "internal"
+            },
+            {
+              "name": "search",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "The search query text",
+              "x-ms-summary": "The search query text",
+              "x-ms-visibility": "important"
+            },
+            {
+              "name": "$top",
+              "in": "query",
+              "required": true,
+              "type": "integer",
+              "default": 3,
+              "description": "No. of results",
+              "x-ms-summary": "Number of results to return",
+              "x-ms-visibility": "important"
+            }
+          ]
+        }
+      }
+    },
+    "definitions": {},
+    "parameters": {},
+    "responses": {},
+    "securityDefinitions": {
+      "API Key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "api-key"
+      }
+    },
+    "security": [
+      {
+        "API Key": []
+      }
+    ],
+    "tags": [],
+    "x-ms-openai-manifest": {
+      "humanName": "Azure AI search",
+      "modelDescription": "Search for documents and content using Azure AI search"
+    }
+  }

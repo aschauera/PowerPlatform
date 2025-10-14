@@ -1,0 +1,14 @@
+@Custom_Asset_API_HostAddress = http://localhost:5121
+
+GET {{Custom_Asset_API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+GET {{Custom_Asset_API_HostAddress}}/asset/
+Accept: application/json
+
+###
+GET {{Custom_Asset_API_HostAddress}}/asset/1
+Accept: application/json
+
+###

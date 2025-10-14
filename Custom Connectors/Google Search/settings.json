@@ -1,0 +1,7 @@
+{
+    "environment": "ENVIRONMENT-GUID",
+    "apiProperties": "apiproperties.json",
+    "apiDefinition": "Google-Finance-and-News.swagger.swagger.json",
+    "icon": "GoogleSearchAPI.png",
+    "powerAppsUrl": "https://api.powerapps.com"
+  }
